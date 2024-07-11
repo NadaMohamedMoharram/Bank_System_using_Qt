@@ -1,0 +1,21 @@
+[
+    {
+        "Username": "Nada",
+        "Password": "1234",
+        "AccountNumber": "902668452",
+        "Autority":"user",
+        "FullName":"Nada Mohamed",
+        "Balance":"null",
+        "Email":"nmmoharran@gmail.com"
+
+    },
+    {
+        "Username": "rana",
+        "Password": "5012",
+        "AccountNumber": "148354",
+        "Autority":"admin",
+        "FullName":"Rana Mohamed",
+        "Balance":"null",
+        "Email":"nmmoroharran@gmail.com"
+    }
+]
