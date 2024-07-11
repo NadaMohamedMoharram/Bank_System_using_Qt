@@ -20,6 +20,7 @@ public:
     ~MainWindow();
     void handleLoginResponse(const QJsonObject& response);
     void handleAccountNumberResponse(const QJsonObject& response);
+    void handleAccountBalancerResponse(const QJsonObject& response);
 public slots:
     void onConnectionDevice();
     void onDisconnectedDevice();

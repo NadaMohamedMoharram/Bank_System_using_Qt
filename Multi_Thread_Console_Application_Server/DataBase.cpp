@@ -147,6 +147,17 @@ QString DataBase::getAccountNumber(const QString& username)
     return QString(); // Return an empty string if the user is not found
 }
 
+QString DataBase::getAccountBalance(const QString &accountNumber)
+{
+    initDataBase();
+    for (const auto& record : jsonDataBase) {
+        if (record["AccountNumber"].toString() == accountNumber) {
+            return record["Balance"].toString();
+        }
+    }
+    return 0; // Return 0 if the account number is not found
+}
+
 // QString DataBase::GetUserAuthority(const QString &username)
 // {
 //     initDataBase();

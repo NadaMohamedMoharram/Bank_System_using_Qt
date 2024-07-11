@@ -7,6 +7,8 @@
 #include <QJsonDocument>
 #include <QFile>
 
+#include<QInputDialog>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -84,6 +86,12 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
             handleAccountNumberResponse(response);
 
         }
+        else if(response["status"].toString() == "account_balance_response")
+        {
+            qInfo()<<"received response account_balance";
+            handleAccountBalancerResponse(response);
+
+        }
 }
 /*****************************************************************************************/
 
@@ -108,6 +116,15 @@ void MainWindow::handleAccountNumberResponse(const QJsonObject& response)
 {
      QString accountNumber = response["account_number"].toString();
     QMessageBox::information(nullptr, "Information", "This is your account number message=>"+accountNumber);
+
+}
+
+void MainWindow::handleAccountBalancerResponse(const QJsonObject& response)
+{
+    QString balance = response["balance"].toString();
+//int acc_balance= response["balance"].toInt();
+    qInfo()<<"balance=>"<<balance<<Qt::endl;
+    QMessageBox::information(nullptr, "Account Balance", "Your account balance is ==>"+balance);
 
 }
 
@@ -162,7 +179,7 @@ void MainWindow::on_UserGetAccountNo_PB_clicked()
 {
     qInfo()<<"in get account"<<Qt::endl;
    // QString username= ui->lineEdit_username->text();
-    Qstring username=this->client_username;
+    QString username=this->client_username;
     QJsonObject request;
     request["type"] = "GetAccountNumber";
     request["username"] = username;
@@ -180,10 +197,21 @@ void MainWindow::on_UserGetAccountNo_PB_clicked()
 
 void MainWindow::on_UserAccountBalance_PB_clicked()
 {
+    bool ok;
+    QString accountNumber = QInputDialog::getText(this, tr("Account Number"),
+                                                  tr("Enter your account number:"), QLineEdit::Normal,
+                                                  "", &ok);
+    if (!ok || accountNumber.isEmpty())
+    {
+        QMessageBox::critical(this, "Error", "Account number is required");
+        return;
+    }
+
+
     QJsonObject request;
-    request["type"] = "GetAccountNumber";
-    request["username"] = username;
-    qInfo()<<"username=>"<<username<<Qt::endl;
+    request["type"] = "ViewAccountBalance";
+    request["account_number"] = accountNumber;
+   // qInfo()<<"username=>"<<username<<Qt::endl;
 
     QJsonDocument jsonDoc(request);
 

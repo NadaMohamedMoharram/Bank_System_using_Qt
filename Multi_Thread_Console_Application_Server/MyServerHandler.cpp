@@ -63,7 +63,8 @@ void MyServerHandler::Operation(QString Operation)
 
     if(type == "ViewAccountBalance")
     {
-
+        QString accountNumber = obj["account_number"].toString();
+        GetBalance(accountNumber);
     }
 
     if(type == "ViewTransactionHistory")
@@ -222,10 +223,10 @@ void MyServerHandler::GetAccountNumber(QString username)
 void MyServerHandler::GetBalance(const QString &accountNumber)
 {
     DataBase db;
-    int balance = db.getAccountBalance(accountNumber);
+    QString balance = db.getAccountBalance(accountNumber);
 
     QJsonObject response;
-    response["type"] = "account_balance_response";
+    response["status"] = "account_balance_response";
     response["account_number"] = accountNumber;
     response["balance"] = balance;
     sendMessage(QJsonDocument(response).toJson());
