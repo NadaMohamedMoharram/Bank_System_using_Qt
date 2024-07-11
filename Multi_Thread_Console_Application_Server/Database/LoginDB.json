@@ -5,7 +5,7 @@
         "AccountNumber": "902668452",
         "Autority":"user",
         "FullName":"Nada Mohamed",
-        "Balance":"null",
+        "Balance":"200",
         "Email":"nmmoharran@gmail.com"
 
     },
@@ -15,7 +15,7 @@
         "AccountNumber": "148354",
         "Autority":"admin",
         "FullName":"Rana Mohamed",
-        "Balance":"null",
+        "Balance":"100",
         "Email":"nmmoroharran@gmail.com"
     }
 ]
