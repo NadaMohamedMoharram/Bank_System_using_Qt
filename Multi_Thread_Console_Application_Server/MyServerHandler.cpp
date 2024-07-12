@@ -69,7 +69,9 @@ void MyServerHandler::Operation(QString Operation)
 
     if(type == "ViewTransactionHistory")
     {
-
+        QString accountNumber = obj["account_number"].toString();
+        int count = obj["count"].toInt();
+        GetTransactionHistory(accountNumber, count);
     }
 
     if(type == "MakeTransaction")
@@ -169,6 +171,8 @@ void MyServerHandler::OnLogin(QString username, QString password)
 {
     QString authority= Data_Base.verifyCredentials(username, password);
     QJsonObject response;
+    DataBase db;
+
     if (!authority.isEmpty())
     {
        // sendMessage("Login successful!");
@@ -177,6 +181,7 @@ void MyServerHandler::OnLogin(QString username, QString password)
 
         response["status"] = "success";
         response["authority"] = authority;
+        response["account_number"]= db.getAccountNumber(username);
         sendMessage(QJsonDocument(response).toJson());
         qDebug() << "Login successful for user:" << username << "with authority:" << authority << Qt::endl;
     }
@@ -229,6 +234,18 @@ void MyServerHandler::GetBalance(const QString &accountNumber)
     response["status"] = "account_balance_response";
     response["account_number"] = accountNumber;
     response["balance"] = balance;
+    sendMessage(QJsonDocument(response).toJson());
+}
+
+void MyServerHandler::GetTransactionHistory(const QString &accountNumber, int count)
+{
+    DataBase db;
+    QJsonArray transactions = db.getTransactionHistory(accountNumber, count);
+
+    QJsonObject response;
+    response["status"] = "transaction_history_response";
+    response["account_number"] = accountNumber;
+    response["transactions"] = transactions;
     sendMessage(QJsonDocument(response).toJson());
 }
 

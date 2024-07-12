@@ -8,6 +8,13 @@
 #include <QFile>
 
 #include<QInputDialog>
+enum GUI_Windows
+{
+  LoginPage=0,
+UserPage,
+ViewTransactionPage,
+AdminPage
+};
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -20,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&client,&MyClient::ErrorOccurred,this,&MainWindow::onErrorOccurredDevice);
     connect(&client,&MyClient::StateChanged,this,&MainWindow::onStateChangedDevice);
     connect(&client,&MyClient::ReadyRead,this,&MainWindow::onReadyReadDevice);
-    ui->Login_page->setCurrentIndex(0);
+    ui->Login_page->setCurrentIndex(LoginPage);
 
 }
 MainWindow::~MainWindow()
@@ -92,19 +99,26 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
             handleAccountBalancerResponse(response);
 
         }
+        else if(response["status"].toString() == "transaction_history_response")
+        {
+            qInfo()<<"received response transaction_history";
+            displayTransactionHistory(response);
+
+        }
 }
 /*****************************************************************************************/
 
 void MainWindow::handleLoginResponse(const QJsonObject& response)
 {
     QString authority = response["authority"].toString();
+    this->client_accountNumber=response["account_number"].toString();
     if (authority == "user")
     {
-        ui->Login_page->setCurrentIndex(1);
+        ui->Login_page->setCurrentIndex(UserPage);
     }
     else if (authority == "admin")
     {
-        ui->Login_page->setCurrentIndex(2);
+        ui->Login_page->setCurrentIndex(AdminPage);
 
     }
 }
@@ -115,6 +129,7 @@ void MainWindow::handleLoginResponse(const QJsonObject& response)
 void MainWindow::handleAccountNumberResponse(const QJsonObject& response)
 {
      QString accountNumber = response["account_number"].toString();
+   // this->client_accountNumber=accountNumber;
     QMessageBox::information(nullptr, "Information", "This is your account number message=>"+accountNumber);
 
 }
@@ -125,6 +140,23 @@ void MainWindow::handleAccountBalancerResponse(const QJsonObject& response)
 //int acc_balance= response["balance"].toInt();
     qInfo()<<"balance=>"<<balance<<Qt::endl;
     QMessageBox::information(nullptr, "Account Balance", "Your account balance is ==>"+balance);
+
+}
+
+void MainWindow::displayTransactionHistory(const QJsonObject& response)
+{
+
+    QJsonArray transactions = response["transactions"].toArray();
+    ui->transactionHistoryTable->setRowCount(transactions.size());
+    ui->transactionHistoryTable->setColumnCount(3);
+    ui->transactionHistoryTable->setHorizontalHeaderLabels(QStringList() << "Date" << "Amount"<< "type");
+
+    for (int i = 0; i < transactions.size(); ++i) {
+        QJsonObject transaction = transactions[i].toObject();
+        ui->transactionHistoryTable->setItem(i, 0, new QTableWidgetItem(transaction["date"].toString()));
+        ui->transactionHistoryTable->setItem(i, 1, new QTableWidgetItem(QString::number(transaction["Amount"].toInt())));
+        ui->transactionHistoryTable->setItem(i, 2, new QTableWidgetItem(transaction["type"].toString()));
+    }
 
 }
 
@@ -208,6 +240,7 @@ void MainWindow::on_UserAccountBalance_PB_clicked()
     }
 
 
+
     QJsonObject request;
     request["type"] = "ViewAccountBalance";
     request["account_number"] = accountNumber;
@@ -219,4 +252,59 @@ void MainWindow::on_UserAccountBalance_PB_clicked()
     QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
     client.WriteData(jsonString);
 }
+
+
+void MainWindow::on_UserViewTransaction_PB_2_clicked()
+{
+
+
+    ui->Login_page->setCurrentIndex(ViewTransactionPage);
+
+}
+
+void MainWindow::on_UserShowTransactin_PB_clicked()
+{
+    QString accountNumber=ui->lineEdit_UserAccountNumber->text();
+
+    int count=ui->spinBox_UserCount->value();
+
+    if (accountNumber.isEmpty()) {
+        QMessageBox::warning(this, "View Transaction", "Please enter both account number.");
+      //  qInfo()<<"LoginPlease enter both username and password";
+
+        return;
+    }
+    else if(accountNumber!=this->client_accountNumber)
+    {
+        QMessageBox::warning(this, "View Transaction", "Wrong account number.please try again");
+        return;
+
+    }
+
+    QJsonObject request;
+    request["type"] = "ViewTransactionHistory";
+    request["account_number"] = accountNumber;
+    request["count"] = count;
+    // qInfo()<<"username=>"<<username<<Qt::endl;
+
+    QJsonDocument jsonDoc(request);
+
+    // Convert QJsonDocument to string
+    QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+    client.WriteData(jsonString);
+}
+
+void MainWindow::on_UserLogout_PB_clicked()
+{
+    ui->Login_page->setCurrentIndex(LoginPage);
+}
+
+
+void MainWindow::on_Back_PB_clicked()
+{
+     ui->Login_page->setCurrentIndex(UserPage);
+}
+
+
+
 

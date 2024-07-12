@@ -158,6 +158,87 @@ QString DataBase::getAccountBalance(const QString &accountNumber)
     return 0; // Return 0 if the account number is not found
 }
 
+QJsonArray DataBase::getTransactionHistory(const QString &accountNumber, int count)
+{
+
+/**********************************************/
+    // initDataBase();
+    // QJsonArray transactions;
+
+    // for (const auto& record : jsonDataBase) {
+    //     if (record["AccountNumber"].toString() == accountNumber) {
+    //         QJsonArray transactionArray = record["Transactions"].toArray();
+    //         QVector<QJsonObject> transactionVector;
+
+    //         for (const auto& transaction : transactionArray) {
+    //             transactionVector.append(transaction.toObject());
+    //         }
+
+    //         std::sort(transactionVector.begin(), transactionVector.end(), [](const QJsonObject &a, const QJsonObject &b) {
+    //             return a["date"].toString() > b["date"].toString();
+    //         });
+
+    //         for (int i = 0; i < count && i < transactionVector.size(); ++i) {
+    //             transactions.append(transactionVector[i]);
+    //         }
+    //         break;
+    //     }
+    // }
+
+    // return transactions;
+    /************************************************************/
+    // initDataBase();
+    // QJsonArray transactions;
+
+    // for (const auto& record : jsonDataBase) {
+    //     if (record["AccountNumber"].toString() == accountNumber) {
+    //         QJsonArray transactionArray = record["Transactions"].toArray();
+    //         QVector<QJsonObject> transactionVector;
+
+    //         for (const auto& transaction : transactionArray) {
+    //             transactionVector.append(transaction.toObject());
+    //         }
+
+    //         std::sort(transactionVector.begin(), transactionVector.end(), [](const QJsonObject &a, const QJsonObject &b) {
+    //             return QDate::fromString(a["date"].toString(), "dd-MM-yyyy") > QDate::fromString(b["date"].toString(), "dd-MM-yyyy");
+    //         });
+
+    //         for (int i = 0; i < count && i < transactionVector.size(); ++i) {
+    //             transactions.append(transactionVector[i]);
+    //         }
+    //         break;
+    //     }
+    // }
+
+    // return transactions;
+    /*********************************************************/
+initDataBase();
+QJsonArray transactions;
+
+for (const auto& record : jsonDataBase) {
+    if (record["AccountNumber"].toString() == accountNumber) {
+        QJsonArray transactionArray = record["Transactions"].toArray();
+        QVector<QJsonObject> transactionVector;
+
+        for (const auto& transaction : transactionArray) {
+            transactionVector.append(transaction.toObject());
+        }
+
+        std::sort(transactionVector.begin(), transactionVector.end(), [](const QJsonObject &a, const QJsonObject &b) {
+            return QDate::fromString(a["date"].toString(), "dd-MM-yyyy") > QDate::fromString(b["date"].toString(), "dd-MM-yyyy");
+        });
+
+        for (int i = 0; i < count && i < transactionVector.size(); ++i) {
+            transactions.append(transactionVector[i]);
+        }
+        break;
+    }
+}
+
+return transactions;
+
+}
+
 // QString DataBase::GetUserAuthority(const QString &username)
 // {
 //     initDataBase();

@@ -21,6 +21,7 @@ public:
     void handleLoginResponse(const QJsonObject& response);
     void handleAccountNumberResponse(const QJsonObject& response);
     void handleAccountBalancerResponse(const QJsonObject& response);
+    void displayTransactionHistory(const QJsonObject& response);
 public slots:
     void onConnectionDevice();
     void onDisconnectedDevice();
@@ -35,6 +36,14 @@ private slots:
     void on_UserGetAccountNo_PB_clicked();
 
     void on_UserAccountBalance_PB_clicked();
+
+    void on_UserViewTransaction_PB_2_clicked();
+
+    void on_UserLogout_PB_clicked();
+
+    void on_Back_PB_clicked();
+
+    void on_UserShowTransactin_PB_clicked();
 
 private:
     Ui::MainWindow *ui;

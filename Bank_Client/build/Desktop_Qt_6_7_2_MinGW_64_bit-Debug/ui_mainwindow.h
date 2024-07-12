@@ -11,12 +11,16 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -40,6 +44,13 @@ public:
     QPushButton *UserTransferAmount_PB;
     QPushButton *UserLogout_PB;
     QWidget *page_2;
+    QTableWidget *transactionHistoryTable;
+    QLineEdit *lineEdit_UserAccountNumber;
+    QLabel *label_AccountNumber;
+    QSpinBox *spinBox_UserCount;
+    QLabel *label_Count;
+    QPushButton *UserShowTransactin_PB;
+    QPushButton *Back_PB;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -96,6 +107,27 @@ public:
         Login_page->addWidget(page_3);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
+        transactionHistoryTable = new QTableWidget(page_2);
+        transactionHistoryTable->setObjectName("transactionHistoryTable");
+        transactionHistoryTable->setGeometry(QRect(270, 40, 441, 281));
+        lineEdit_UserAccountNumber = new QLineEdit(page_2);
+        lineEdit_UserAccountNumber->setObjectName("lineEdit_UserAccountNumber");
+        lineEdit_UserAccountNumber->setGeometry(QRect(20, 60, 191, 31));
+        label_AccountNumber = new QLabel(page_2);
+        label_AccountNumber->setObjectName("label_AccountNumber");
+        label_AccountNumber->setGeometry(QRect(20, 30, 161, 21));
+        spinBox_UserCount = new QSpinBox(page_2);
+        spinBox_UserCount->setObjectName("spinBox_UserCount");
+        spinBox_UserCount->setGeometry(QRect(21, 150, 191, 25));
+        label_Count = new QLabel(page_2);
+        label_Count->setObjectName("label_Count");
+        label_Count->setGeometry(QRect(10, 120, 161, 21));
+        UserShowTransactin_PB = new QPushButton(page_2);
+        UserShowTransactin_PB->setObjectName("UserShowTransactin_PB");
+        UserShowTransactin_PB->setGeometry(QRect(380, 370, 171, 31));
+        Back_PB = new QPushButton(page_2);
+        Back_PB->setObjectName("Back_PB");
+        Back_PB->setGeometry(QRect(30, 363, 151, 41));
         Login_page->addWidget(page_2);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -108,7 +140,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        Login_page->setCurrentIndex(1);
+        Login_page->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -124,6 +156,10 @@ public:
         UserMakeTransaction_PB->setText(QCoreApplication::translate("MainWindow", "Make Transaction", nullptr));
         UserTransferAmount_PB->setText(QCoreApplication::translate("MainWindow", "Transfer Amount", nullptr));
         UserLogout_PB->setText(QCoreApplication::translate("MainWindow", "Log out", nullptr));
+        label_AccountNumber->setText(QCoreApplication::translate("MainWindow", "Account Number", nullptr));
+        label_Count->setText(QCoreApplication::translate("MainWindow", "Count", nullptr));
+        UserShowTransactin_PB->setText(QCoreApplication::translate("MainWindow", "ShowResult", nullptr));
+        Back_PB->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
     } // retranslateUi
 
 };

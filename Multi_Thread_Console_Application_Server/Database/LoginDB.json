@@ -6,7 +6,19 @@
         "Autority":"user",
         "FullName":"Nada Mohamed",
         "Balance":"200",
-        "Email":"nmmoharran@gmail.com"
+        "Email":"nmmoharran@gmail.com",
+        "Transactions": [
+            {
+                "date": "02-09-2023",
+                "Amount": 100,
+                "type": "deposit"
+            },
+            {
+                "date": "01-09-2023",
+                "Amount": -200,
+                "type": "withdrawal"
+            }
+        ]
 
     },
     {
@@ -16,6 +28,7 @@
         "Autority":"admin",
         "FullName":"Rana Mohamed",
         "Balance":"100",
-        "Email":"nmmoroharran@gmail.com"
+        "Email":"nmmoroharran@gmail.com",
+        "Transactions": []
     }
 ]

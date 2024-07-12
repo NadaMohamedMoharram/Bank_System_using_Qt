@@ -21,6 +21,7 @@ public:
     QString verifyCredentials(const QString& username, const QString& password);
     QString getAccountNumber(const QString& username);
     QString getAccountBalance(const QString& accountNumber);
+    QJsonArray getTransactionHistory(const QString& accountNumber, int count);
 
   //  QString GetUserAuthority(const QString & username);
 private:
