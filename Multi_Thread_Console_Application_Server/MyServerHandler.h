@@ -22,7 +22,9 @@ public:
  void GetTransactionHistory(const QString& accountNumber, int count);
  void MakeTransactionRequest(const QString& accountNumber, int transactionAmount ,const QString& transactionType);
  void TransferAmountRequest (const QString& fromAccountNumber, const QString& toAccountNumber, int transferAmount);
-signals:
+ void ViewBankDatabaseRequest();
+
+ signals:
 
 private:
     qint32 ID;

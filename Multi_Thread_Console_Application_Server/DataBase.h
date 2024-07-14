@@ -25,6 +25,7 @@ public:
     bool makeTransaction( const QString& accountNumber, int transactionAmount);
     bool transferAmount(const QString& fromAccountNumber, const QString& toAccountNumber, int transferAmount);
     void saveDataBase();
+    QJsonArray viewBankDatabase();
   //  QString GetUserAuthority(const QString & username);
 private:
     QString FilePath="D:\\ITIDA_Scholarship\\Final project\\Bank_System\\Multi_Thread_Console_Application_Server\\LoginDB.json";

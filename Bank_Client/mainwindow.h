@@ -22,6 +22,7 @@ public:
     void handleAccountNumberResponse(const QJsonObject& response);
     void handleAccountBalancerResponse(const QJsonObject& response);
     void displayTransactionHistory(const QJsonObject& response);
+    void displayDatabaseData(const QJsonObject &jsonObject);
 public slots:
     void onConnectionDevice();
     void onDisconnectedDevice();
@@ -70,6 +71,10 @@ private slots:
     void on_Back_AdminViewHistory_PB_clicked();
 
     void on_Display_AdminViewHistory_PB_clicked();
+
+    void on_Back_AdminViewBankDatabase_PB_clicked();
+
+    void on_Admin_ViewBankDatabase_PB_clicked();
 
 private:
     Ui::MainWindow *ui;

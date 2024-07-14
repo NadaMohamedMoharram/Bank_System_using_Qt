@@ -96,9 +96,9 @@ void MyServerHandler::Operation(QString Operation)
 
 
     /*******************************admin *************************/
-    else if(type == "Admin_GetAccountNumber")
+    else if(type == "Admin_ViewBankDatabase")
     {
-
+        ViewBankDatabaseRequest();
     }
 
 
@@ -300,6 +300,17 @@ void MyServerHandler::TransferAmountRequest(const QString &fromAccountNumber, co
 
 
     sendMessage(QJsonDocument(response).toJson());
+
+}
+
+void MyServerHandler::ViewBankDatabaseRequest()
+{
+    DataBase db;
+    QJsonObject response;
+    QJsonArray Data=db.viewBankDatabase();
+    response["status"] = "ViewBankDatabase_response";
+    response["data"]=Data;
+     sendMessage(QJsonDocument(response).toJson());
 
 }
 

@@ -66,7 +66,9 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "on_Admin_ViewAcountBalance_PB_clicked",
     "on_Admin_ViewTransactionHistory_PB_clicked",
     "on_Back_AdminViewHistory_PB_clicked",
-    "on_Display_AdminViewHistory_PB_clicked"
+    "on_Display_AdminViewHistory_PB_clicked",
+    "on_Back_AdminViewBankDatabase_PB_clicked",
+    "on_Admin_ViewBankDatabase_PB_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -79,7 +81,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      25,   14, // methods
+      27,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -87,31 +89,33 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  164,    2, 0x0a,    1 /* Public */,
-       3,    0,  165,    2, 0x0a,    2 /* Public */,
-       4,    1,  166,    2, 0x0a,    3 /* Public */,
-       7,    1,  169,    2, 0x0a,    5 /* Public */,
-      10,    1,  172,    2, 0x0a,    7 /* Public */,
-      12,    0,  175,    2, 0x08,    9 /* Private */,
-      13,    0,  176,    2, 0x08,   10 /* Private */,
-      14,    0,  177,    2, 0x08,   11 /* Private */,
-      15,    0,  178,    2, 0x08,   12 /* Private */,
-      16,    0,  179,    2, 0x08,   13 /* Private */,
-      17,    0,  180,    2, 0x08,   14 /* Private */,
-      18,    0,  181,    2, 0x08,   15 /* Private */,
-      19,    0,  182,    2, 0x08,   16 /* Private */,
-      20,    0,  183,    2, 0x08,   17 /* Private */,
-      21,    0,  184,    2, 0x08,   18 /* Private */,
-      22,    0,  185,    2, 0x08,   19 /* Private */,
-      23,    0,  186,    2, 0x08,   20 /* Private */,
-      24,    0,  187,    2, 0x08,   21 /* Private */,
-      25,    0,  188,    2, 0x08,   22 /* Private */,
-      26,    0,  189,    2, 0x08,   23 /* Private */,
-      27,    0,  190,    2, 0x08,   24 /* Private */,
-      28,    0,  191,    2, 0x08,   25 /* Private */,
-      29,    0,  192,    2, 0x08,   26 /* Private */,
-      30,    0,  193,    2, 0x08,   27 /* Private */,
-      31,    0,  194,    2, 0x08,   28 /* Private */,
+       1,    0,  176,    2, 0x0a,    1 /* Public */,
+       3,    0,  177,    2, 0x0a,    2 /* Public */,
+       4,    1,  178,    2, 0x0a,    3 /* Public */,
+       7,    1,  181,    2, 0x0a,    5 /* Public */,
+      10,    1,  184,    2, 0x0a,    7 /* Public */,
+      12,    0,  187,    2, 0x08,    9 /* Private */,
+      13,    0,  188,    2, 0x08,   10 /* Private */,
+      14,    0,  189,    2, 0x08,   11 /* Private */,
+      15,    0,  190,    2, 0x08,   12 /* Private */,
+      16,    0,  191,    2, 0x08,   13 /* Private */,
+      17,    0,  192,    2, 0x08,   14 /* Private */,
+      18,    0,  193,    2, 0x08,   15 /* Private */,
+      19,    0,  194,    2, 0x08,   16 /* Private */,
+      20,    0,  195,    2, 0x08,   17 /* Private */,
+      21,    0,  196,    2, 0x08,   18 /* Private */,
+      22,    0,  197,    2, 0x08,   19 /* Private */,
+      23,    0,  198,    2, 0x08,   20 /* Private */,
+      24,    0,  199,    2, 0x08,   21 /* Private */,
+      25,    0,  200,    2, 0x08,   22 /* Private */,
+      26,    0,  201,    2, 0x08,   23 /* Private */,
+      27,    0,  202,    2, 0x08,   24 /* Private */,
+      28,    0,  203,    2, 0x08,   25 /* Private */,
+      29,    0,  204,    2, 0x08,   26 /* Private */,
+      30,    0,  205,    2, 0x08,   27 /* Private */,
+      31,    0,  206,    2, 0x08,   28 /* Private */,
+      32,    0,  207,    2, 0x08,   29 /* Private */,
+      33,    0,  208,    2, 0x08,   30 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -119,6 +123,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void, 0x80000000 | 5,    6,
     QMetaType::Void, 0x80000000 | 8,    9,
     QMetaType::Void, QMetaType::QJsonObject,   11,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -204,6 +210,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'on_Back_AdminViewHistory_PB_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_Display_AdminViewHistory_PB_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_Back_AdminViewBankDatabase_PB_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_Admin_ViewBankDatabase_PB_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -240,6 +250,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 22: _t->on_Admin_ViewTransactionHistory_PB_clicked(); break;
         case 23: _t->on_Back_AdminViewHistory_PB_clicked(); break;
         case 24: _t->on_Display_AdminViewHistory_PB_clicked(); break;
+        case 25: _t->on_Back_AdminViewBankDatabase_PB_clicked(); break;
+        case 26: _t->on_Admin_ViewBankDatabase_PB_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -282,13 +294,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 25)
+        if (_id < 27)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 25;
+        _id -= 27;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 25)
+        if (_id < 27)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 25;
+        _id -= 27;
     }
     return _id;
 }

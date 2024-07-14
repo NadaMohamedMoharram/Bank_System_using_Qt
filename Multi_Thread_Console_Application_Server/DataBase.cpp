@@ -351,6 +351,30 @@ bool DataBase::transferAmount(const QString &fromAccountNumber, const QString &t
     return true;
 }
 
+QJsonArray DataBase::viewBankDatabase()
+{
+    initDataBase(); // Ensure the database is initialized
+
+    QJsonArray databaseArray;
+    for (const auto& record : jsonDataBase) {
+        QJsonObject accountDetails;
+        accountDetails["Username"] = record["Username"].toString();
+        accountDetails["AccountNumber"] = record["AccountNumber"].toString();
+        accountDetails["Authority"] = record["Authority"].toString();
+        accountDetails["Balance"] = record["Balance"].toInt();
+        accountDetails["Email"] = record["Email"].toString();
+        accountDetails["FullName"] = record["FullName"].toString();
+        accountDetails["Age"] = record["Age"].toInt();
+        accountDetails["Password"] = record["Password"].toString();
+
+        QJsonArray transactions = record["Transactions"].toArray();
+        accountDetails["Transactions"] = transactions;
+
+        databaseArray.append(accountDetails);
+    }
+
+    return databaseArray;
+}
 
 
 // QString DataBase::GetUserAuthority(const QString &username)
@@ -509,3 +533,5 @@ void DataBase::saveDataBase()
         qDebug() << "Can't Open the database file" << Qt::endl;
     }
 }
+
+

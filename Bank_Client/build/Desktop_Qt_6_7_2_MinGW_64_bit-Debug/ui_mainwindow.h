@@ -15,6 +15,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -74,7 +75,7 @@ public:
     QPushButton *Admin_GetAccountNo_PB;
     QPushButton *Admin_ViewAcountBalance_PB;
     QPushButton *Admin_ViewTransactionHistory_PB;
-    QPushButton *pushButton_4;
+    QPushButton *Admin_ViewBankDatabase_PB;
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
     QPushButton *pushButton_7;
@@ -87,6 +88,9 @@ public:
     QPushButton *Display_AdminViewHistory_PB;
     QLabel *label_4;
     QLabel *label_9;
+    QWidget *page_8;
+    QListWidget *LW_AdminViewBankDatabase;
+    QPushButton *Back_AdminViewBankDatabase_PB;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -230,9 +234,9 @@ public:
         Admin_ViewTransactionHistory_PB = new QPushButton(page_6);
         Admin_ViewTransactionHistory_PB->setObjectName("Admin_ViewTransactionHistory_PB");
         Admin_ViewTransactionHistory_PB->setGeometry(QRect(500, 40, 141, 31));
-        pushButton_4 = new QPushButton(page_6);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setGeometry(QRect(170, 120, 101, 31));
+        Admin_ViewBankDatabase_PB = new QPushButton(page_6);
+        Admin_ViewBankDatabase_PB->setObjectName("Admin_ViewBankDatabase_PB");
+        Admin_ViewBankDatabase_PB->setGeometry(QRect(170, 120, 151, 31));
         pushButton_5 = new QPushButton(page_6);
         pushButton_5->setObjectName("pushButton_5");
         pushButton_5->setGeometry(QRect(440, 120, 101, 31));
@@ -270,6 +274,15 @@ public:
         label_9->setObjectName("label_9");
         label_9->setGeometry(QRect(20, 100, 131, 21));
         Login_page->addWidget(page_7);
+        page_8 = new QWidget();
+        page_8->setObjectName("page_8");
+        LW_AdminViewBankDatabase = new QListWidget(page_8);
+        LW_AdminViewBankDatabase->setObjectName("LW_AdminViewBankDatabase");
+        LW_AdminViewBankDatabase->setGeometry(QRect(50, 70, 631, 281));
+        Back_AdminViewBankDatabase_PB = new QPushButton(page_8);
+        Back_AdminViewBankDatabase_PB->setObjectName("Back_AdminViewBankDatabase_PB");
+        Back_AdminViewBankDatabase_PB->setGeometry(QRect(300, 370, 80, 24));
+        Login_page->addWidget(page_8);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -281,7 +294,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        Login_page->setCurrentIndex(6);
+        Login_page->setCurrentIndex(7);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -314,7 +327,7 @@ public:
         Admin_GetAccountNo_PB->setText(QCoreApplication::translate("MainWindow", "Get Account Number", nullptr));
         Admin_ViewAcountBalance_PB->setText(QCoreApplication::translate("MainWindow", "View Acount Balance", nullptr));
         Admin_ViewTransactionHistory_PB->setText(QCoreApplication::translate("MainWindow", "View Transaction History", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        Admin_ViewBankDatabase_PB->setText(QCoreApplication::translate("MainWindow", "View Bank Database", nullptr));
         pushButton_5->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         pushButton_6->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         pushButton_7->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
@@ -323,6 +336,7 @@ public:
         Display_AdminViewHistory_PB->setText(QCoreApplication::translate("MainWindow", "Display", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Enter Account Number", nullptr));
         label_9->setText(QCoreApplication::translate("MainWindow", "Count", nullptr));
+        Back_AdminViewBankDatabase_PB->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
     } // retranslateUi
 
 };
