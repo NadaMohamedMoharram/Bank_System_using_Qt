@@ -70,6 +70,23 @@ public:
     QLabel *label;
     QLabel *label_2;
     QLabel *label_3;
+    QWidget *page_6;
+    QPushButton *Admin_GetAccountNo_PB;
+    QPushButton *Admin_ViewAcountBalance_PB;
+    QPushButton *Admin_ViewTransactionHistory_PB;
+    QPushButton *pushButton_4;
+    QPushButton *pushButton_5;
+    QPushButton *pushButton_6;
+    QPushButton *pushButton_7;
+    QPushButton *Admin_Logout_PB;
+    QWidget *page_7;
+    QTableWidget *Admin_transactionHistoryTable;
+    QLineEdit *LineEdit_Admin_AccountNo_ViewHistory;
+    QSpinBox *spinBox__Admin_Count_ViewHistory;
+    QPushButton *Back_AdminViewHistory_PB;
+    QPushButton *Display_AdminViewHistory_PB;
+    QLabel *label_4;
+    QLabel *label_9;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -202,6 +219,57 @@ public:
         label_3->setObjectName("label_3");
         label_3->setGeometry(QRect(10, 180, 161, 16));
         Login_page->addWidget(page_5);
+        page_6 = new QWidget();
+        page_6->setObjectName("page_6");
+        Admin_GetAccountNo_PB = new QPushButton(page_6);
+        Admin_GetAccountNo_PB->setObjectName("Admin_GetAccountNo_PB");
+        Admin_GetAccountNo_PB->setGeometry(QRect(60, 40, 141, 31));
+        Admin_ViewAcountBalance_PB = new QPushButton(page_6);
+        Admin_ViewAcountBalance_PB->setObjectName("Admin_ViewAcountBalance_PB");
+        Admin_ViewAcountBalance_PB->setGeometry(QRect(300, 40, 141, 31));
+        Admin_ViewTransactionHistory_PB = new QPushButton(page_6);
+        Admin_ViewTransactionHistory_PB->setObjectName("Admin_ViewTransactionHistory_PB");
+        Admin_ViewTransactionHistory_PB->setGeometry(QRect(500, 40, 141, 31));
+        pushButton_4 = new QPushButton(page_6);
+        pushButton_4->setObjectName("pushButton_4");
+        pushButton_4->setGeometry(QRect(170, 120, 101, 31));
+        pushButton_5 = new QPushButton(page_6);
+        pushButton_5->setObjectName("pushButton_5");
+        pushButton_5->setGeometry(QRect(440, 120, 101, 31));
+        pushButton_6 = new QPushButton(page_6);
+        pushButton_6->setObjectName("pushButton_6");
+        pushButton_6->setGeometry(QRect(60, 200, 101, 31));
+        pushButton_7 = new QPushButton(page_6);
+        pushButton_7->setObjectName("pushButton_7");
+        pushButton_7->setGeometry(QRect(530, 200, 101, 31));
+        Admin_Logout_PB = new QPushButton(page_6);
+        Admin_Logout_PB->setObjectName("Admin_Logout_PB");
+        Admin_Logout_PB->setGeometry(QRect(270, 310, 101, 31));
+        Login_page->addWidget(page_6);
+        page_7 = new QWidget();
+        page_7->setObjectName("page_7");
+        Admin_transactionHistoryTable = new QTableWidget(page_7);
+        Admin_transactionHistoryTable->setObjectName("Admin_transactionHistoryTable");
+        Admin_transactionHistoryTable->setGeometry(QRect(405, 30, 291, 221));
+        LineEdit_Admin_AccountNo_ViewHistory = new QLineEdit(page_7);
+        LineEdit_Admin_AccountNo_ViewHistory->setObjectName("LineEdit_Admin_AccountNo_ViewHistory");
+        LineEdit_Admin_AccountNo_ViewHistory->setGeometry(QRect(20, 60, 181, 31));
+        spinBox__Admin_Count_ViewHistory = new QSpinBox(page_7);
+        spinBox__Admin_Count_ViewHistory->setObjectName("spinBox__Admin_Count_ViewHistory");
+        spinBox__Admin_Count_ViewHistory->setGeometry(QRect(20, 130, 181, 31));
+        Back_AdminViewHistory_PB = new QPushButton(page_7);
+        Back_AdminViewHistory_PB->setObjectName("Back_AdminViewHistory_PB");
+        Back_AdminViewHistory_PB->setGeometry(QRect(40, 360, 131, 31));
+        Display_AdminViewHistory_PB = new QPushButton(page_7);
+        Display_AdminViewHistory_PB->setObjectName("Display_AdminViewHistory_PB");
+        Display_AdminViewHistory_PB->setGeometry(QRect(380, 360, 111, 31));
+        label_4 = new QLabel(page_7);
+        label_4->setObjectName("label_4");
+        label_4->setGeometry(QRect(20, 30, 131, 21));
+        label_9 = new QLabel(page_7);
+        label_9->setObjectName("label_9");
+        label_9->setGeometry(QRect(20, 100, 131, 21));
+        Login_page->addWidget(page_7);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -213,7 +281,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        Login_page->setCurrentIndex(4);
+        Login_page->setCurrentIndex(6);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -243,6 +311,18 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "From Account Number", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "To Account Number", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Transfer Amount", nullptr));
+        Admin_GetAccountNo_PB->setText(QCoreApplication::translate("MainWindow", "Get Account Number", nullptr));
+        Admin_ViewAcountBalance_PB->setText(QCoreApplication::translate("MainWindow", "View Acount Balance", nullptr));
+        Admin_ViewTransactionHistory_PB->setText(QCoreApplication::translate("MainWindow", "View Transaction History", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        Admin_Logout_PB->setText(QCoreApplication::translate("MainWindow", "Logout", nullptr));
+        Back_AdminViewHistory_PB->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        Display_AdminViewHistory_PB->setText(QCoreApplication::translate("MainWindow", "Display", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Enter Account Number", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "Count", nullptr));
     } // retranslateUi
 
 };

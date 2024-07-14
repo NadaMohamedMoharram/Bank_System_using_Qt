@@ -15,7 +15,8 @@ UserPage,
 ViewTransactionPage,
 MakeTransactionPage,
 MakeTransferAmountPage,
-AdminPage
+AdminPage,
+AdminViewTransactionPage
 };
 
 
@@ -138,6 +139,7 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
 void MainWindow::handleLoginResponse(const QJsonObject& response)
 {
     QString authority = response["authority"].toString();
+    this->client_authority =authority;
     this->client_accountNumber=response["account_number"].toString();
     if (authority == "user")
     {
@@ -157,6 +159,9 @@ void MainWindow::handleAccountNumberResponse(const QJsonObject& response)
 {
      QString accountNumber = response["account_number"].toString();
    // this->client_accountNumber=accountNumber;
+     if (accountNumber.isEmpty())
+        QMessageBox::critical(nullptr, "Error", "This user name doesn't exist");
+    else
     QMessageBox::information(nullptr, "Information", "This is your account number message=>"+accountNumber);
 
 }
@@ -164,17 +169,21 @@ void MainWindow::handleAccountNumberResponse(const QJsonObject& response)
 void MainWindow::handleAccountBalancerResponse(const QJsonObject& response)
 {
     int balance = response["balance"].toInt();
-//int acc_balance= response["balance"].toInt();
     QString str_balance= QString::number(balance);
-    qInfo()<<"balance=>"<<balance<<Qt::endl;
-    QMessageBox::information(nullptr, "Account Balance", "Your account balance is ==>"+str_balance);
+
+    if(str_balance.isEmpty())
+    QMessageBox::critical(nullptr, "Error", "This account number doesn't exist");
+    else
+    QMessageBox::information(nullptr, "Account Balance", "The account balance is ==>"+str_balance);
 
 }
 
 void MainWindow::displayTransactionHistory(const QJsonObject& response)
 {
-
     QJsonArray transactions = response["transactions"].toArray();
+
+    if (this->client_authority=="user")
+    {
     ui->transactionHistoryTable->setRowCount(transactions.size());
     ui->transactionHistoryTable->setColumnCount(3);
     ui->transactionHistoryTable->setHorizontalHeaderLabels(QStringList() << "Date" << "Amount"<< "type");
@@ -187,7 +196,23 @@ void MainWindow::displayTransactionHistory(const QJsonObject& response)
         ui->transactionHistoryTable->setItem(i, 1, new QTableWidgetItem(QString::number(transaction["Amount"].toInt())));
         ui->transactionHistoryTable->setItem(i, 2, new QTableWidgetItem(transaction["type"].toString()));
     }
+    }
+    else
+    {
+  //  QJsonArray transactions = response["transactions"].toArray();
+    ui->Admin_transactionHistoryTable->setRowCount(transactions.size());
+    ui->Admin_transactionHistoryTable->setColumnCount(3);
+    ui->Admin_transactionHistoryTable->setHorizontalHeaderLabels(QStringList() << "Date" << "Amount"<< "type");
 
+
+
+    for (int i = 0; i < transactions.size(); ++i) {
+        QJsonObject transaction = transactions[i].toObject();
+        ui->Admin_transactionHistoryTable->setItem(i, 0, new QTableWidgetItem(transaction["date"].toString()));
+        ui->Admin_transactionHistoryTable->setItem(i, 1, new QTableWidgetItem(QString::number(transaction["Amount"].toInt())));
+        ui->Admin_transactionHistoryTable->setItem(i, 2, new QTableWidgetItem(transaction["type"].toString()));
+    }
+    }
 
 }
 
@@ -485,6 +510,111 @@ void MainWindow::on_UserTransfer_confirm_PB_clicked()
     request["fromAccountNumber"] = fromAccountNumber;
     request["toAccountNumber"] = toAccountNumber;
     request["transferAmount"]=transferAmount;
+
+    QJsonDocument jsonDoc(request);
+
+    // Convert QJsonDocument to string
+    QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+    client.WriteData(jsonString);
+}
+
+/***************************************   Admin page *************************/
+void MainWindow::on_Admin_Logout_PB_clicked()
+{
+    ui->Login_page->setCurrentIndex(LoginPage);
+}
+
+
+void MainWindow::on_Admin_GetAccountNo_PB_clicked()
+{
+
+    bool ok;
+    QString username = QInputDialog::getText(this, tr("Get Account Number"),
+                                                  tr("Enter username:"), QLineEdit::Normal,
+                                                  "", &ok);
+    if (!ok || username.isEmpty())
+    {
+        QMessageBox::critical(this, "Error", "username is required");
+        return;
+    }
+
+    QJsonObject request;
+    request["type"] = "Admin_GetAccountNumber";
+    request["username"] = username;
+    //qInfo()<<"username=>"<<username<<Qt::endl;
+
+    // sendMessage(QJsonDocument(request).toJson());
+    QJsonDocument jsonDoc(request);
+
+    // Convert QJsonDocument to string
+    QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+    client.WriteData(jsonString);
+   // qInfo()<<" get account request sent to server"<<Qt::endl;
+
+}
+
+
+void MainWindow::on_Admin_ViewAcountBalance_PB_clicked()
+{
+    bool ok;
+    QString accountNumber = QInputDialog::getText(this, tr("Account Number"),
+                                                  tr("Enter account number:"), QLineEdit::Normal,
+                                                  "", &ok);
+    if (!ok || accountNumber.isEmpty())
+    {
+        QMessageBox::critical(this, "Error", "Account number is required");
+        return;
+    }
+
+
+
+    QJsonObject request;
+    request["type"] = "Admin_ViewAccountBalance";
+    request["account_number"] = accountNumber;
+    // qInfo()<<"username=>"<<username<<Qt::endl;
+
+    QJsonDocument jsonDoc(request);
+
+    // Convert QJsonDocument to string
+    QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+    client.WriteData(jsonString);
+}
+
+
+void MainWindow::on_Admin_ViewTransactionHistory_PB_clicked()
+{
+     ui->Login_page->setCurrentIndex(AdminViewTransactionPage);
+
+
+}
+
+
+void MainWindow::on_Back_AdminViewHistory_PB_clicked()
+{
+    ui->Login_page->setCurrentIndex(AdminPage);
+
+}
+
+
+void MainWindow::on_Display_AdminViewHistory_PB_clicked()
+{
+    QString accountNumber=ui->LineEdit_Admin_AccountNo_ViewHistory->text();
+
+    int count=ui->spinBox__Admin_Count_ViewHistory->value();
+
+    if (accountNumber.isEmpty()) {
+        QMessageBox::warning(this, "View Transaction", "Please enter account number.");
+        //  qInfo()<<"LoginPlease enter both username and password";
+
+        return;
+    }
+
+
+    QJsonObject request;
+    request["type"] = "Admin_ViewTransactionHistory";
+    request["account_number"] = accountNumber;
+    request["count"] = count;
+    // qInfo()<<"username=>"<<username<<Qt::endl;
 
     QJsonDocument jsonDoc(request);
 

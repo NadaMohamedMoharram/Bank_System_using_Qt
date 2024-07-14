@@ -59,10 +59,23 @@ private slots:
 
     void on_UserTransfer_confirm_PB_clicked();
 
+    void on_Admin_Logout_PB_clicked();
+
+    void on_Admin_GetAccountNo_PB_clicked();
+
+    void on_Admin_ViewAcountBalance_PB_clicked();
+
+    void on_Admin_ViewTransactionHistory_PB_clicked();
+
+    void on_Back_AdminViewHistory_PB_clicked();
+
+    void on_Display_AdminViewHistory_PB_clicked();
+
 private:
     Ui::MainWindow *ui;
     MyClient client;
     QString client_username;
     QString client_accountNumber;
+    QString client_authority;
 };
 #endif // MAINWINDOW_H

@@ -55,19 +55,19 @@ void MyServerHandler::Operation(QString Operation)
 
     }
 
-    else if(type == "GetAccountNumber")
+    else if( (type == "GetAccountNumber" ) || (type == "Admin_GetAccountNumber")  )
     {
         QString username = obj["username"].toString();
         MyServerHandler::GetAccountNumber(username);
     }
 
-    else if(type == "ViewAccountBalance")
+    else if(  (type == "ViewAccountBalance") || (type == "Admin_ViewAccountBalance"))
     {
         QString accountNumber = obj["account_number"].toString();
         GetBalance(accountNumber);
     }
 
-    else if(type == "ViewTransactionHistory")
+    else if ( (type == "ViewTransactionHistory") ||  (type == "Admin_ViewTransactionHistory"))
     {
         QString accountNumber = obj["account_number"].toString();
         int count = obj["count"].toInt();
@@ -94,7 +94,9 @@ void MyServerHandler::Operation(QString Operation)
         TransferAmountRequest(fromAccountNumber, toAccountNumber ,transferAmount);
     }
 
-    else if(type == "ViewBankDatabase")
+
+    /*******************************admin *************************/
+    else if(type == "Admin_GetAccountNumber")
     {
 
     }
