@@ -13,6 +13,8 @@ enum GUI_Windows
   LoginPage=0,
 UserPage,
 ViewTransactionPage,
+MakeTransactionPage,
+MakeTransferAmountPage,
 AdminPage
 };
 
@@ -28,6 +30,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&client,&MyClient::StateChanged,this,&MainWindow::onStateChangedDevice);
     connect(&client,&MyClient::ReadyRead,this,&MainWindow::onReadyReadDevice);
     ui->Login_page->setCurrentIndex(LoginPage);
+
+    QStringList options;
+    options << "None" << "Deposit" << "Withdrow";
+    ui->comboBox_UserTransactionType->addItems(options);
 
 }
 MainWindow::~MainWindow()
@@ -105,6 +111,27 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
             displayTransactionHistory(response);
 
         }
+        else if(response["status"].toString() == "transaction_amount_response")
+        {
+            qInfo()<<"received response transaction_amount";
+            if (response["transaction_Result"].toString() == "Transaction successful")
+                QMessageBox::information(nullptr, "Transaction Response", "Transaction successful.");
+            else
+                QMessageBox::critical(nullptr, "Transaction Response", "Transaction failed. No suffecient balance");
+
+        }
+
+        else if(response["status"].toString() == "transfer_response")
+        {
+            qInfo()<<"received response transfer_response";
+            if (response["transsfer_Result"].toString() == "Transfer successful")
+                QMessageBox::information(nullptr, "Transfer Response", "Transfer successful.");
+            else
+                QMessageBox::critical(nullptr, "Transfer Response", "Transfer failed.");
+
+        }
+
+
 }
 /*****************************************************************************************/
 
@@ -136,10 +163,11 @@ void MainWindow::handleAccountNumberResponse(const QJsonObject& response)
 
 void MainWindow::handleAccountBalancerResponse(const QJsonObject& response)
 {
-    QString balance = response["balance"].toString();
+    int balance = response["balance"].toInt();
 //int acc_balance= response["balance"].toInt();
+    QString str_balance= QString::number(balance);
     qInfo()<<"balance=>"<<balance<<Qt::endl;
-    QMessageBox::information(nullptr, "Account Balance", "Your account balance is ==>"+balance);
+    QMessageBox::information(nullptr, "Account Balance", "Your account balance is ==>"+str_balance);
 
 }
 
@@ -151,12 +179,15 @@ void MainWindow::displayTransactionHistory(const QJsonObject& response)
     ui->transactionHistoryTable->setColumnCount(3);
     ui->transactionHistoryTable->setHorizontalHeaderLabels(QStringList() << "Date" << "Amount"<< "type");
 
+
+
     for (int i = 0; i < transactions.size(); ++i) {
         QJsonObject transaction = transactions[i].toObject();
         ui->transactionHistoryTable->setItem(i, 0, new QTableWidgetItem(transaction["date"].toString()));
         ui->transactionHistoryTable->setItem(i, 1, new QTableWidgetItem(QString::number(transaction["Amount"].toInt())));
         ui->transactionHistoryTable->setItem(i, 2, new QTableWidgetItem(transaction["type"].toString()));
     }
+
 
 }
 
@@ -276,7 +307,7 @@ void MainWindow::on_UserShowTransactin_PB_clicked()
     }
     else if(accountNumber!=this->client_accountNumber)
     {
-        QMessageBox::warning(this, "View Transaction", "Wrong account number.please try again");
+        QMessageBox::critical(this, "View Transaction", "Wrong account number.please try again");
         return;
 
     }
@@ -307,4 +338,158 @@ void MainWindow::on_Back_PB_clicked()
 
 
 
+
+
+void MainWindow::on_UserMakeTransaction_PB_clicked()
+{
+    ui->Login_page->setCurrentIndex(MakeTransactionPage);
+   //  ui->listWidget_try->show();
+   // ui->listWidget_try->hide();
+
+
+}
+
+void MainWindow::on_UserTransferAmount_PB_clicked()
+{
+    ui->Login_page->setCurrentIndex(MakeTransferAmountPage);
+
+}
+
+
+void MainWindow::on_UserConfirmTransaction_PB_clicked()
+{
+    QString accountNumber = ui->lineEdit_UserAccountNumber_Transaction->text();
+    int transactionAmount = ui->lineEdit_UserTransactionAmount->text().toInt();
+    QString transactionType=ui->comboBox_UserTransactionType->currentText();
+
+    if (accountNumber.isEmpty()) {
+        QMessageBox::warning(this, "Make Transaction Request", "Please enter account number.");
+        //  qInfo()<<"LoginPlease enter both username and password";
+
+        return;
+    }
+    if(accountNumber!=this->client_accountNumber)
+    {
+        QMessageBox::critical(this, "Make Transaction Request", "Wrong account number.please try again");
+        return;
+
+    }
+    if (transactionType=="None") {
+        QMessageBox::warning(this, "Make Transaction Request", "Please enter Transaction Type.");
+        //  qInfo()<<"LoginPlease enter both username and password";
+
+        return;
+    }
+    QJsonObject request;
+    request["type"] = "MakeTransaction";
+    request["account_number"] = accountNumber;
+    request["transaction_Amount"] = transactionAmount;
+    request["transaction_Type"]=transactionType;
+
+    QJsonDocument jsonDoc(request);
+
+    // Convert QJsonDocument to string
+    QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+    client.WriteData(jsonString);
+}
+
+
+
+
+void MainWindow::on_UserBack_Transaction_PB_clicked()
+{
+    ui->Login_page->setCurrentIndex(UserPage);
+}
+
+
+
+
+/*****  delete it*****/
+void MainWindow::on_UserTransfer_PB_clicked()
+{
+    QString fromAccountNumber = ui->fromAccountNumberLineEdit->text();
+    QString toAccountNumber = ui->toAccountNumberLineEdit->text();
+    int transferAmount = ui->transferAmountLineEdit->text().toInt();  // Assuming a QSpinBox for transfer amount
+
+    QJsonObject request;
+    request["type"] = "TransferAmount";
+    request["fromAccountNumber"] = fromAccountNumber;
+    request["toAccountNumber"] = toAccountNumber;
+    request["transferAmount"] = transferAmount;
+
+    QJsonDocument jsonDoc(request);
+    qInfo()<<"in transfer func"<<Qt::endl;
+    // Convert QJsonDocument to string
+    QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+    client.WriteData(jsonString);
+}
+/**********/
+
+void MainWindow::on_UserTransfer_Back_PB_clicked()
+{
+    ui->Login_page->setCurrentIndex(UserPage);
+
+}
+
+
+void MainWindow::on_UserTransfer_confirm_PB_clicked()
+{
+    QString fromAccountNumber = ui->fromAccountNumberLineEdit->text();
+    QString toAccountNumber = ui->toAccountNumberLineEdit->text();
+    int transferAmount = ui->transferAmountLineEdit->text().toInt();  // Assuming a QSpinBox for transfer amount
+
+    // QJsonObject request;
+    // request["type"] = "TransferAmount";
+    // request["fromAccountNumber"] = fromAccountNumber;
+    // request["toAccountNumber"] = toAccountNumber;
+    // request["transferAmount"] = transferAmount;
+
+    // QJsonDocument jsonDoc(request);
+    // qInfo()<<"in transfer func"<<Qt::endl;
+    // // Convert QJsonDocument to string
+    // QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+    // client.WriteData(jsonString);
+
+
+
+
+
+    /**********************************/
+
+    if (fromAccountNumber.isEmpty()) {
+        QMessageBox::critical(this, "Make Transfer Request", "Please enter the sender account number.");
+        //  qInfo()<<"LoginPlease enter both username and password";
+
+        return;
+    }
+    if(fromAccountNumber!=this->client_accountNumber)
+    {
+        QMessageBox::critical(this, "Make Transfer Request", "Wrong sender account number.please try again");
+        return;
+
+    }
+    if(toAccountNumber.isEmpty())
+    {
+        QMessageBox::critical(this, "Make Transfer Request","Please enter the receiver account number.");
+        return;
+
+    }
+    if (transferAmount<=0) {
+        QMessageBox::warning(this, "Make Transfer Request", "Please enter a valid transfer amount.");
+        //  qInfo()<<"LoginPlease enter both username and password";
+
+        return;
+    }
+    QJsonObject request;
+    request["type"] = "TransferAmount";
+    request["fromAccountNumber"] = fromAccountNumber;
+    request["toAccountNumber"] = toAccountNumber;
+    request["transferAmount"]=transferAmount;
+
+    QJsonDocument jsonDoc(request);
+
+    // Convert QJsonDocument to string
+    QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+    client.WriteData(jsonString);
+}
 

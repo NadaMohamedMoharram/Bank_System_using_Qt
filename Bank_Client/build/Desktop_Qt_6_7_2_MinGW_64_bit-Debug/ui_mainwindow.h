@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -51,6 +52,24 @@ public:
     QLabel *label_Count;
     QPushButton *UserShowTransactin_PB;
     QPushButton *Back_PB;
+    QWidget *page_4;
+    QPushButton *UserConfirmTransaction_PB;
+    QPushButton *UserBack_Transaction_PB;
+    QLabel *label_AccountNumber_Transaction;
+    QLineEdit *lineEdit_UserAccountNumber_Transaction;
+    QComboBox *comboBox_UserTransactionType;
+    QLabel *label_userTransactionType;
+    QLineEdit *lineEdit_UserTransactionAmount;
+    QLabel *label_UserTransactionAmount;
+    QWidget *page_5;
+    QPushButton *UserTransfer_confirm_PB;
+    QPushButton *UserTransfer_Back_PB;
+    QLineEdit *fromAccountNumberLineEdit;
+    QLineEdit *toAccountNumberLineEdit;
+    QLineEdit *transferAmountLineEdit;
+    QLabel *label;
+    QLabel *label_2;
+    QLabel *label_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -129,6 +148,60 @@ public:
         Back_PB->setObjectName("Back_PB");
         Back_PB->setGeometry(QRect(30, 363, 151, 41));
         Login_page->addWidget(page_2);
+        page_4 = new QWidget();
+        page_4->setObjectName("page_4");
+        UserConfirmTransaction_PB = new QPushButton(page_4);
+        UserConfirmTransaction_PB->setObjectName("UserConfirmTransaction_PB");
+        UserConfirmTransaction_PB->setGeometry(QRect(410, 313, 201, 61));
+        UserBack_Transaction_PB = new QPushButton(page_4);
+        UserBack_Transaction_PB->setObjectName("UserBack_Transaction_PB");
+        UserBack_Transaction_PB->setGeometry(QRect(70, 310, 201, 61));
+        label_AccountNumber_Transaction = new QLabel(page_4);
+        label_AccountNumber_Transaction->setObjectName("label_AccountNumber_Transaction");
+        label_AccountNumber_Transaction->setGeometry(QRect(30, 30, 161, 21));
+        lineEdit_UserAccountNumber_Transaction = new QLineEdit(page_4);
+        lineEdit_UserAccountNumber_Transaction->setObjectName("lineEdit_UserAccountNumber_Transaction");
+        lineEdit_UserAccountNumber_Transaction->setGeometry(QRect(30, 60, 191, 31));
+        comboBox_UserTransactionType = new QComboBox(page_4);
+        comboBox_UserTransactionType->setObjectName("comboBox_UserTransactionType");
+        comboBox_UserTransactionType->setGeometry(QRect(30, 210, 191, 31));
+        label_userTransactionType = new QLabel(page_4);
+        label_userTransactionType->setObjectName("label_userTransactionType");
+        label_userTransactionType->setGeometry(QRect(30, 180, 91, 21));
+        lineEdit_UserTransactionAmount = new QLineEdit(page_4);
+        lineEdit_UserTransactionAmount->setObjectName("lineEdit_UserTransactionAmount");
+        lineEdit_UserTransactionAmount->setGeometry(QRect(30, 140, 191, 31));
+        label_UserTransactionAmount = new QLabel(page_4);
+        label_UserTransactionAmount->setObjectName("label_UserTransactionAmount");
+        label_UserTransactionAmount->setGeometry(QRect(30, 110, 141, 16));
+        Login_page->addWidget(page_4);
+        page_5 = new QWidget();
+        page_5->setObjectName("page_5");
+        UserTransfer_confirm_PB = new QPushButton(page_5);
+        UserTransfer_confirm_PB->setObjectName("UserTransfer_confirm_PB");
+        UserTransfer_confirm_PB->setGeometry(QRect(379, 323, 161, 51));
+        UserTransfer_Back_PB = new QPushButton(page_5);
+        UserTransfer_Back_PB->setObjectName("UserTransfer_Back_PB");
+        UserTransfer_Back_PB->setGeometry(QRect(110, 320, 161, 51));
+        fromAccountNumberLineEdit = new QLineEdit(page_5);
+        fromAccountNumberLineEdit->setObjectName("fromAccountNumberLineEdit");
+        fromAccountNumberLineEdit->setGeometry(QRect(80, 60, 161, 41));
+        toAccountNumberLineEdit = new QLineEdit(page_5);
+        toAccountNumberLineEdit->setObjectName("toAccountNumberLineEdit");
+        toAccountNumberLineEdit->setGeometry(QRect(80, 130, 161, 41));
+        transferAmountLineEdit = new QLineEdit(page_5);
+        transferAmountLineEdit->setObjectName("transferAmountLineEdit");
+        transferAmountLineEdit->setGeometry(QRect(80, 200, 161, 41));
+        label = new QLabel(page_5);
+        label->setObjectName("label");
+        label->setGeometry(QRect(10, 40, 161, 16));
+        label_2 = new QLabel(page_5);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(10, 110, 161, 16));
+        label_3 = new QLabel(page_5);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(10, 180, 161, 16));
+        Login_page->addWidget(page_5);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -140,7 +213,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        Login_page->setCurrentIndex(2);
+        Login_page->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -160,6 +233,16 @@ public:
         label_Count->setText(QCoreApplication::translate("MainWindow", "Count", nullptr));
         UserShowTransactin_PB->setText(QCoreApplication::translate("MainWindow", "ShowResult", nullptr));
         Back_PB->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        UserConfirmTransaction_PB->setText(QCoreApplication::translate("MainWindow", "Confirm", nullptr));
+        UserBack_Transaction_PB->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        label_AccountNumber_Transaction->setText(QCoreApplication::translate("MainWindow", "Account Number", nullptr));
+        label_userTransactionType->setText(QCoreApplication::translate("MainWindow", "Transaction Type", nullptr));
+        label_UserTransactionAmount->setText(QCoreApplication::translate("MainWindow", "Transaction Amount", nullptr));
+        UserTransfer_confirm_PB->setText(QCoreApplication::translate("MainWindow", "Confirm", nullptr));
+        UserTransfer_Back_PB->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "From Account Number", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "To Account Number", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Transfer Amount", nullptr));
     } // retranslateUi
 
 };

@@ -147,12 +147,13 @@ QString DataBase::getAccountNumber(const QString& username)
     return QString(); // Return an empty string if the user is not found
 }
 
-QString DataBase::getAccountBalance(const QString &accountNumber)
+int DataBase::getAccountBalance(const QString &accountNumber)
 {
     initDataBase();
     for (const auto& record : jsonDataBase) {
         if (record["AccountNumber"].toString() == accountNumber) {
-            return record["Balance"].toString();
+          //  return record["Balance"].toString();
+            return record["Balance"].toInt();
         }
     }
     return 0; // Return 0 if the account number is not found
@@ -238,6 +239,119 @@ for (const auto& record : jsonDataBase) {
 return transactions;
 
 }
+
+bool DataBase::makeTransaction(const QString &accountNumber, int transactionAmount)
+{
+    // initDataBase();
+    // for (auto& record : jsonDataBase) {
+    //     if (record["AccountNumber"].toString() == accountNumber) {
+    //         int currentBalance = record["Balance"].toInt();
+    //         if (transactionAmount < 0 && (currentBalance < qAbs(transactionAmount))) {
+    //             return false; // Insufficient funds for withdrawal
+    //         }
+    //         record["Balance"] = currentBalance + transactionAmount;
+
+    //         QJsonObject transaction;
+    //         transaction["date"] = QDate::currentDate().toString("dd-MM-yyyy");
+    //         transaction["Amount"] = transactionAmount;
+    //         transaction["type"] = transactionAmount >= 0 ? "deposit" : "withdrawal";
+    //         record["Transactions"].toArray().append(transaction);
+
+    //  /*-------------------> how to make */       saveDataBase();
+    //         return true;
+    //     }
+    // }
+    // return false; // Account number not found
+
+
+    initDataBase();
+    for (auto& record : jsonDataBase) {
+        if (record["AccountNumber"].toString() == accountNumber) {
+            int currentBalance = record["Balance"].toInt();
+            if (transactionAmount < 0 && (currentBalance < qAbs(transactionAmount))) {
+                return false; // Insufficient funds for withdrawal
+            }
+            record["Balance"] = currentBalance + transactionAmount;
+
+            QJsonObject transaction;
+            transaction["date"] = QDate::currentDate().toString("dd-MM-yyyy");
+            transaction["Amount"] = transactionAmount;
+            transaction["type"] = transactionAmount >= 0 ? "deposit" : "withdrawal";
+
+            QJsonArray transactions = record["Transactions"].toArray();
+            transactions.append(transaction);
+            record["Transactions"] = transactions;
+
+            saveDataBase();
+            return true;
+        }
+    }
+    return false; // Account number not found
+
+}
+
+bool DataBase::transferAmount(const QString &fromAccountNumber, const QString &toAccountNumber, int transferAmount)
+{
+    qInfo()<<"in database"<<Qt::endl;
+    initDataBase(); // Ensure the database is initialized
+
+    QJsonObject fromRecord;
+    QJsonObject toRecord;
+    int fromRecordIndex = -1;
+    int toRecordIndex = -1;
+
+    for (int i = 0; i < jsonDataBase.size(); ++i) {
+        QJsonObject record = jsonDataBase[i];
+        if (record["AccountNumber"].toString() == fromAccountNumber) {
+            fromRecord = record;
+            fromRecordIndex = i;
+        }
+        if (record["AccountNumber"].toString() == toAccountNumber) {
+            toRecord = record;
+            toRecordIndex = i;
+        }
+    }
+
+    if (fromRecordIndex == -1 || toRecordIndex == -1) {
+        return false; // Account number not found
+    }
+
+    int fromBalance = fromRecord["Balance"].toInt();
+    if (transferAmount <= 0 || fromBalance < transferAmount) {
+        return false; // Invalid transfer amount or insufficient funds
+    }
+
+    int toBalance = toRecord["Balance"].toInt();
+    fromRecord["Balance"] = fromBalance - transferAmount;
+    toRecord["Balance"] = toBalance + transferAmount;
+
+    QJsonObject transactionFrom;
+    transactionFrom["date"] = QDate::currentDate().toString("dd-MM-yyyy");
+    transactionFrom["Amount"] = -transferAmount;
+    transactionFrom["type"] = "transfer_to_" + toAccountNumber;
+
+    QJsonArray fromTransactions = fromRecord["Transactions"].toArray();
+    fromTransactions.append(transactionFrom);
+    fromRecord["Transactions"] = fromTransactions;
+
+    QJsonObject transactionTo;
+    transactionTo["date"] = QDate::currentDate().toString("dd-MM-yyyy");
+    transactionTo["Amount"] = transferAmount;
+    transactionTo["type"] = "transfer_from_" + fromAccountNumber;
+
+    QJsonArray toTransactions = toRecord["Transactions"].toArray();
+    toTransactions.append(transactionTo);
+    toRecord["Transactions"] = toTransactions;
+
+    // Update the records in the jsonDataBase array
+    jsonDataBase[fromRecordIndex] = fromRecord;
+    jsonDataBase[toRecordIndex] = toRecord;
+
+    saveDataBase();
+    return true;
+}
+
+
 
 // QString DataBase::GetUserAuthority(const QString &username)
 // {
@@ -364,3 +478,34 @@ return transactions;
 //         qDebug() << "Can't Open the database file" << Qt::endl;
 //     }
 // }
+
+void DataBase::saveDataBase()
+{
+    // QJsonArray jsonArr;
+    // for (const auto& record : jsonDataBase)
+    // {
+    //     jsonArr.append(record);
+    // }
+    // QFile file(FilePath);
+    // if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+    // {
+    //     file.write(QJsonDocument(jsonArr).toJson());
+    //     file.close();
+    // }
+    // else
+    // {
+    //     qDebug() << "Can't Open the database file" << Qt::endl;
+    // }
+    QJsonArray jsonArr;
+    for (const auto& record : jsonDataBase) {
+        jsonArr.append(record);
+    }
+
+    QFile file(FilePath);
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)) {
+        file.write(QJsonDocument(jsonArr).toJson());
+        file.close();
+    } else {
+        qDebug() << "Can't Open the database file" << Qt::endl;
+    }
+}

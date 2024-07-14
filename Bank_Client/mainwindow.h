@@ -45,6 +45,20 @@ private slots:
 
     void on_UserShowTransactin_PB_clicked();
 
+    void on_UserMakeTransaction_PB_clicked();
+
+    void on_UserBack_Transaction_PB_clicked();
+
+    void on_UserConfirmTransaction_PB_clicked();
+
+    void on_UserTransferAmount_PB_clicked();
+
+    void on_UserTransfer_PB_clicked();
+
+    void on_UserTransfer_Back_PB_clicked();
+
+    void on_UserTransfer_confirm_PB_clicked();
+
 private:
     Ui::MainWindow *ui;
     MyClient client;

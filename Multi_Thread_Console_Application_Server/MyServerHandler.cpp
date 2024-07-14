@@ -55,54 +55,67 @@ void MyServerHandler::Operation(QString Operation)
 
     }
 
-    if(type == "GetAccountNumber")
+    else if(type == "GetAccountNumber")
     {
         QString username = obj["username"].toString();
         MyServerHandler::GetAccountNumber(username);
     }
 
-    if(type == "ViewAccountBalance")
+    else if(type == "ViewAccountBalance")
     {
         QString accountNumber = obj["account_number"].toString();
         GetBalance(accountNumber);
     }
 
-    if(type == "ViewTransactionHistory")
+    else if(type == "ViewTransactionHistory")
     {
         QString accountNumber = obj["account_number"].toString();
         int count = obj["count"].toInt();
         GetTransactionHistory(accountNumber, count);
     }
 
-    if(type == "MakeTransaction")
+    else if(type == "MakeTransaction")
+    {
+        qInfo()<<"in server: MakeTransaction";
+
+        QString accountNumber = obj["account_number"].toString();
+        int transactionAmount = obj["transaction_Amount"].toInt();
+        QString transactionType= obj["transaction_Type"].toString();
+        MakeTransactionRequest(accountNumber, transactionAmount ,transactionType);
+    }
+
+   else if(type == "TransferAmount")
+    {
+        qInfo()<<"in server: TransferAmount";
+
+        QString toAccountNumber= obj["toAccountNumber"].toString();
+        QString fromAccountNumber = obj["fromAccountNumber"].toString();
+        int transferAmount = obj["transferAmount"].toInt();
+        TransferAmountRequest(fromAccountNumber, toAccountNumber ,transferAmount);
+    }
+
+    else if(type == "ViewBankDatabase")
     {
 
     }
 
-    if(type == "TransferAmount ")
+
+    else if(type == "CreateNewUser")
     {
 
     }
 
-    if(type == "ViewBankDatabase")
+    else if(type == "DeleteUser")
     {
 
     }
 
-
-    if(type == "CreateNewUser")
+    else if(type == "UpdateUser")
     {
 
     }
-
-    if(type == "DeleteUser")
-    {
-
-    }
-
-    if(type == "UpdateUser")
-    {
-
+    else{
+        qInfo()<<"invalid request"<<Qt::endl;
     }
 
 
@@ -228,7 +241,7 @@ void MyServerHandler::GetAccountNumber(QString username)
 void MyServerHandler::GetBalance(const QString &accountNumber)
 {
     DataBase db;
-    QString balance = db.getAccountBalance(accountNumber);
+    int balance = db.getAccountBalance(accountNumber);
 
     QJsonObject response;
     response["status"] = "account_balance_response";
@@ -248,5 +261,46 @@ void MyServerHandler::GetTransactionHistory(const QString &accountNumber, int co
     response["transactions"] = transactions;
     sendMessage(QJsonDocument(response).toJson());
 }
+
+void MyServerHandler::MakeTransactionRequest(const QString &accountNumber, int transactionAmount, const QString &transactionType)
+{
+    DataBase db;
+    QJsonObject response;
+    if (transactionType =="Withdrow")
+    {
+        transactionAmount*=-1;
+    }
+
+    bool transactionResult = db.makeTransaction(accountNumber, transactionAmount);
+    response["status"] = "transaction_amount_response";
+    if (transactionResult==true)
+    response["transaction_Result"] = "Transaction successful";
+    else
+     response["transaction_Result"] = "Transaction failed";
+
+
+    sendMessage(QJsonDocument(response).toJson());
+}
+
+void MyServerHandler::TransferAmountRequest(const QString &fromAccountNumber, const QString &toAccountNumber, int transferAmount)
+{
+    qInfo()<<"in server handler: TransferAmountRequest func";
+
+    DataBase db;
+    QJsonObject response;
+    bool transferResult = db.transferAmount(fromAccountNumber, toAccountNumber, transferAmount);
+
+    response["status"] = "transfer_response";
+    if (transferResult==true)
+        response["transsfer_Result"] = "Transfer successful";
+    else
+        response["transsfer_Result"] = "Transfer failed";
+
+
+    sendMessage(QJsonDocument(response).toJson());
+
+}
+
+
 
 

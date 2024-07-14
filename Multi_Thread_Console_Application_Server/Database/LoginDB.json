@@ -1,34 +1,115 @@
 [
     {
-        "Username": "Nada",
-        "Password": "1234",
         "AccountNumber": "902668452",
-        "Autority":"user",
-        "FullName":"Nada Mohamed",
-        "Balance":"200",
-        "Email":"nmmoharran@gmail.com",
+        "Autority": "user",
+        "Balance": 3500,
+        "Email": "nmmoharran@gmail.com",
+        "FullName": "Nada Mohamed",
+        "Password": "1234",
         "Transactions": [
             {
-                "date": "02-09-2023",
                 "Amount": 100,
+                "date": "02-09-2023",
                 "type": "deposit"
             },
             {
-                "date": "01-09-2023",
                 "Amount": -200,
+                "date": "01-09-2023",
                 "type": "withdrawal"
+            },
+            {
+                "Amount": -500,
+                "date": "14-07-2024",
+                "type": "withdrawal"
+            },
+            {
+                "Amount": 1000,
+                "date": "14-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": 500,
+                "date": "14-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": -500,
+                "date": "14-07-2024",
+                "type": "withdrawal"
+            },
+            {
+                "Amount": 500,
+                "date": "14-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": -500,
+                "date": "14-07-2024",
+                "type": "withdrawal"
+            },
+            {
+                "Amount": 1000,
+                "date": "14-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": 1000,
+                "date": "14-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": 1000,
+                "date": "14-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": -500,
+                "date": "14-07-2024",
+                "type": "transfer_to_401202154"
             }
-        ]
-
+        ],
+        "Username": "Nada"
     },
     {
-        "Username": "rana",
-        "Password": "5012",
         "AccountNumber": "148354",
-        "Autority":"admin",
-        "FullName":"Rana Mohamed",
-        "Balance":"100",
-        "Email":"nmmoroharran@gmail.com",
-        "Transactions": []
+        "Autority": "admin",
+        "Balance": 1000,
+        "Email": "nmmoroharran@gmail.com",
+        "FullName": "Rana Mohamed",
+        "Password": "5012",
+        "Transactions": [
+        ],
+        "Username": "rana"
+    },
+    {
+        "AccountNumber": "401202154",
+        "Autority": "user",
+        "Balance": 2000,
+        "Email": "nmmoharran@gmail.com",
+        "FullName": "Nada Mohamed",
+        "Password": "258",
+        "Transactions": [
+            {
+                "Amount": 1000,
+                "date": "14-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": 500,
+                "date": "14-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": 1000,
+                "date": "14-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": 500,
+                "date": "14-07-2024",
+                "type": "transfer_from_902668452"
+            }
+        ],
+        "Username": "gana"
     }
 ]

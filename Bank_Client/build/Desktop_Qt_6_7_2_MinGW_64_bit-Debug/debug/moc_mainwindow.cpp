@@ -53,7 +53,14 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "on_UserViewTransaction_PB_2_clicked",
     "on_UserLogout_PB_clicked",
     "on_Back_PB_clicked",
-    "on_UserShowTransactin_PB_clicked"
+    "on_UserShowTransactin_PB_clicked",
+    "on_UserMakeTransaction_PB_clicked",
+    "on_UserBack_Transaction_PB_clicked",
+    "on_UserConfirmTransaction_PB_clicked",
+    "on_UserTransferAmount_PB_clicked",
+    "on_UserTransfer_PB_clicked",
+    "on_UserTransfer_Back_PB_clicked",
+    "on_UserTransfer_confirm_PB_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -66,7 +73,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      19,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -74,18 +81,25 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   86,    2, 0x0a,    1 /* Public */,
-       3,    0,   87,    2, 0x0a,    2 /* Public */,
-       4,    1,   88,    2, 0x0a,    3 /* Public */,
-       7,    1,   91,    2, 0x0a,    5 /* Public */,
-      10,    1,   94,    2, 0x0a,    7 /* Public */,
-      12,    0,   97,    2, 0x08,    9 /* Private */,
-      13,    0,   98,    2, 0x08,   10 /* Private */,
-      14,    0,   99,    2, 0x08,   11 /* Private */,
-      15,    0,  100,    2, 0x08,   12 /* Private */,
-      16,    0,  101,    2, 0x08,   13 /* Private */,
-      17,    0,  102,    2, 0x08,   14 /* Private */,
-      18,    0,  103,    2, 0x08,   15 /* Private */,
+       1,    0,  128,    2, 0x0a,    1 /* Public */,
+       3,    0,  129,    2, 0x0a,    2 /* Public */,
+       4,    1,  130,    2, 0x0a,    3 /* Public */,
+       7,    1,  133,    2, 0x0a,    5 /* Public */,
+      10,    1,  136,    2, 0x0a,    7 /* Public */,
+      12,    0,  139,    2, 0x08,    9 /* Private */,
+      13,    0,  140,    2, 0x08,   10 /* Private */,
+      14,    0,  141,    2, 0x08,   11 /* Private */,
+      15,    0,  142,    2, 0x08,   12 /* Private */,
+      16,    0,  143,    2, 0x08,   13 /* Private */,
+      17,    0,  144,    2, 0x08,   14 /* Private */,
+      18,    0,  145,    2, 0x08,   15 /* Private */,
+      19,    0,  146,    2, 0x08,   16 /* Private */,
+      20,    0,  147,    2, 0x08,   17 /* Private */,
+      21,    0,  148,    2, 0x08,   18 /* Private */,
+      22,    0,  149,    2, 0x08,   19 /* Private */,
+      23,    0,  150,    2, 0x08,   20 /* Private */,
+      24,    0,  151,    2, 0x08,   21 /* Private */,
+      25,    0,  152,    2, 0x08,   22 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -93,6 +107,13 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void, 0x80000000 | 5,    6,
     QMetaType::Void, 0x80000000 | 8,    9,
     QMetaType::Void, QMetaType::QJsonObject,   11,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -139,6 +160,20 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'on_Back_PB_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_UserShowTransactin_PB_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_UserMakeTransaction_PB_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_UserBack_Transaction_PB_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_UserConfirmTransaction_PB_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_UserTransferAmount_PB_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_UserTransfer_PB_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_UserTransfer_Back_PB_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_UserTransfer_confirm_PB_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -162,6 +197,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->on_UserLogout_PB_clicked(); break;
         case 10: _t->on_Back_PB_clicked(); break;
         case 11: _t->on_UserShowTransactin_PB_clicked(); break;
+        case 12: _t->on_UserMakeTransaction_PB_clicked(); break;
+        case 13: _t->on_UserBack_Transaction_PB_clicked(); break;
+        case 14: _t->on_UserConfirmTransaction_PB_clicked(); break;
+        case 15: _t->on_UserTransferAmount_PB_clicked(); break;
+        case 16: _t->on_UserTransfer_PB_clicked(); break;
+        case 17: _t->on_UserTransfer_Back_PB_clicked(); break;
+        case 18: _t->on_UserTransfer_confirm_PB_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -204,13 +246,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 19;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 19;
     }
     return _id;
 }

@@ -20,7 +20,8 @@ public:
  void GetAccountNumber(QString username);
  void GetBalance(const QString& accountNumber);
  void GetTransactionHistory(const QString& accountNumber, int count);
-
+ void MakeTransactionRequest(const QString& accountNumber, int transactionAmount ,const QString& transactionType);
+ void TransferAmountRequest (const QString& fromAccountNumber, const QString& toAccountNumber, int transferAmount);
 signals:
 
 private:
