@@ -17,7 +17,9 @@ MakeTransactionPage,
 MakeTransferAmountPage,
 AdminPage,
 AdminViewTransactionPage,
-AdminViewBankDatabasePage
+AdminViewBankDatabasePage,
+AdminCreateUserPage,
+AdminUpdateUserPage
 };
 
 
@@ -32,10 +34,14 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&client,&MyClient::StateChanged,this,&MainWindow::onStateChangedDevice);
     connect(&client,&MyClient::ReadyRead,this,&MainWindow::onReadyReadDevice);
     ui->Login_page->setCurrentIndex(LoginPage);
+    ui->lineEdit_password->setEchoMode(QLineEdit::Password);
 
     QStringList options;
     options << "None" << "Deposit" << "Withdrow";
     ui->comboBox_UserTransactionType->addItems(options);
+
+    ui->LE_CreatUser_Password->setEchoMode(QLineEdit::Password);
+
 
 }
 MainWindow::~MainWindow()
@@ -126,6 +132,34 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
         else if(response["status"].toString() == "ViewBankDatabase_response")
         {
             displayDatabaseData(response);
+        }
+
+        else if(response["status"].toString() == "CreateUser_response")
+        {
+            qInfo()<<"received response new user";
+            if (response["NewUser_Result"].toString() == "Create new user successful")
+                QMessageBox::information(nullptr, "New User Response", "Create new user successful.");
+            else
+                QMessageBox::critical(nullptr, "New User Response", "Create new user failed. Try again");
+
+        }
+        else if(response["status"].toString() == "DeleteUser_response")
+        {
+            qInfo()<<"received response delete user";
+            if (response["DeleteUser_Result"].toString() == "Delete user successful")
+                QMessageBox::information(nullptr, "Delete user Response", "Delete user successful.");
+            else
+                QMessageBox::critical(nullptr, "Delete User Response", "Delete user failed. This account number doesn't exist.Try again");
+
+        }
+        else if(response["status"].toString() == "UpdateUser_response")
+        {
+            qInfo()<<"received response delete user";
+            if (response["UpdateUser_Result"].toString() == "Update user successful")
+                QMessageBox::information(nullptr, "Update user Response", "Update user successful.");
+            else
+                QMessageBox::critical(nullptr, "Update User Response", "Update user failed.Try again");
+
         }
         else
         {
@@ -766,5 +800,135 @@ void MainWindow::on_Admin_ViewBankDatabase_PB_clicked()
     QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
     client.WriteData(jsonString);
 
+}
+
+/************************************create user**************************/
+void MainWindow::on_Admin_CreateNewUser_PB_clicked()
+{
+    ui->Login_page->setCurrentIndex(AdminCreateUserPage);
+}
+
+
+void MainWindow::on_Back_AdminCreateUser_PB_clicked()
+{
+    ui->Login_page->setCurrentIndex(AdminPage);
+
+}
+
+
+void MainWindow::on_Confirm_AdminCreateUser_PB_clicked()
+{
+    QString FullName =ui->LE_CreatUser_FullName->text();
+    int Age =ui->LE_CreatUser_Age->text().toInt();
+    QString Username =ui->LE_CreatUser_UserName->text();
+    QString Password =ui->LE_CreatUser_Password->text();
+    QString Email =ui->LE_CreatUser_Email->text();
+    QString AccountNo =ui->LE_CreatUser_AccountNumber->text();
+    int Balance=0;
+    QString Authority="user";
+
+    // Create a JSON object with the user data
+    QJsonObject userData;
+    userData["FullName"] = FullName;
+    userData["Age"] = Age;
+    userData["Username"] = Username;
+    userData["Password"] = Password;
+    userData["Email"] = Email;
+    userData["AccountNumber"] = AccountNo;
+    userData["Balance"] = Balance;
+    userData["Authority"] = Authority;
+    userData["Transactions"] = QJsonArray(); // Empty array for transactions
+
+    // Create a request object
+    QJsonObject request;
+    request["type"] = "Admin_CreateUser";
+    request["data"] = userData;
+
+    // Convert QJsonDocument to string
+    QJsonDocument jsonDoc(request);
+    QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+
+    // Send the JSON string to the server
+    client.WriteData(jsonString);
+
+
+}
+
+/***********************   delete user *************************/
+void MainWindow::on_Admin_DeleteUser_PB_clicked()
+{
+
+    bool ok;
+    QString accountNumber = QInputDialog::getText(this, tr("Account Number"),
+                                                  tr("Enter account number:"), QLineEdit::Normal,
+                                                  "", &ok);
+    if (!ok || accountNumber.isEmpty())
+    {
+        QMessageBox::critical(this, "Error", "Account number is required");
+        return;
+    }
+
+
+
+    QJsonObject request;
+    request["type"] = "Admin_DeleteUser";
+    request["account_number"] = accountNumber;
+    // qInfo()<<"username=>"<<username<<Qt::endl;
+
+    QJsonDocument jsonDoc(request);
+
+    // Convert QJsonDocument to string
+    QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+    client.WriteData(jsonString);
+}
+
+
+
+
+/******************************update user****************************************/
+void MainWindow::on_Admin_UpdateUser_PB_clicked()
+{
+    ui->Login_page->setCurrentIndex(AdminUpdateUserPage);
+}
+
+
+void MainWindow::on_Confirm_AdminUpdateUser_PB_clicked()
+{
+    QString accountNumber = ui->LE_UpdateUser_AccountNumber->text();
+    QString fullName = ui->LE_UpdateUser_FullName->text();
+    int age = ui->LE_UpdateUser_Age->text().toInt();
+    QString username = ui->LE_UpdateUser_UserName->text();
+    QString password = ui->LE_UpdateUser_Password->text();
+    QString email = ui->LE_UpdateUser_Email->text();
+   // QString balance = ui->LE_UpdateUser_Balance->text();
+  //  QString authority = ui->LE_UpdateUser_Authority->text();
+
+    QJsonObject newData;
+    if (!fullName.isEmpty()) newData["FullName"] = fullName;
+    if (age != 0) newData["Age"] = age;
+    if (!username.isEmpty()) newData["Username"] = username;
+    if (!password.isEmpty()) newData["Password"] = password;
+    if (!email.isEmpty()) newData["Email"] = email;
+   // if (!balance.isEmpty()) newData["Balance"] = balance.toInt();
+   // if (!authority.isEmpty()) newData["Authority"] = authority;
+
+    QJsonObject request;
+    request["type"] = "Admin_UpdateUser";
+    request["accountNumber"] = accountNumber;
+    request["newData"] = newData;
+
+    QJsonDocument jsonDoc(request);
+
+    // Convert QJsonDocument to string
+    QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
+    client.WriteData(jsonString);
+}
+
+
+
+
+void MainWindow::on_Back_AdminUpdateUser_PB_clicked()
+{
+    ui->Login_page->setCurrentIndex(AdminPage);
 }
 

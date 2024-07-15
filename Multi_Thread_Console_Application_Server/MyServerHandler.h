@@ -23,7 +23,9 @@ public:
  void MakeTransactionRequest(const QString& accountNumber, int transactionAmount ,const QString& transactionType);
  void TransferAmountRequest (const QString& fromAccountNumber, const QString& toAccountNumber, int transferAmount);
  void ViewBankDatabaseRequest();
-
+ void CreateNewUserRequest(const QJsonObject &userData);
+ void DeleteUserRequest(const QString& accountNumber);
+ void UpdateUserRequest (const QString& accountNumber , const QJsonObject &userData);
  signals:
 
 private:

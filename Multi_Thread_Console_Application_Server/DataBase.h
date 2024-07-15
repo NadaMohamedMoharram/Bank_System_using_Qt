@@ -26,7 +26,10 @@ public:
     bool transferAmount(const QString& fromAccountNumber, const QString& toAccountNumber, int transferAmount);
     void saveDataBase();
     QJsonArray viewBankDatabase();
-  //  QString GetUserAuthority(const QString & username);
+    bool createNewUser(const QJsonObject &userData);
+    bool deleteUser( const QString& accountNumber);
+    bool updateUser( const QString& accountNumber , const QJsonObject &newData);
+    //  QString GetUserAuthority(const QString & username);
 private:
     QString FilePath="D:\\ITIDA_Scholarship\\Final project\\Bank_System\\Multi_Thread_Console_Application_Server\\LoginDB.json";
     QVector<QJsonObject> jsonDataBase;

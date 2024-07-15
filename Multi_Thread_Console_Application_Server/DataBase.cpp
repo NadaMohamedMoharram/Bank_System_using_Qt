@@ -376,6 +376,61 @@ QJsonArray DataBase::viewBankDatabase()
     return databaseArray;
 }
 
+bool DataBase::createNewUser(const QJsonObject &userData)
+{
+    initDataBase();
+
+    QString newUsername = userData["Username"].toString();
+    QString newAccountNumber = userData["AccountNumber"].toString();
+
+    // Check if the username or account number already exists
+    for (const QJsonObject &record : jsonDataBase) {
+        if (record["Username"].toString() == newUsername || record["AccountNumber"].toString() == newAccountNumber) {
+            return false; // Username or account number already exists
+        }
+    }
+
+    // Add the new user to the database
+    jsonDataBase.append(userData);
+
+    // Save the updated database
+    saveDataBase();
+
+    return true;
+}
+
+bool DataBase::deleteUser(const QString &accountNumber)
+{
+    initDataBase();
+
+    // Find the user with the given account number and remove them
+    for (int i = 0; i < jsonDataBase.size(); ++i) {
+        if (jsonDataBase[i]["AccountNumber"].toString() == accountNumber) {
+            jsonDataBase.removeAt(i);
+            saveDataBase();
+            return true; // User deleted successfully
+        }
+    }
+    return false; // Account number not found
+}
+
+bool DataBase::updateUser(const QString &accountNumber, const QJsonObject &newData)
+{
+    initDataBase();
+
+    // Find the user with the given account number and update their data
+    for (auto &record : jsonDataBase) {
+        if (record["AccountNumber"].toString() == accountNumber) {
+            for (auto it = newData.begin(); it != newData.end(); ++it) {
+                record[it.key()] = it.value();
+            }
+            saveDataBase();
+            return true; // User updated successfully
+        }
+    }
+    return false; // Account number not found
+}
+
 
 // QString DataBase::GetUserAuthority(const QString &username)
 // {

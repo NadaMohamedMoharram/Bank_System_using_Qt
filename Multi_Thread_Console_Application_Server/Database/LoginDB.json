@@ -1,12 +1,11 @@
 [
     {
-        "Username": "Nada",
         "AccountNumber": "902668452",
+        "Age": 25,
         "Autority": "user",
         "Balance": 4000,
         "Email": "nmmoharran@gmail.com",
         "FullName": "Nada Mohamed",
-        "Age":25,
         "Password": "1234",
         "Transactions": [
             {
@@ -69,29 +68,28 @@
                 "date": "14-07-2024",
                 "type": "transfer_to_401202154"
             }
-        ]
-        
+        ],
+        "Username": "Nada"
     },
     {
-        "Username": "rana",
         "AccountNumber": "148354",
+        "Age": 20,
         "Autority": "admin",
         "Balance": 1000,
         "Email": "nmmoroharran@gmail.com",
         "FullName": "Rana Mohamed",
-        "Age":20,
         "Password": "5012",
         "Transactions": [
-        ]
+        ],
+        "Username": "rana"
     },
     {
-        "Username": "gana",
         "AccountNumber": "401202154",
+        "Age": 14,
         "Autority": "user",
         "Balance": 2000,
         "Email": "nmmoharran@gmail.com",
-        "FullName": "Nada Mohamed",
-        "Age":14,
+        "FullName": "gana Mohamed",
         "Password": "258",
         "Transactions": [
             {
@@ -114,7 +112,7 @@
                 "date": "14-07-2024",
                 "type": "transfer_from_902668452"
             }
-        ]
-        
+        ],
+        "Username": "gana"
     }
 ]

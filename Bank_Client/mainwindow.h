@@ -76,6 +76,22 @@ private slots:
 
     void on_Admin_ViewBankDatabase_PB_clicked();
 
+    void on_Admin_CreateNewUser_PB_clicked();
+
+    void on_Back_AdminCreateUser_PB_clicked();
+
+    void on_Confirm_AdminCreateUser_PB_clicked();
+
+    void on_Admin_DeleteUser_PB_clicked();
+
+    void on_Admin_UpdateUser_PB_clicked();
+
+  // void on_Confirm_AdminDeleteUser_PB_clicked();
+
+    void on_Confirm_AdminUpdateUser_PB_clicked();
+
+    void on_Back_AdminUpdateUser_PB_clicked();
+
 private:
     Ui::MainWindow *ui;
     MyClient client;

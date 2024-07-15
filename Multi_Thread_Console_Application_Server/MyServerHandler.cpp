@@ -102,19 +102,24 @@ void MyServerHandler::Operation(QString Operation)
     }
 
 
-    else if(type == "CreateNewUser")
+    else if(type == "Admin_CreateUser")
     {
-
+         QJsonObject userData = obj["data"].toObject();
+        CreateNewUserRequest(userData);
     }
 
-    else if(type == "DeleteUser")
+    else if(type == "Admin_DeleteUser")
     {
-
+        QString accountNumber = obj["account_number"].toString();
+        DeleteUserRequest(accountNumber);
     }
 
-    else if(type == "UpdateUser")
+    else if(type == "Admin_UpdateUser")
     {
+        QString accountNumber = obj["account_number"].toString();
+        QJsonObject userData = obj["data"].toObject();
 
+        UpdateUserRequest(accountNumber,userData);
     }
     else{
         qInfo()<<"invalid request"<<Qt::endl;
@@ -312,6 +317,54 @@ void MyServerHandler::ViewBankDatabaseRequest()
     response["data"]=Data;
      sendMessage(QJsonDocument(response).toJson());
 
+}
+
+void MyServerHandler::CreateNewUserRequest(const QJsonObject &userData)
+{
+    DataBase db;
+    QJsonObject response;
+    bool CreateUserResult = db.createNewUser(userData);
+
+    response["status"] = "CreateUser_response";
+    if (CreateUserResult==true)
+        response["NewUser_Result"] = "Create new user successful";
+    else
+        response["NewUser_Result"] = "Create new user failed. username or acount number is already used";
+
+
+    sendMessage(QJsonDocument(response).toJson());
+}
+
+void MyServerHandler::DeleteUserRequest(const QString &accountNumber)
+{
+    DataBase db;
+    QJsonObject response;
+    bool DeleteUserResult = db.deleteUser(accountNumber);
+
+    response["status"] = "DeleteUser_response";
+    if (DeleteUserResult==true)
+        response["DeleteUser_Result"] = "Delete user successful";
+    else
+        response["DeleteUser_Result"] = "Delete user failed.";
+
+
+    sendMessage(QJsonDocument(response).toJson());
+}
+
+void MyServerHandler::UpdateUserRequest(const QString &accountNumber, const QJsonObject &userData)
+{
+    DataBase db;
+    QJsonObject response;
+    bool UpdateUserResult = db.updateUser(accountNumber , userData);
+
+    response["status"] = "UpdateUser_response";
+    if (UpdateUserResult==true)
+        response["UpdateUser_Result"] = "Update user successful";
+    else
+        response["UpdateUser_Result"] = "Update user failed.";
+
+
+    sendMessage(QJsonDocument(response).toJson());
 }
 
 
