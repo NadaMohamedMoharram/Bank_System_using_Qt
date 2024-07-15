@@ -914,8 +914,8 @@ void MainWindow::on_Confirm_AdminUpdateUser_PB_clicked()
 
     QJsonObject request;
     request["type"] = "Admin_UpdateUser";
-    request["accountNumber"] = accountNumber;
-    request["newData"] = newData;
+    request["account_number"] = accountNumber;
+    request["data"] = newData;
 
     QJsonDocument jsonDoc(request);
 

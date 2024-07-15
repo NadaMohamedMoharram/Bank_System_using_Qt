@@ -85,12 +85,12 @@
     },
     {
         "AccountNumber": "401202154",
-        "Age": 14,
+        "Age": 18,
         "Autority": "user",
         "Balance": 2000,
-        "Email": "nmmoharran@gmail.com",
-        "FullName": "gana Mohamed",
-        "Password": "258",
+        "Email": "gog@gmail.com",
+        "FullName": "gana moharram",
+        "Password": "3050",
         "Transactions": [
             {
                 "Amount": 1000,
@@ -113,6 +113,6 @@
                 "type": "transfer_from_902668452"
             }
         ],
-        "Username": "gana"
+        "Username": "gogo123"
     }
 ]
