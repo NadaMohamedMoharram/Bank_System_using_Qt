@@ -218,6 +218,62 @@ void MainWindow::displayTransactionHistory(const QJsonObject& response)
 
 void MainWindow::displayDatabaseData(const QJsonObject &jsonObject)
 {
+
+    /*
+QJsonArray jsonArray = jsonObject["data"].toArray(); // Assuming 'data' key holds the array
+
+    // Clear existing items in the list widget
+    ui->LW_AdminViewBankDatabase->clear();
+
+    // Start with the opening bracket of the JSON array
+    ui->LW_AdminViewBankDatabase->addItem("[");
+
+    // Iterate through the JSON array and add each item to the list widget
+    for (int i = 0; i < jsonArray.size(); ++i) {
+        QJsonObject record = jsonArray[i].toObject();
+
+        // Convert the record to a string in JSON format
+        QString recordString = QString("{ \"Username\": \"%1\", \"AccountNumber\": \"%2\", \"Autority\": \"%3\", \"Balance\": %4, \"Email\": \"%5\", \"FullName\": \"%6\", \"Age\": %7, \"Password\": \"%8\", \"Transactions\": [")
+                               .arg(record["Username"].toString())
+                               .arg(record["AccountNumber"].toString())
+                               .arg(record["Autority"].toString())
+                               .arg(record["Balance"].toInt())
+                               .arg(record["Email"].toString())
+                               .arg(record["FullName"].toString())
+                               .arg(record["Age"].toInt())
+                               .arg(record["Password"].toString());
+
+        // Add the opening bracket of the record object
+        ui->LW_AdminViewBankDatabase->addItem("    " + recordString);
+
+        QJsonArray transactions = record["Transactions"].toArray();
+
+        // Iterate through the transactions and add them as sub-items
+        for (int j = 0; j < transactions.size(); ++j) {
+            QJsonObject transaction = transactions[j].toObject();
+            QString transactionString = QString("        { \"Amount\": %1, \"date\": \"%2\", \"type\": \"%3\" }")
+                                          .arg(transaction["Amount"].toInt())
+                                          .arg(transaction["date"].toString())
+                                          .arg(transaction["type"].toString());
+
+            // Add the transaction info as a sub-item
+            ui->LW_AdminViewBankDatabase->addItem(transactionString + (j < transactions.size() - 1 ? "," : ""));
+        }
+
+        // Add the closing bracket of the transactions array and the record object
+        ui->LW_AdminViewBankDatabase->addItem("    ]" + QString(i < jsonArray.size() - 1 ? "}," : "}"));
+    }
+
+    // Add the closing bracket of the JSON array
+    ui->LW_AdminViewBankDatabase->addItem("]");
+
+*/
+
+
+
+
+
+
     QJsonArray jsonArray = jsonObject["data"].toArray(); // Assuming 'data' key holds the array
 
     // Clear existing items in the list widget
