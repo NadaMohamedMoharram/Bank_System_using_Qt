@@ -237,6 +237,19 @@
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="Label_textUser_2">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>70</y>
+        <width>491</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Welcom nada</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QTableWidget" name="transactionHistoryTable">

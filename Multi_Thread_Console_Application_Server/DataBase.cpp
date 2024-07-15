@@ -360,7 +360,7 @@ QJsonArray DataBase::viewBankDatabase()
         QJsonObject accountDetails;
         accountDetails["Username"] = record["Username"].toString();
         accountDetails["AccountNumber"] = record["AccountNumber"].toString();
-        accountDetails["Authority"] = record["Authority"].toString();
+        accountDetails["Autority"] = record["Autority"].toString();
         accountDetails["Balance"] = record["Balance"].toInt();
         accountDetails["Email"] = record["Email"].toString();
         accountDetails["FullName"] = record["FullName"].toString();

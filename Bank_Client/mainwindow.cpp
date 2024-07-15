@@ -6,6 +6,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QFile>
+#include<QPixmap> // Including QPixmap for handling images
 
 #include<QInputDialog>
 enum GUI_Windows
@@ -42,6 +43,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->LE_CreatUser_Password->setEchoMode(QLineEdit::Password);
 
+    Images_init();
+
 
 }
 MainWindow::~MainWindow()
@@ -49,6 +52,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::Images_init()
+{
+    QPixmap pix("D:\\ITIDA_Scholarship\\Final project\\Bank.png"); // Loading an image
+    ui->pic1_bankLogo->setPixmap(pix); // Setting the image to a label
+
+    QPixmap pix2("D:\\ITIDA_Scholarship\\Final project\\OIP.png"); // Loading another image
+    ui->pic2_userame->setPixmap(pix2); // Setting the image to a label
+
+    QPixmap pix3("D:\\ITIDA_Scholarship\\Final project\\password.png"); // Loading another image
+    ui->pic3_password->setPixmap(pix3); // Setting the image to a label
+
+}
 
 
 /***************************************************************************/
@@ -178,6 +193,7 @@ void MainWindow::handleLoginResponse(const QJsonObject& response)
     if (authority == "user")
     {
         ui->Login_page->setCurrentIndex(UserPage);
+        ui->Label_textUser->setText("Welcome "+this->client_username);
     }
     else if (authority == "admin")
     {
@@ -306,7 +322,7 @@ QJsonArray jsonArray = jsonObject["data"].toArray(); // Assuming 'data' key hold
 
 
 
-
+/*
 
     QJsonArray jsonArray = jsonObject["data"].toArray(); // Assuming 'data' key holds the array
 
@@ -367,6 +383,54 @@ QJsonArray jsonArray = jsonObject["data"].toArray(); // Assuming 'data' key hold
 
     // Add the closing bracket of the JSON array
     ui->LW_AdminViewBankDatabase->addItem("]");
+
+    */
+
+
+    QJsonArray jsonArray = jsonObject["data"].toArray(); // Assuming 'data' key holds the array
+
+    // Set up the table widget
+    ui->TW_AdminViewBankDatabase->clear();
+    ui->TW_AdminViewBankDatabase->setRowCount(0);
+    ui->TW_AdminViewBankDatabase->setColumnCount(8); // 8 columns for user data
+
+    QStringList headers;
+    headers << "Username" << "AccountNumber" << "Autority" << "Balance" << "Email" << "FullName" << "Age" << "Password";
+    ui->TW_AdminViewBankDatabase->setHorizontalHeaderLabels(headers);
+
+    // Add rows for each record
+    for (const QJsonValue &value : jsonArray) {
+        QJsonObject record = value.toObject();
+        int currentRow = ui->TW_AdminViewBankDatabase->rowCount();
+        ui->TW_AdminViewBankDatabase->insertRow(currentRow);
+
+        ui->TW_AdminViewBankDatabase->setItem(currentRow, 0, new QTableWidgetItem(record["Username"].toString()));
+        ui->TW_AdminViewBankDatabase->setItem(currentRow, 1, new QTableWidgetItem(record["AccountNumber"].toString()));
+        ui->TW_AdminViewBankDatabase->setItem(currentRow, 2, new QTableWidgetItem(record["Autority"].toString()));
+        ui->TW_AdminViewBankDatabase->setItem(currentRow, 3, new QTableWidgetItem(QString::number(record["Balance"].toInt())));
+        ui->TW_AdminViewBankDatabase->setItem(currentRow, 4, new QTableWidgetItem(record["Email"].toString()));
+        ui->TW_AdminViewBankDatabase->setItem(currentRow, 5, new QTableWidgetItem(record["FullName"].toString()));
+        ui->TW_AdminViewBankDatabase->setItem(currentRow, 6, new QTableWidgetItem(QString::number(record["Age"].toInt())));
+        ui->TW_AdminViewBankDatabase->setItem(currentRow, 7, new QTableWidgetItem(record["Password"].toString()));
+
+        // QJsonArray transactions = record["Transactions"].toArray();
+
+        // // Iterate through the transactions and add them as rows below the main record
+        // for (const QJsonValue &transValue : transactions) {
+        //     QJsonObject transaction = transValue.toObject();
+        //     currentRow = ui->TW_AdminViewBankDatabase->rowCount();
+        //     ui->TW_AdminViewBankDatabase->insertRow(currentRow);
+
+        //     ui->TW_AdminViewBankDatabase->setItem(currentRow, 0, new QTableWidgetItem("    Transaction"));
+        //     ui->TW_AdminViewBankDatabase->setItem(currentRow, 1, new QTableWidgetItem());
+        //     ui->TW_AdminViewBankDatabase->setItem(currentRow, 2, new QTableWidgetItem());
+        //     ui->TW_AdminViewBankDatabase->setItem(currentRow, 3, new QTableWidgetItem(QString::number(transaction["Amount"].toInt())));
+        //     ui->TW_AdminViewBankDatabase->setItem(currentRow, 4, new QTableWidgetItem(transaction["date"].toString()));
+        //     ui->TW_AdminViewBankDatabase->setItem(currentRow, 5, new QTableWidgetItem(transaction["type"].toString()));
+        //     ui->TW_AdminViewBankDatabase->setItem(currentRow, 6, new QTableWidgetItem());
+        //     ui->TW_AdminViewBankDatabase->setItem(currentRow, 7, new QTableWidgetItem());
+        // }
+    }
 }
 
 

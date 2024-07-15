@@ -18,6 +18,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void Images_init();
     void handleLoginResponse(const QJsonObject& response);
     void handleAccountNumberResponse(const QJsonObject& response);
     void handleAccountBalancerResponse(const QJsonObject& response);

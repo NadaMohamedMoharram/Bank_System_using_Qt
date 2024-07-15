@@ -15,7 +15,6 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -38,6 +37,9 @@ public:
     QPushButton *PB_Login;
     QLineEdit *leIP;
     QLineEdit *lePort;
+    QLabel *pic2_userame;
+    QLabel *pic3_password;
+    QLabel *pic1_bankLogo;
     QWidget *page_3;
     QPushButton *UserGetAccountNo_PB;
     QPushButton *UserAccountBalance_PB;
@@ -45,6 +47,7 @@ public:
     QPushButton *UserMakeTransaction_PB;
     QPushButton *UserTransferAmount_PB;
     QPushButton *UserLogout_PB;
+    QLabel *Label_textUser;
     QWidget *page_2;
     QTableWidget *transactionHistoryTable;
     QLineEdit *lineEdit_UserAccountNumber;
@@ -89,8 +92,8 @@ public:
     QLabel *label_4;
     QLabel *label_9;
     QWidget *page_8;
-    QListWidget *LW_AdminViewBankDatabase;
     QPushButton *Back_AdminViewBankDatabase_PB;
+    QTableWidget *TW_AdminViewBankDatabase;
     QWidget *page_9;
     QLabel *label_5;
     QLineEdit *LE_CreatUser_FullName;
@@ -130,52 +133,71 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(762, 480);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         Login_page = new QStackedWidget(centralwidget);
         Login_page->setObjectName("Login_page");
-        Login_page->setGeometry(QRect(20, 10, 741, 421));
-        Login_page->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
+        Login_page->setGeometry(QRect(10, 10, 741, 431));
+        Login_page->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
+""));
         page = new QWidget();
         page->setObjectName("page");
         lineEdit_username = new QLineEdit(page);
         lineEdit_username->setObjectName("lineEdit_username");
-        lineEdit_username->setGeometry(QRect(122, 30, 141, 24));
+        lineEdit_username->setGeometry(QRect(470, 250, 181, 41));
         lineEdit_password = new QLineEdit(page);
         lineEdit_password->setObjectName("lineEdit_password");
-        lineEdit_password->setGeometry(QRect(120, 70, 141, 24));
+        lineEdit_password->setGeometry(QRect(470, 310, 181, 41));
         PB_Login = new QPushButton(page);
         PB_Login->setObjectName("PB_Login");
-        PB_Login->setGeometry(QRect(150, 120, 80, 24));
+        PB_Login->setGeometry(QRect(510, 370, 91, 31));
         PB_Login->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);"));
         leIP = new QLineEdit(page);
         leIP->setObjectName("leIP");
-        leIP->setGeometry(QRect(50, 170, 141, 24));
+        leIP->setGeometry(QRect(20, 350, 141, 24));
         lePort = new QLineEdit(page);
         lePort->setObjectName("lePort");
-        lePort->setGeometry(QRect(50, 200, 141, 24));
+        lePort->setGeometry(QRect(20, 380, 141, 24));
+        pic2_userame = new QLabel(page);
+        pic2_userame->setObjectName("pic2_userame");
+        pic2_userame->setGeometry(QRect(430, 250, 31, 41));
+        pic2_userame->setPixmap(QPixmap(QString::fromUtf8("../../OIP.png")));
+        pic2_userame->setScaledContents(true);
+        pic3_password = new QLabel(page);
+        pic3_password->setObjectName("pic3_password");
+        pic3_password->setGeometry(QRect(440, 310, 21, 31));
+        pic3_password->setPixmap(QPixmap(QString::fromUtf8("../../password.png")));
+        pic3_password->setScaledContents(true);
+        pic1_bankLogo = new QLabel(page);
+        pic1_bankLogo->setObjectName("pic1_bankLogo");
+        pic1_bankLogo->setGeometry(QRect(460, 50, 191, 181));
+        pic1_bankLogo->setPixmap(QPixmap(QString::fromUtf8("../../images-removebg-preview.png")));
+        pic1_bankLogo->setScaledContents(true);
         Login_page->addWidget(page);
         page_3 = new QWidget();
         page_3->setObjectName("page_3");
         UserGetAccountNo_PB = new QPushButton(page_3);
         UserGetAccountNo_PB->setObjectName("UserGetAccountNo_PB");
-        UserGetAccountNo_PB->setGeometry(QRect(50, 30, 151, 51));
+        UserGetAccountNo_PB->setGeometry(QRect(40, 130, 151, 51));
         UserAccountBalance_PB = new QPushButton(page_3);
         UserAccountBalance_PB->setObjectName("UserAccountBalance_PB");
-        UserAccountBalance_PB->setGeometry(QRect(460, 30, 151, 51));
+        UserAccountBalance_PB->setGeometry(QRect(530, 130, 151, 51));
         UserViewTransaction_PB_2 = new QPushButton(page_3);
         UserViewTransaction_PB_2->setObjectName("UserViewTransaction_PB_2");
-        UserViewTransaction_PB_2->setGeometry(QRect(50, 120, 151, 51));
+        UserViewTransaction_PB_2->setGeometry(QRect(40, 230, 151, 51));
         UserMakeTransaction_PB = new QPushButton(page_3);
         UserMakeTransaction_PB->setObjectName("UserMakeTransaction_PB");
-        UserMakeTransaction_PB->setGeometry(QRect(460, 120, 151, 51));
+        UserMakeTransaction_PB->setGeometry(QRect(530, 230, 151, 51));
         UserTransferAmount_PB = new QPushButton(page_3);
         UserTransferAmount_PB->setObjectName("UserTransferAmount_PB");
-        UserTransferAmount_PB->setGeometry(QRect(50, 230, 151, 51));
+        UserTransferAmount_PB->setGeometry(QRect(40, 330, 151, 51));
         UserLogout_PB = new QPushButton(page_3);
         UserLogout_PB->setObjectName("UserLogout_PB");
-        UserLogout_PB->setGeometry(QRect(460, 230, 151, 51));
+        UserLogout_PB->setGeometry(QRect(530, 330, 151, 51));
+        Label_textUser = new QLabel(page_3);
+        Label_textUser->setObjectName("Label_textUser");
+        Label_textUser->setGeometry(QRect(130, 20, 491, 31));
         Login_page->addWidget(page_3);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
@@ -308,12 +330,12 @@ public:
         Login_page->addWidget(page_7);
         page_8 = new QWidget();
         page_8->setObjectName("page_8");
-        LW_AdminViewBankDatabase = new QListWidget(page_8);
-        LW_AdminViewBankDatabase->setObjectName("LW_AdminViewBankDatabase");
-        LW_AdminViewBankDatabase->setGeometry(QRect(50, 70, 631, 281));
         Back_AdminViewBankDatabase_PB = new QPushButton(page_8);
         Back_AdminViewBankDatabase_PB->setObjectName("Back_AdminViewBankDatabase_PB");
-        Back_AdminViewBankDatabase_PB->setGeometry(QRect(300, 370, 80, 24));
+        Back_AdminViewBankDatabase_PB->setGeometry(QRect(229, 383, 281, 41));
+        TW_AdminViewBankDatabase = new QTableWidget(page_8);
+        TW_AdminViewBankDatabase->setObjectName("TW_AdminViewBankDatabase");
+        TW_AdminViewBankDatabase->setGeometry(QRect(10, 20, 711, 361));
         Login_page->addWidget(page_8);
         page_9 = new QWidget();
         page_9->setObjectName("page_9");
@@ -414,7 +436,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 762, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -422,7 +444,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        Login_page->setCurrentIndex(9);
+        Login_page->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -432,12 +454,16 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         PB_Login->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
+        pic2_userame->setText(QString());
+        pic3_password->setText(QString());
+        pic1_bankLogo->setText(QString());
         UserGetAccountNo_PB->setText(QCoreApplication::translate("MainWindow", "Get Account Number", nullptr));
         UserAccountBalance_PB->setText(QCoreApplication::translate("MainWindow", "View Account Balance", nullptr));
         UserViewTransaction_PB_2->setText(QCoreApplication::translate("MainWindow", "View Account Transaction", nullptr));
         UserMakeTransaction_PB->setText(QCoreApplication::translate("MainWindow", "Make Transaction", nullptr));
         UserTransferAmount_PB->setText(QCoreApplication::translate("MainWindow", "Transfer Amount", nullptr));
         UserLogout_PB->setText(QCoreApplication::translate("MainWindow", "Log out", nullptr));
+        Label_textUser->setText(QString());
         label_AccountNumber->setText(QCoreApplication::translate("MainWindow", "Account Number", nullptr));
         label_Count->setText(QCoreApplication::translate("MainWindow", "Count", nullptr));
         UserShowTransactin_PB->setText(QCoreApplication::translate("MainWindow", "ShowResult", nullptr));
