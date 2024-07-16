@@ -54,13 +54,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::Images_init()
 {
-    QPixmap pix("D:\\ITIDA_Scholarship\\Final project\\Bank.png"); // Loading an image
+    QPixmap pix("D:\\ITIDA_Scholarship\\Final project\\Bank_.png"); // Loading an image
     ui->pic1_bankLogo->setPixmap(pix); // Setting the image to a label
 
-    QPixmap pix2("D:\\ITIDA_Scholarship\\Final project\\OIP.png"); // Loading another image
+    QPixmap pix2("D:\\ITIDA_Scholarship\\Final project\\user_.png"); // Loading another image
     ui->pic2_userame->setPixmap(pix2); // Setting the image to a label
 
-    QPixmap pix3("D:\\ITIDA_Scholarship\\Final project\\password.png"); // Loading another image
+    QPixmap pix3("D:\\ITIDA_Scholarship\\Final project\\password_.png"); // Loading another image
     ui->pic3_password->setPixmap(pix3); // Setting the image to a label
 
 }
@@ -137,11 +137,35 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
         else if(response["status"].toString() == "transaction_amount_response")
         {
             qInfo()<<"received response transaction_amount";
-            if (response["transaction_Result"].toString() == "Transaction successful")
-                QMessageBox::information(nullptr, "Transaction Response", "Transaction successful.");
-            else
-                QMessageBox::critical(nullptr, "Transaction Response", "Transaction failed. No suffecient balance");
+           // QString  emailBody;
 
+            if (response["transaction_Result"].toString() == "Transaction successful")
+            {
+                QMessageBox::information(nullptr, "Transaction Response", "Transaction successful.");
+              //  emailBody = QString("Transaction success.");
+
+            }
+                else
+            {
+                QMessageBox::critical(nullptr, "Transaction Response", "Transaction failed. No suffecient balance");
+              //  emailBody = QString("Transaction fail.");
+
+            }
+        }
+        else if(response["status"].toString()=="transfer_response")
+        {
+            qInfo()<<"received response transfer_response";
+
+            if (response["transsfer_Result"].toString() == "Transfer successful")
+            {
+                QMessageBox::information(nullptr, "Transfer Response", "Transfer successful.");
+
+            }
+            else
+            {
+                QMessageBox::critical(nullptr, "Transfer Response", "Transfer failed.");
+
+            }
         }
 
         else if(response["status"].toString() == "ViewBankDatabase_response")

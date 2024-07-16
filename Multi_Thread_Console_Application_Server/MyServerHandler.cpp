@@ -3,12 +3,22 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QJsonDocument>
-#include <QFile>
+
+
+
 
 MyServerHandler::MyServerHandler(qint32 ID,QObject *parent)
     : QThread{parent}
 {
     this->ID = ID;
+/////
+
+
+}
+
+MyServerHandler::~MyServerHandler()
+{
+  //  logFile.close();
 }
 
 void MyServerHandler::run()
@@ -27,6 +37,9 @@ void MyServerHandler::run()
 void MyServerHandler::onReadyRead()
 {
     QByteArray ByteArr = Socket->readAll();
+
+
+
     qDebug()<<"My Server Received Data From Client"<<Qt::endl;
     Operation(QString(ByteArr));
 
@@ -34,6 +47,8 @@ void MyServerHandler::onReadyRead()
 
 void MyServerHandler::Operation(QString Operation)
 {
+
+
     qDebug()<<Operation<<Qt::endl;
      QJsonDocument jsonDoc = QJsonDocument::fromJson(Operation.toUtf8());
     QJsonObject obj= MyServerHandler::ConvertToJsonObj(Operation);
@@ -153,6 +168,7 @@ void MyServerHandler::onDisconnected()
 {
     if(Socket->isOpen())
     {
+
         Socket->close();
         qDebug()<<"Client => "<<ID<<"has disconnected"<<Qt::endl;
     }
@@ -273,6 +289,7 @@ void MyServerHandler::MakeTransactionRequest(const QString &accountNumber, int t
 {
     DataBase db;
     QJsonObject response;
+    QString  emailBody;
     if (transactionType =="Withdrow")
     {
         transactionAmount*=-1;
@@ -281,10 +298,23 @@ void MyServerHandler::MakeTransactionRequest(const QString &accountNumber, int t
     bool transactionResult = db.makeTransaction(accountNumber, transactionAmount);
     response["status"] = "transaction_amount_response";
     if (transactionResult==true)
+    {
     response["transaction_Result"] = "Transaction successful";
-    else
-     response["transaction_Result"] = "Transaction failed";
+        emailBody = QString("Transaction success.");
 
+    }
+    else
+    {
+     response["transaction_Result"] = "Transaction failed";
+        emailBody = QString("Transaction failed.");
+
+    }
+
+
+    QString to = "nadamohamedmoharram@gmail.com";  // Replace with the actual recipient email
+    QString subject = "Transaction Notification";
+
+     sendEmail(to, subject, emailBody);
 
     sendMessage(QJsonDocument(response).toJson());
 }
@@ -296,15 +326,32 @@ void MyServerHandler::TransferAmountRequest(const QString &fromAccountNumber, co
     DataBase db;
     QJsonObject response;
     bool transferResult = db.transferAmount(fromAccountNumber, toAccountNumber, transferAmount);
-
+    QString  emailBody;
     response["status"] = "transfer_response";
     if (transferResult==true)
+    {
         response["transsfer_Result"] = "Transfer successful";
+         emailBody = QString("Transfer of %1 from account %2 to account %3 was successful.")
+                        .arg(transferAmount)
+                        .arg(fromAccountNumber)
+                        .arg(toAccountNumber);
+    }
     else
+    {
         response["transsfer_Result"] = "Transfer failed";
+          emailBody = QString("Transfer of %1 from account %2 to account %3 was failed.")
+                                .arg(transferAmount)
+                                .arg(fromAccountNumber)
+                                .arg(toAccountNumber);
+    }
 
 
     sendMessage(QJsonDocument(response).toJson());
+
+    QString to = "nmo12416@gmail.com";  // Replace with the actual recipient email
+    QString subject = "Transfer Notification";
+
+    sendEmail(to, subject, emailBody);
 
 }
 
@@ -367,6 +414,40 @@ void MyServerHandler::UpdateUserRequest(const QString &accountNumber, const QJso
     sendMessage(QJsonDocument(response).toJson());
 }
 
+void MyServerHandler::sendEmail(const QString &to, const QString &subject, const QString &body)
+{
+
+    QProcess process;
+
+    // Path to your batch script
+    QString batchFilePath = "D:\\ITIDA_Scholarship\\Final project\\send_email.bat";
+
+    // Prepare arguments
+    QStringList arguments;
+    arguments << to << subject << body;
+
+    // Start the batch script with arguments
+    qDebug() << "Starting batch script with arguments:" << arguments;
+    process.start(batchFilePath, arguments);
+    if (!process.waitForFinished())
+    {
+        qDebug() << "Failed to run batch script:" << process.errorString();
+        return;
+    }
+
+    // Read and display the output or error
+    QString output = process.readAllStandardOutput();
+    QString error = process.readAllStandardError();
+    if (!error.isEmpty())
+    {
+        qDebug() << "Error sending email:" << error;
+    }
+    else
+    {
+        qDebug() << "Output:" << output;
+    }
 
 
+
+    }
 

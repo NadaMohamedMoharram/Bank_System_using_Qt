@@ -6,9 +6,10 @@ MyServer::MyServer(QObject *parent)
 
 void MyServer::StartServer()
 {
-    qout<<"Enter Server_Port to Listen to => ";
-    qout.flush();
-    Port = qin.readLine().toInt();
+    // qout<<"Enter Server_Port to Listen to => ";
+    // qout.flush();
+    // Port = qin.readLine().toInt();
+    Port = 321;
 
     this->listen(QHostAddress::Any,Port);
     if(isListening())

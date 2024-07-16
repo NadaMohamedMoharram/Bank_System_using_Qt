@@ -7,6 +7,10 @@
 #include<QDebug>
 #include<MyServerHandler.h>
 
+
+
+
+
 class MyServer : public QTcpServer
 {
     Q_OBJECT

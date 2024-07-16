@@ -5,6 +5,8 @@
 #include "MyClient.h"
 #include <QMetaEnum>
 
+#include"qaesencryption.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;

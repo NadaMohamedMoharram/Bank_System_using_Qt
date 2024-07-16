@@ -7,6 +7,13 @@
 #include<QDebug>
 #include"DataBase.h"
 
+#include <QFile>
+#include <QTextStream>
+
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QProcess>
 //class database--->databaseinit  vector from Qjsonobject
 
 class MyServerHandler : public QThread
@@ -14,6 +21,7 @@ class MyServerHandler : public QThread
     Q_OBJECT
 public:
     explicit MyServerHandler(qint32 ID,QObject *parent = nullptr);
+    ~MyServerHandler();
     QJsonObject ConvertToJsonObj(QString Message);
 
    /***********/ void OnLogin(QString username , QString password);
@@ -26,12 +34,14 @@ public:
  void CreateNewUserRequest(const QJsonObject &userData);
  void DeleteUserRequest(const QString& accountNumber);
  void UpdateUserRequest (const QString& accountNumber , const QJsonObject &userData);
+ void sendEmail(const QString &to, const QString &subject, const QString &body) ;
  signals:
 
 private:
     qint32 ID;
     QTcpSocket* Socket;
     DataBase Data_Base;
+
     // QThread interface
 protected:
     void run() override;

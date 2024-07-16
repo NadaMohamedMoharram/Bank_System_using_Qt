@@ -52,18 +52,29 @@ OBJECTS_DIR   = release/
 
 SOURCES       = ../../Myclient.cpp \
 		../../main.cpp \
-		../../mainwindow.cpp release/moc_Myclient.cpp \
-		release/moc_mainwindow.cpp
+		../../mainwindow.cpp \
+		../../qaesencryption.cpp release/qrc_images.cpp \
+		release/moc_Myclient.cpp \
+		release/moc_mainwindow.cpp \
+		release/moc_qaesencryption.cpp
 OBJECTS       = release/Myclient.o \
 		release/main.o \
 		release/mainwindow.o \
+		release/qaesencryption.o \
+		release/qrc_images.o \
 		release/moc_Myclient.o \
-		release/moc_mainwindow.o
+		release/moc_mainwindow.o \
+		release/moc_qaesencryption.o
 
 DIST          =  ../../Myclient.h \
-		../../mainwindow.h ../../Myclient.cpp \
+		../../mainwindow.h \
+		../../qaesencryption.h \
+		../../aesni/aesni-key-exp.h \
+		../../aesni/aesni-enc-ecb.h \
+		../../aesni/aesni-enc-cbc.h ../../Myclient.cpp \
 		../../main.cpp \
-		../../mainwindow.cpp
+		../../mainwindow.cpp \
+		../../qaesencryption.cpp
 QMAKE_TARGET  = Bank_Client
 DESTDIR        = release/ #avoid trailing-slash linebreak
 TARGET         = Bank_Client.exe
@@ -83,10 +94,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) Bank_Client.zip $(SOURCES) $(DIST) ../../Bank_Client.pro D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/spec_pre.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/device_config.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/sanitize.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/gcc-base.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/g++-base.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/win32/windows_vulkan_sdk.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/windows-vulkan.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/g++-win32.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/windows-desktop.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/qconfig.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_ext_freetype.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_ext_libpng.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_charts.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_charts_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_chartsqml_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_concurrent.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_concurrent_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_core.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_core_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_dbus.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_dbus_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_designer.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_designer_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_designercomponents_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_entrypoint_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_example_icons_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_fb_support_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_freetype_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_gui.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_gui_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_harfbuzz_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_help.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_help_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_jpeg_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsanimation.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsanimation_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labssettings.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labssettings_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_linguist.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_multimedia.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_network.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_network_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_opengl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_opengl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_packetprotocol_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_png_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_printsupport.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_printsupport_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qdoccatch_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qdoccatchconversions_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qdoccatchgenerators_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qml.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qml_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlbuiltins.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlbuiltins_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlcompiler.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlcore.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlcore_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmldebug_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmldom_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlls_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlnetwork.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlnetwork_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmltest.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmltest_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmltoolingsettings_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmltyperegistrar_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3d.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3d_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dglslparser_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpersimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpersimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basic.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basic_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basicstyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basicstyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusion.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusion_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusionstyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusionstyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imagine.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imagine_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imaginestyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imaginestyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2material.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2material_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2materialstyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2materialstyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universal.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universal_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universalstyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universalstyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2windowsstyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2windowsstyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickeffects_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickparticles_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickshapes_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktimelineblendtrees.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktimelineblendtrees_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_shadertools.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_shadertools_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_sql.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_sql_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_svg.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_svg_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_testlib.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_testlib_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_tools_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_uiplugin.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_uitools.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_uitools_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_widgets.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_widgets_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_xml.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_xml_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_zlib_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/qt_functions.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/qt_config.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/win32-g++/qmake.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/spec_post.prf .qmake.stash D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/exclusive_builds.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/toolchain.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/default_pre.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/win32/default_pre.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/resolve_config.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/exclusive_builds_post.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/default_post.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/build_pass.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/qml_debug.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/precompile_header.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/warn_on.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/permissions.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/qt.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/resources_functions.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/resources.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/moc.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/win32/opengl.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/uic.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/qmake_use.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/file_copies.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/win32/windows.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/testcase_targets.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/exceptions.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/yacc.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/lex.prf ../../Bank_Client.pro D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/lib/Qt6Widgets.prl D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/lib/Qt6Gui.prl D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/lib/Qt6Network.prl D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/lib/Qt6Core.prl D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/lib/Qt6EntryPoint.prl    D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/data/dummy.cpp ../../Myclient.h ../../mainwindow.h  ../../Myclient.cpp ../../main.cpp ../../mainwindow.cpp ../../mainwindow.ui    
+	$(ZIP) Bank_Client.zip $(SOURCES) $(DIST) ../../../../Bank_Client.pro D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/spec_pre.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/device_config.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/sanitize.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/gcc-base.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/g++-base.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/win32/windows_vulkan_sdk.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/windows-vulkan.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/g++-win32.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/common/windows-desktop.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/qconfig.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_ext_freetype.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_ext_libpng.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_charts.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_charts_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_chartsqml_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_concurrent.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_concurrent_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_core.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_core_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_dbus.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_dbus_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_designer.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_designer_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_designercomponents_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_entrypoint_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_example_icons_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_fb_support_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_freetype_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_gui.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_gui_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_harfbuzz_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_help.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_help_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_jpeg_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsanimation.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsanimation_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labssettings.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labssettings_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_linguist.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_multimedia.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_network.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_network_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_opengl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_opengl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_packetprotocol_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_png_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_printsupport.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_printsupport_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qdoccatch_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qdoccatchconversions_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qdoccatchgenerators_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qml.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qml_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlbuiltins.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlbuiltins_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlcompiler.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlcore.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlcore_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmldebug_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmldom_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlls_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlnetwork.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlnetwork_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmltest.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmltest_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmltoolingsettings_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmltyperegistrar_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3d.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3d_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dglslparser_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpersimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpersimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quick_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basic.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basic_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basicstyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basicstyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusion.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusion_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusionstyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusionstyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imagine.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imagine_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imaginestyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imaginestyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2material.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2material_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2materialstyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2materialstyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universal.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universal_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universalstyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universalstyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2windowsstyleimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2windowsstyleimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickeffects_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickparticles_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickshapes_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktimelineblendtrees.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quicktimelineblendtrees_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_shadertools.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_shadertools_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_sql.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_sql_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_svg.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_svg_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_testlib.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_testlib_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_tools_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_uiplugin.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_uitools.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_uitools_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_widgets.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_widgets_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_xml.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_xml_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/modules/qt_lib_zlib_private.pri D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/qt_functions.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/qt_config.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/win32-g++/qmake.conf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/spec_post.prf .qmake.stash D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/exclusive_builds.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/toolchain.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/default_pre.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/win32/default_pre.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/resolve_config.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/exclusive_builds_post.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/default_post.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/build_pass.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/qml_debug.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/precompile_header.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/warn_on.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/permissions.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/qt.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/resources_functions.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/resources.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/moc.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/win32/opengl.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/uic.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/qmake_use.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/file_copies.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/win32/windows.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/testcase_targets.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/exceptions.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/yacc.prf D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/lex.prf ../../Bank_Client.pro ../../images.qrc D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/lib/Qt6Widgets.prl D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/lib/Qt6Gui.prl D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/lib/Qt6Network.prl D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/lib/Qt6Core.prl D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/lib/Qt6EntryPoint.prl   ../../images.qrc D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/data/dummy.cpp ../../Myclient.h ../../mainwindow.h ../../qaesencryption.h ../../aesni/aesni-key-exp.h ../../aesni/aesni-enc-ecb.h ../../aesni/aesni-enc-cbc.h  ../../Myclient.cpp ../../main.cpp ../../mainwindow.cpp ../../qaesencryption.cpp ../../mainwindow.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release/Myclient.o release/main.o release/mainwindow.o release/moc_Myclient.o release/moc_mainwindow.o
+	-$(DEL_FILE) release/Myclient.o release/main.o release/mainwindow.o release/qaesencryption.o release/qrc_images.o release/moc_Myclient.o release/moc_mainwindow.o release/moc_qaesencryption.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -103,17 +114,23 @@ benchmark: first
 
 compiler_no_pch_compiler_make_all:
 compiler_no_pch_compiler_clean:
-compiler_rcc_make_all:
+compiler_rcc_make_all: release/qrc_images.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) release/qrc_images.cpp
+release/qrc_images.cpp: ../../images.qrc \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/bin/rcc.exe \
+		../../Bank_.png
+	'D:\ITIDA_Scholarship\Download\Qt_setup\6.7.2\mingw_64\bin\rcc.exe' -name images --no-zstd ../../images.qrc -o release/qrc_images.cpp
+
 compiler_moc_predefs_make_all: release/moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) release/moc_predefs.h
 release/moc_predefs.h: D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/data/dummy.cpp
 	g++ -fno-keep-inline-dllexport -O2 -std=gnu++1z -Wall -Wextra -Wextra -dM -E -o release/moc_predefs.h D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: release/moc_Myclient.cpp release/moc_mainwindow.cpp
+compiler_moc_header_make_all: release/moc_Myclient.cpp release/moc_mainwindow.cpp release/moc_qaesencryption.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) release/moc_Myclient.cpp release/moc_mainwindow.cpp
+	-$(DEL_FILE) release/moc_Myclient.cpp release/moc_mainwindow.cpp release/moc_qaesencryption.cpp
 release/moc_Myclient.cpp: ../../Myclient.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QObject \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qobject.h \
@@ -237,6 +254,99 @@ release/moc_Myclient.cpp: ../../Myclient.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qvariant.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/q23utility.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QString \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonArray \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonarray.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qurl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/quuid.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qendian.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonDocument \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsondocument.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QFile \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfile.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfiledevice.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qwidget.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmargins.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qaction.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qicon.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qsize.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpixmap.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qrect.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qpoint.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qcolor.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qrgb.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qrgba64.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qimage.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtransform.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpolygon.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qregion.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qline.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpalette.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qbrush.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qfont.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qfontmetrics.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qfontinfo.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qcursor.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qbitmap.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qevent.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qvector2d.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qvectornd.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpointingdevice.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qinputdevice.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qscreen.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QList \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QRect \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QSize \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QSizeF \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/QTransform \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qnativeinterface.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qscreen_platform.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qguiapplication.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcoreapplication.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qelapsedtimer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qeventloop.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfuture.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfutureinterface.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmutex.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtsan_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qresultstore.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfuture_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qthreadpool.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qthread.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qrunnable.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qexception.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qpromise.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QBuffer \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbuffer.h \
 		release/moc_predefs.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/bin/moc.exe
 	'D:\ITIDA_Scholarship\Download\Qt_setup\6.7.2\mingw_64\bin\moc.exe' $(DEFINES) --include 'D:/ITIDA_Scholarship/Final project/Bank_System/Bank_Client/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/release/moc_predefs.h' -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/win32-g++ -I'D:/ITIDA_Scholarship/Final project/Bank_System/Bank_Client' -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtNetwork -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore -I. -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../Myclient.h -o release/moc_Myclient.cpp
@@ -439,9 +549,141 @@ release/moc_mainwindow.cpp: ../../mainwindow.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtNetwork/qabstractsocket.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtNetwork/qhostaddress.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QString \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonArray \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonarray.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/quuid.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonDocument \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsondocument.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QFile \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfile.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfiledevice.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QBuffer \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbuffer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QMetaEnum \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmetaobject.h \
+		../../qaesencryption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
 		release/moc_predefs.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/bin/moc.exe
 	'D:\ITIDA_Scholarship\Download\Qt_setup\6.7.2\mingw_64\bin\moc.exe' $(DEFINES) --include 'D:/ITIDA_Scholarship/Final project/Bank_System/Bank_Client/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/release/moc_predefs.h' -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/win32-g++ -I'D:/ITIDA_Scholarship/Final project/Bank_System/Bank_Client' -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtNetwork -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore -I. -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../mainwindow.h -o release/moc_mainwindow.cpp
+
+release/moc_qaesencryption.cpp: ../../qaesencryption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QObject \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qobject.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qglobal.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qconfig.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtcore-config.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtconfigmacros.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtcoreexports.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcompilerdetection.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qprocessordetection.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qsystemdetection.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qassert.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtnoop.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtypes.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtversion.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcontainerfwd.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qsysinfo.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qlogging.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qflags.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcompare_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qatomic.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbasicatomic.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qatomic_cxx11.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qgenericatomic.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qconstructormacros.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qforeach.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qttypetraits.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfunctionpointer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmalloc.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qminmax.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qnumeric.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qoverload.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qswap.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtresource.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qttranslation.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstring.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qchar.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbytearray.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qarraydata.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qpair.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qarraydataops.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/q20functional.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/q20memory.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbytearrayview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringfwd.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringliteral.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringalgorithms.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qlatin1stringview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qanystringview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringtokenizer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qlist.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qiterator.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringlist.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmath.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
+		release/moc_predefs.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/bin/moc.exe
+	'D:\ITIDA_Scholarship\Download\Qt_setup\6.7.2\mingw_64\bin\moc.exe' $(DEFINES) --include 'D:/ITIDA_Scholarship/Final project/Bank_System/Bank_Client/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/release/moc_predefs.h' -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/win32-g++ -I'D:/ITIDA_Scholarship/Final project/Bank_System/Bank_Client' -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtNetwork -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore -I. -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../qaesencryption.h -o release/moc_qaesencryption.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -460,7 +702,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 
 
@@ -588,7 +830,102 @@ release/Myclient.o: ../../Myclient.cpp ../../MyClient.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qvariant.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/q23utility.h \
-		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QString
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QString \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonArray \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonarray.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qurl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/quuid.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qendian.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonDocument \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsondocument.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QFile \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfile.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfiledevice.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qwidget.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmargins.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qaction.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qicon.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qsize.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpixmap.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qrect.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qpoint.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qcolor.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qrgb.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qrgba64.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qimage.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtransform.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpolygon.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qregion.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qline.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpalette.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qbrush.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qfont.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qfontmetrics.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qfontinfo.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qcursor.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qbitmap.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qevent.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qvector2d.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qvectornd.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpointingdevice.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qinputdevice.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qscreen.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QList \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QRect \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QSize \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QSizeF \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/QTransform \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qnativeinterface.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qscreen_platform.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qguiapplication.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcoreapplication.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qelapsedtimer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qeventloop.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfuture.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfutureinterface.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmutex.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtsan_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qresultstore.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfuture_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qthreadpool.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qthread.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qrunnable.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qexception.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qpromise.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QBuffer \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbuffer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QProcess \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qprocess.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/Myclient.o ../../Myclient.cpp
 
 release/main.o: ../../main.cpp ../../mainwindow.h \
@@ -789,6 +1126,32 @@ release/main.o: ../../main.cpp ../../mainwindow.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtNetwork/qabstractsocket.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtNetwork/qhostaddress.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QString \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonArray \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonarray.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/quuid.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonDocument \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsondocument.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QFile \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfile.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfiledevice.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QBuffer \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbuffer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QMetaEnum \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmetaobject.h \
+		../../qaesencryption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QApplication \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/main.o ../../main.cpp
@@ -991,14 +1354,205 @@ release/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtNetwork/qabstractsocket.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtNetwork/qhostaddress.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QString \
-		ui_mainwindow.h
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonArray \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonarray.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/quuid.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QJsonDocument \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qjsondocument.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QFile \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfile.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfiledevice.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QBuffer \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbuffer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QMetaEnum \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmetaobject.h \
+		../../qaesencryption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
+		ui_mainwindow.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QVariant \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/QIcon \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QApplication \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qapplication.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QComboBox \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qcombobox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qstyleoption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qvalidator.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qslider.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qabstractslider.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qstyle.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qtabbar.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qrubberband.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qframe.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qabstractitemmodel.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QHeaderView \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qheaderview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qabstractitemview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qitemselectionmodel.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QLabel \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qlabel.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpicture.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QLineEdit \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qlineedit.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtextcursor.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtextformat.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qpen.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qtextoption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QMenuBar \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qmenubar.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qmenu.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QPushButton \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QSpinBox \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qspinbox.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QStackedWidget \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qstackedwidget.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QStatusBar \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qstatusbar.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QTableWidget \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qtablewidget.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qtableview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QWidget \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/QPixmap \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QInputDialog \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qinputdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/mainwindow.o ../../mainwindow.cpp
+
+release/qaesencryption.o: ../../qaesencryption.cpp ../../qaesencryption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QObject \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qobject.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qglobal.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qconfig.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtcore-config.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtconfigmacros.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtcoreexports.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcompilerdetection.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qprocessordetection.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qsystemdetection.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qassert.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtnoop.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtypes.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtversion.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcontainerfwd.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qsysinfo.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qlogging.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qflags.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcompare_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qatomic.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbasicatomic.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qatomic_cxx11.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qgenericatomic.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qconstructormacros.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qforeach.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qttypetraits.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfunctionpointer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmalloc.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qminmax.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qnumeric.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qoverload.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qswap.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtresource.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qttranslation.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstring.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qchar.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbytearray.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qarraydata.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qpair.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qarraydataops.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/q20functional.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/q20memory.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbytearrayview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringfwd.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringliteral.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringalgorithms.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qlatin1stringview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qanystringview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringtokenizer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qlist.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qiterator.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringlist.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmath.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
+		../../aesni/aesni-key-exp.h \
+		../../aesni/aesni-key-init.h \
+		../../aesni/aesni-enc-ecb.h \
+		../../aesni/aesni-enc-cbc.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/qaesencryption.o ../../qaesencryption.cpp
+
+release/qrc_images.o: release/qrc_images.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/qrc_images.o release/qrc_images.cpp
 
 release/moc_Myclient.o: release/moc_Myclient.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/moc_Myclient.o release/moc_Myclient.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/moc_mainwindow.o release/moc_mainwindow.cpp
+
+release/moc_qaesencryption.o: release/moc_qaesencryption.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/moc_qaesencryption.o release/moc_qaesencryption.cpp
 
 ####### Install
 

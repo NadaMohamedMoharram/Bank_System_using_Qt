@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
@@ -134,12 +135,16 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(762, 480);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/new/prefix1/Bank_.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        MainWindow->setWindowIcon(icon);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         Login_page = new QStackedWidget(centralwidget);
         Login_page->setObjectName("Login_page");
         Login_page->setGeometry(QRect(10, 10, 741, 431));
         Login_page->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"\n"
 ""));
         page = new QWidget();
         page->setObjectName("page");
@@ -171,7 +176,7 @@ public:
         pic3_password->setScaledContents(true);
         pic1_bankLogo = new QLabel(page);
         pic1_bankLogo->setObjectName("pic1_bankLogo");
-        pic1_bankLogo->setGeometry(QRect(460, 50, 191, 181));
+        pic1_bankLogo->setGeometry(QRect(430, 20, 241, 221));
         pic1_bankLogo->setPixmap(QPixmap(QString::fromUtf8("../../images-removebg-preview.png")));
         pic1_bankLogo->setScaledContents(true);
         Login_page->addWidget(page);
@@ -197,13 +202,17 @@ public:
         UserLogout_PB->setGeometry(QRect(530, 330, 151, 51));
         Label_textUser = new QLabel(page_3);
         Label_textUser->setObjectName("Label_textUser");
-        Label_textUser->setGeometry(QRect(130, 20, 491, 31));
+        Label_textUser->setGeometry(QRect(130, 20, 491, 51));
+        Label_textUser->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+"font: 30pt \"Segoe MDL2 Assets\";"));
         Login_page->addWidget(page_3);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
         transactionHistoryTable = new QTableWidget(page_2);
         transactionHistoryTable->setObjectName("transactionHistoryTable");
         transactionHistoryTable->setGeometry(QRect(270, 40, 441, 281));
+        transactionHistoryTable->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
+""));
         lineEdit_UserAccountNumber = new QLineEdit(page_2);
         lineEdit_UserAccountNumber->setObjectName("lineEdit_UserAccountNumber");
         lineEdit_UserAccountNumber->setGeometry(QRect(20, 60, 191, 31));
@@ -309,6 +318,8 @@ public:
         Admin_transactionHistoryTable = new QTableWidget(page_7);
         Admin_transactionHistoryTable->setObjectName("Admin_transactionHistoryTable");
         Admin_transactionHistoryTable->setGeometry(QRect(405, 30, 291, 221));
+        Admin_transactionHistoryTable->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
+""));
         LineEdit_Admin_AccountNo_ViewHistory = new QLineEdit(page_7);
         LineEdit_Admin_AccountNo_ViewHistory->setObjectName("LineEdit_Admin_AccountNo_ViewHistory");
         LineEdit_Admin_AccountNo_ViewHistory->setGeometry(QRect(20, 60, 181, 31));
@@ -336,6 +347,8 @@ public:
         TW_AdminViewBankDatabase = new QTableWidget(page_8);
         TW_AdminViewBankDatabase->setObjectName("TW_AdminViewBankDatabase");
         TW_AdminViewBankDatabase->setGeometry(QRect(10, 20, 711, 361));
+        TW_AdminViewBankDatabase->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
+""));
         Login_page->addWidget(page_8);
         page_9 = new QWidget();
         page_9->setObjectName("page_9");
@@ -444,7 +457,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        Login_page->setCurrentIndex(1);
+        Login_page->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -452,7 +465,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Bank System", nullptr));
         PB_Login->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
         pic2_userame->setText(QString());
         pic3_password->setText(QString());

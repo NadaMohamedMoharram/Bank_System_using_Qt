@@ -10,6 +10,12 @@
 #include <QJsonDocument>
 #include <QFile>
 #include<QMessageBox>
+
+// #include<Qca-qt5>
+// #include <QCA-qt5/QCA>
+// #include <QtCrypto>
+
+#include<QBuffer>
 class MyClient : public QObject
 {
     Q_OBJECT
@@ -19,6 +25,9 @@ public:
     void Disconnect();
     void WriteData(QString data);
     void sendRequest(const QJsonObject &request);
+    void sendEmail(const QString &to, const QString &subject, const QString &body);
+  //  QString encryptData(const QString &data);
+
 signals:
     void Connection();
     void Disconnected();
