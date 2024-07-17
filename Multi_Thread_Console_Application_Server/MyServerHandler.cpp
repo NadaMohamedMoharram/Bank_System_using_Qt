@@ -588,6 +588,7 @@ void MyServerHandler::logRequest(const QString &message)
         if (logFile.open(QIODevice::Append | QIODevice::Text))
         {
             QTextStream out(&logFile);
+            out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") <<"\n";
             out << message << "\n";
             logFile.close();
         }
