@@ -9,6 +9,8 @@
 #include<QPixmap> // Including QPixmap for handling images
 
 #include<QInputDialog>
+
+
 enum GUI_Windows
 {
   LoginPage=0,

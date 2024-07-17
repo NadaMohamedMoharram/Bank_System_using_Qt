@@ -161,12 +161,47 @@ void MyServerHandler::onReadyRead()
         return;
     }
 
-     logRequest(QString(decryptedMessage));
+    //  logRequest(QString(decryptedMessage));
 
-    qDebug() << "Decrypted message after remove padding: " << QString(decryptedMessage);
-    Operation(QString(decryptedMessage));
+    // qDebug() << "Decrypted message after remove padding: " << QString(decryptedMessage);
+    // Operation(QString(decryptedMessage));
 
+
+    QString decryptedMessageStr = QString(decryptedMessage);
+    qDebug() << "Decrypted message: " << decryptedMessageStr<<Qt::endl;
+
+    // Split the message to extract the original data and the hash signature
+    QStringList messageParts = decryptedMessageStr.split("|");
+    if (messageParts.size() != 2)
+    {
+        qWarning() << "Invalid message format.";
+        return;
+    }
+
+    QString originalMessage = messageParts.at(0);
+    QString receivedHashSignature = messageParts.at(1);
+
+    // Verify the hash signature using the secret key
+    QByteArray secretKey = "IMT_Secret_key1234"; // Example secret key for hashing
+    QByteArray recalculatedHashSignature = QCryptographicHash::hash(originalMessage.toUtf8() + secretKey, QCryptographicHash::Sha256).toHex();
+
+    if (receivedHashSignature != recalculatedHashSignature)
+    {
+        qWarning() << "Invalid signature.";
+        return;
+    }
+
+    qDebug() << "Signature verified successfully.";
+
+    // Log the request to a file
+    logRequest("original message=>"+originalMessage);
+    logRequest("receivedHashSignature message=>"+receivedHashSignature);
+    // Process the original message
+    Operation(originalMessage);
 }
+
+
+
 
 void MyServerHandler::Operation(QString Operation)
 {

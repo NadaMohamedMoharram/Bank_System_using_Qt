@@ -1,3 +1,11 @@
 2024-07-17 15:42:21: {"password":"1234","type":"login","username":"Nada"}
 {"password":"1234","type":"login","username":"Nada"}
 {"type":"GetAccountNumber","username":"Nada"}
+2024-07-18 02:46:47
+original message=>{"password":"1234","type":"login","username":"Nada"}
+2024-07-18 02:46:47
+receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
+2024-07-18 02:48:17
+original message=>{"type":"GetAccountNumber","username":"Nada"}
+2024-07-18 02:48:17
+receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
