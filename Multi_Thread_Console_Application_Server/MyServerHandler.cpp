@@ -43,10 +43,10 @@ void MyServerHandler::onReadyRead()
     // qDebug()<<"My Server Received Data From Client"<<Qt::endl;
     // Operation(QString(ByteArr));
 
-    qInfo()<<" receiveing encrypted request"<<Qt::endl;
+    // qInfo()<<" receiveing encrypted request"<<Qt::endl;
 
-    QByteArray encryptedMessage = Socket->readAll();
-    qDebug() << "Encrypted message received from client: " << encryptedMessage;
+    // QByteArray encryptedMessage = Socket->readAll();
+    // qDebug() << "Encrypted message received from client: " << encryptedMessage;
 
     // // Define your AES encryption parameters
     // QAESEncryption::Aes aesLevel = QAESEncryption::AES_256; // or AES_128, AES_192
@@ -70,8 +70,10 @@ void MyServerHandler::onReadyRead()
     //     decryptedMessage.chop(paddingLength);
     // }
 
-    QByteArray key = "1234567890123456"; // Encryption key
-    QByteArray iv = "1234567890123456"; // Initialization vector
+    /***************/
+    /*
+    QByteArray key = "0123456789abcdef0123456789abcdef"; // Encryption key
+    QByteArray iv = "abcdef9876543210abcdef9876543210"; // Initialization vector
     // Decrypt the data
     QByteArray decryptedData = QAESEncryption::Decrypt(QAESEncryption::AES_128, QAESEncryption::CBC, decryptedData, key, iv, QAESEncryption::PKCS7);
 
@@ -82,6 +84,87 @@ void MyServerHandler::onReadyRead()
 
     logRequest(QString(decryptedData));
      Operation(QString(decryptedData));
+     */
+/********true code*************/
+    /* QByteArray encryptedMessage = Socket->readAll();
+    qDebug() << "Encrypted message received from client: " << encryptedMessage;
+
+    // Define AES parameters
+    QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef"); // 32 bytes key for AES-256
+    QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210");  // 16 bytes IV for AES
+
+    // Decrypt the message
+    QAESEncryption encryption(QAESEncryption::AES_128, QAESEncryption::CBC, QAESEncryption::PKCS7);
+    QByteArray decryptedMessage = encryption.decode(encryptedMessage, key, iv);
+
+    // Check if the decryption produced any data
+    if (decryptedMessage.isEmpty()) {
+        qWarning() << "Decryption failed, no data produced.";
+        return;
+    }
+
+    qDebug() << "Decrypted message: " << QString(decryptedMessage);
+
+    // Handle the operation
+    Operation(QString(decryptedMessage));
+
+    */
+
+
+
+
+    /*************/
+
+
+
+
+
+
+    qInfo() << "Receiving encrypted request" << Qt::endl;
+
+    QByteArray encryptedMessage = Socket->readAll();
+    qDebug() << "Encrypted message received from client: " << encryptedMessage;
+
+    // Define your AES decryption parameters
+    QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"); // 32 bytes
+    QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210"); // 16 bytes
+
+    // Decrypt the message
+    QByteArray decryptedMessage = QAESEncryption::Decrypt(
+        QAESEncryption::AES_256,
+        QAESEncryption::CBC,
+        encryptedMessage,
+        key,
+        iv,
+        QAESEncryption::PKCS7
+        );
+
+    if (decryptedMessage.isEmpty())
+    {
+        qWarning() << "Decryption failed, no data produced.";
+        return;
+    }
+
+    qDebug() << "Decrypted message: " << QString(decryptedMessage);
+
+    // int padLength = decryptedMessage.at(decryptedMessage.length() - 1); // Get padding length
+    // decryptedMessage = decryptedMessage.left(decryptedMessage.length() - padLength); // Remove padding
+
+    int paddingLength = decryptedMessage.at(decryptedMessage.size() - 1);
+    if (paddingLength > 0 && paddingLength <= 16)
+    {
+        decryptedMessage.chop(paddingLength);
+    }
+    else
+    {
+        qWarning() << "Invalid padding length.";
+        return;
+    }
+
+     logRequest(QString(decryptedMessage));
+
+    qDebug() << "Decrypted message after remove padding: " << QString(decryptedMessage);
+    Operation(QString(decryptedMessage));
 
 }
 
@@ -89,7 +172,7 @@ void MyServerHandler::Operation(QString Operation)
 {
 
 
-    qDebug()<<Operation<<Qt::endl;
+    //qDebug()<<Operation<<Qt::endl;
      QJsonDocument jsonDoc = QJsonDocument::fromJson(Operation.toUtf8());
     QJsonObject obj= MyServerHandler::ConvertToJsonObj(Operation);
     // if (!jsonDoc.isNull() && jsonDoc.isObject()) {
@@ -491,12 +574,26 @@ void MyServerHandler::sendEmail(const QString &to, const QString &subject, const
 
     }
 
-void MyServerHandler::logRequest(const QString &request)
-    {        QFile logFile("D:\\ITIDA_Scholarship\\Final project\\Bank_System\\Multi_Thread_Console_Application_Server\\server_log.log");
+void MyServerHandler::logRequest(const QString &message)
+    {     /*   QFile logFile("D:\\ITIDA_Scholarship\\Final project\\Bank_System\\Multi_Thread_Console_Application_Server\\server_log.log");
         if (logFile.open(QIODevice::Append | QIODevice::Text)) {
             QTextStream out(&logFile);
             out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") << ": " << request << "\n";
             logFile.close();
+        }
+        */
+
+
+        QFile logFile("D:\\ITIDA_Scholarship\\Final project\\Bank_System\\Multi_Thread_Console_Application_Server\\server_log.log");
+        if (logFile.open(QIODevice::Append | QIODevice::Text))
+        {
+            QTextStream out(&logFile);
+            out << message << "\n";
+            logFile.close();
+        }
+        else
+        {
+            qWarning() << "Could not open log file for writing.";
         }
     }
 

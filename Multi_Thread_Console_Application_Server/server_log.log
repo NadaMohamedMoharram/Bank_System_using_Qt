@@ -1,0 +1,3 @@
+2024-07-17 15:42:21: {"password":"1234","type":"login","username":"Nada"}
+{"password":"1234","type":"login","username":"Nada"}
+{"type":"GetAccountNumber","username":"Nada"}

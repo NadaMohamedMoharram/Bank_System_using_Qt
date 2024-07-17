@@ -49,15 +49,20 @@ void MyClient::Disconnect()
 
 void MyClient::WriteData(QString data)
 {
-    if(socket.isOpen())
+   /* if(socket.isOpen())
     {
         qInfo()<<"inside send request"<<Qt::endl;
         // Define your AES parameters
         // Define your AES parameters
-        const QByteArray key = "1234567890123456"; // Example: 32 bytes key for AES-256
-        const QByteArray iv = "1234567890123456";   // Example: 16 bytes IV for AES
-        QByteArray rawData = data.toUtf8();
+        qInfo()<<"before encryptedDataNew"<<data<<Qt::endl;
 
+
+        // Define your AES parameters
+        const QByteArray key = "0123456789abcdef0123456789abcdef"; // 32 bytes key for AES-256
+        const QByteArray iv = "abcdef9876543210abcdef9876543210";   // 16 bytes IV for AES
+
+        QByteArray rawData = data.toUtf8();
+         qInfo()<<"rawData"<<rawData<<Qt::endl;
         // Encrypt the data
         QByteArray encryptedData = QAESEncryption::Crypt(
             QAESEncryption::AES_256, // AES level (AES_128, AES_192, or AES_256)
@@ -67,16 +72,85 @@ void MyClient::WriteData(QString data)
             iv,                      // Initialization vector
             QAESEncryption::PKCS7    // Padding (ZERO, PKCS7, ISO)
             );
-         QString encryptedDataNew = QString(encryptedData);
 
-         socket.write(encryptedDataNew.toUtf8());
+             qInfo()<<"encryptedDataNew"<<encryptedData<<Qt::endl;
+            socket.write(encryptedData);
+            qInfo()<<" send encrypted request"<<Qt::endl;
+
+         // QString encryptedDataNew = QString(encryptedData);
+
+         // socket.write(encryptedDataNew.toUtf8());
 
        // socket.write(data.toUtf8());
-      //  socket.write(encryptedData);
-        qInfo()<<" send encrypted request"<<Qt::endl;
 
-    }
+
+    }*/
+
+
+   /**********true***********/
+   /*
+   if (socket.isOpen()) {
+       qInfo() << "inside send request" << Qt::endl;
+
+       // Define your AES parameters
+       QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef"); // 32 bytes key for AES-256
+       QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210");   // 16 bytes IV for AES
+
+       QByteArray rawData = data.toUtf8();
+       qInfo() << "rawData: " << rawData << Qt::endl;
+
+       // Encrypt the data
+       QAESEncryption encryption(QAESEncryption::AES_128, QAESEncryption::CBC, QAESEncryption::PKCS7);
+       QByteArray encryptedData = encryption.encode(rawData, key, iv);
+
+       qInfo() << "encryptedData: " << encryptedData << Qt::endl;
+
+       // Check if the encryption produced any data
+       if (encryptedData.isEmpty()) {
+           qWarning() << "Encryption failed, no data produced.";
+           return;
+       }
+
+       socket.write(encryptedData);
+       qInfo() << "send encrypted request" << Qt::endl;
+   }*/
+
+
+   /********************/
+   if (socket.isOpen())
+   {
+       qInfo() << "Inside send request" << Qt::endl;
+
+       // Define your AES parameters
+       QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"); // 64 hex characters = 32 bytes
+       QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210"); // 32 hex characters = 16 bytes
+
+       QByteArray rawData = data.toUtf8();
+       qInfo() << "Raw data" << rawData << Qt::endl;
+
+       // Encrypt the data
+       QByteArray encryptedData = QAESEncryption::Crypt(
+           QAESEncryption::AES_256, // AES level (AES_128, AES_192, or AES_256)
+           QAESEncryption::CBC,     // Mode (ECB, CBC, CFB, OFB)
+           rawData,                 // Raw data to encrypt
+           key,                     // Encryption key
+           iv,                      // Initialization vector
+           QAESEncryption::PKCS7    // Padding (ZERO, PKCS7, ISO)
+           );
+
+       if (encryptedData.isEmpty())
+       {
+           qWarning() << "Encryption failed, no data produced.";
+           return;
+       }
+
+       qInfo() << "Encrypted data" << encryptedData << Qt::endl;
+       socket.write(encryptedData);
+       qInfo() << "Sent encrypted request" << Qt::endl;
+   }
 }
+
+
 
 void MyClient::onConnection()
 {

@@ -1,6 +1,6 @@
 #ifndef MYCLIENT_H
 #define MYCLIENT_H
-
+//
 #include <QObject>
 #include <QTcpSocket>  /// i use it t to create the socket
 #include<QString>
