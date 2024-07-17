@@ -14,6 +14,8 @@
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QProcess>
+
+#include"qaesencryption.h"
 //class database--->databaseinit  vector from Qjsonobject
 
 class MyServerHandler : public QThread
@@ -35,6 +37,7 @@ public:
  void DeleteUserRequest(const QString& accountNumber);
  void UpdateUserRequest (const QString& accountNumber , const QJsonObject &userData);
  void sendEmail(const QString &to, const QString &subject, const QString &body) ;
+ void logRequest(const QString &request);
  signals:
 
 private:

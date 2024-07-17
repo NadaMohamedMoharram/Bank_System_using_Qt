@@ -10,7 +10,8 @@ SOURCES += \
         DataBase.cpp \
         MyServer.cpp \
         MyServerHandler.cpp \
-        main.cpp
+        main.cpp \
+        qaesencryption.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -20,4 +21,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     DataBase.h \
     MyServer.h \
-    MyServerHandler.h
+    MyServerHandler.h \
+    qaesencryption.h \
+    aesni/aesni-key-exp.h \
+    aesni/aesni-enc-ecb.h \
+    aesni/aesni-enc-cbc.h

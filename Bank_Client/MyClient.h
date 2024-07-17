@@ -11,6 +11,8 @@
 #include <QFile>
 #include<QMessageBox>
 
+#include"qaesencryption.h"
+
 // #include<Qca-qt5>
 // #include <QCA-qt5/QCA>
 // #include <QtCrypto>

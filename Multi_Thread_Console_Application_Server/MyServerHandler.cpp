@@ -29,19 +29,59 @@ void MyServerHandler::run()
     connect(Socket,&QTcpSocket::readyRead,this,&MyServerHandler::onReadyRead,Qt::DirectConnection);
     connect(Socket,&QTcpSocket::disconnected,this,&MyServerHandler::onDisconnected,Qt::DirectConnection);
 
-    sendMessage("Hello From My Server Dear client");
+   // sendMessage("Hello From My Server Dear client");
     exec();
 
 }
 
 void MyServerHandler::onReadyRead()
 {
-    QByteArray ByteArr = Socket->readAll();
+
+    // QByteArray ByteArr = Socket->readAll();
 
 
+    // qDebug()<<"My Server Received Data From Client"<<Qt::endl;
+    // Operation(QString(ByteArr));
 
-    qDebug()<<"My Server Received Data From Client"<<Qt::endl;
-    Operation(QString(ByteArr));
+    qInfo()<<" receiveing encrypted request"<<Qt::endl;
+
+    QByteArray encryptedMessage = Socket->readAll();
+    qDebug() << "Encrypted message received from client: " << encryptedMessage;
+
+    // // Define your AES encryption parameters
+    // QAESEncryption::Aes aesLevel = QAESEncryption::AES_256; // or AES_128, AES_192
+    // QAESEncryption::Mode aesMode = QAESEncryption::CBC; // or ECB, CFB, OFB
+    // QAESEncryption::Padding aesPadding = QAESEncryption::PKCS7; // or ZERO, ISO
+
+    // // Your key and IV (Initialization Vector) should be the same as used for encryption
+    // // QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef"); // 256-bit key (32 bytes)
+    // // QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210");  // 128-bit IV (16 bytes)
+    // // Define your AES parameters
+    // const QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef"); // Example: 32 bytes key for AES-256
+    // const QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210");   // Example: 16 bytes IV for AES
+
+    // // Decrypt the message
+    // QByteArray decryptedMessage = QAESEncryption::Decrypt(aesLevel, aesMode, encryptedMessage, key, iv, aesPadding);
+
+    // qDebug() << "Decrypted message: " << QString(decryptedMessage);
+    // // Remove PKCS7 padding
+    // int paddingLength = decryptedMessage.at(decryptedMessage.size() - 1);
+    // if (paddingLength > 0 && paddingLength <= 16) {
+    //     decryptedMessage.chop(paddingLength);
+    // }
+
+    QByteArray key = "1234567890123456"; // Encryption key
+    QByteArray iv = "1234567890123456"; // Initialization vector
+    // Decrypt the data
+    QByteArray decryptedData = QAESEncryption::Decrypt(QAESEncryption::AES_128, QAESEncryption::CBC, decryptedData, key, iv, QAESEncryption::PKCS7);
+
+    int padLength = decryptedData.at(decryptedData.length() - 1); // Get padding length
+    decryptedData = decryptedData.left(decryptedData.length() - padLength); // Remove padding
+
+    qInfo()<<"dataaa-->"<<QString(decryptedData)<<Qt::endl;
+
+    logRequest(QString(decryptedData));
+     Operation(QString(decryptedData));
 
 }
 
@@ -449,5 +489,14 @@ void MyServerHandler::sendEmail(const QString &to, const QString &subject, const
 
 
 
+    }
+
+void MyServerHandler::logRequest(const QString &request)
+    {        QFile logFile("D:\\ITIDA_Scholarship\\Final project\\Bank_System\\Multi_Thread_Console_Application_Server\\server_log.log");
+        if (logFile.open(QIODevice::Append | QIODevice::Text)) {
+            QTextStream out(&logFile);
+            out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") << ": " << request << "\n";
+            logFile.close();
+        }
     }
 

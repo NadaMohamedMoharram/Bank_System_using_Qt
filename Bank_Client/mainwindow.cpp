@@ -107,6 +107,7 @@ void MainWindow::onStateChangedDevice(QAbstractSocket::SocketState socketState)
 
 void MainWindow::onReadyReadDevice(const QJsonObject &response)
 {
+
         if (response["status"].toString() == "success")
         {
           handleLoginResponse(response);

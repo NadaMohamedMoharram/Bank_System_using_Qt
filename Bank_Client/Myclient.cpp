@@ -51,11 +51,30 @@ void MyClient::WriteData(QString data)
 {
     if(socket.isOpen())
     {
-        // QString encryptedData = encryptData(data);
+        qInfo()<<"inside send request"<<Qt::endl;
+        // Define your AES parameters
+        // Define your AES parameters
+        const QByteArray key = "1234567890123456"; // Example: 32 bytes key for AES-256
+        const QByteArray iv = "1234567890123456";   // Example: 16 bytes IV for AES
+        QByteArray rawData = data.toUtf8();
 
-        // socket.write(encryptedData.toUtf8());
+        // Encrypt the data
+        QByteArray encryptedData = QAESEncryption::Crypt(
+            QAESEncryption::AES_256, // AES level (AES_128, AES_192, or AES_256)
+            QAESEncryption::CBC,     // Mode (ECB, CBC, CFB, OFB)
+            rawData,                 // Raw data to encrypt
+            key,                     // Encryption key
+            iv,                      // Initialization vector
+            QAESEncryption::PKCS7    // Padding (ZERO, PKCS7, ISO)
+            );
+         QString encryptedDataNew = QString(encryptedData);
 
-        socket.write(data.toUtf8());
+         socket.write(encryptedDataNew.toUtf8());
+
+       // socket.write(data.toUtf8());
+      //  socket.write(encryptedData);
+        qInfo()<<" send encrypted request"<<Qt::endl;
+
     }
 }
 
@@ -95,6 +114,7 @@ void MyClient::onStateChanged(QAbstractSocket::SocketState socketState)
 void MyClient::onReadyRead()
 {
     QByteArray data = socket.readAll();
+    qInfo()<<"received==>"<<QString(data)<<Qt::endl;
     QJsonDocument jsonDoc = QJsonDocument::fromJson(data);
     // if (!jsonDoc.isNull() && jsonDoc.isObject())
     // {
