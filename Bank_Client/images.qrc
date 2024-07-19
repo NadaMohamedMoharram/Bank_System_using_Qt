@@ -1,5 +1,37 @@
 <RCC>
     <qresource prefix="/new/prefix1">
         <file>Bank_.png</file>
+        <file>transfer.jfif</file>
+        <file>images/Capture1.PNG</file>
+        <file>images/Core-Banking-1-700x427.png</file>
+        <file>images/Career-in-Banking.png</file>
+        <file>images/images.jfif</file>
+        <file>images/shutterstock_1354967570-1000x667-1.jpg</file>
+        <file>images/bankingCapture.PNG</file>
+        <file>images/password.png</file>
+        <file>images/username.jfif</file>
+        <file>images/OIP.png</file>
+        <file>images/Bank.png</file>
+        <file>images/images.ico</file>
+        <file>images/Bank_services.png</file>
+        <file>images/Finance-Domain-300x300.png</file>
+        <file>images/services2.png</file>
+        <file>images/services1.png</file>
+        <file>images/services3_remove.png</file>
+        <file>images/services4-removebg-preview.png</file>
+        <file>images/services5-removebg-preview.png</file>
+        <file>images/images (3).jfif</file>
+        <file>images/download (1).jfif</file>
+        <file>images/download (2).jfif</file>
+        <file>images/images.png</file>
+        <file>images/OIP.jfif</file>
+        <file>images/GettyImages-1073148890.webp</file>
+        <file>images/meteor-streaking-through-the-night-sky.jpg</file>
+        <file>images/360px-Perseiid_2016._aasta_augustis.jpg</file>
+        <file>images/pink-sky-horizon-scenic-flying-birds-seascape-sunset-2560x1440-4586.jpg</file>
+        <file>images/20th_century_animation_logo__2020___sky_background_by_daohong135_dgh5vyc-375w-2x.jpg</file>
+        <file>images/transfer-removebg-preview.png</file>
+        <file>images/mony.png</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>

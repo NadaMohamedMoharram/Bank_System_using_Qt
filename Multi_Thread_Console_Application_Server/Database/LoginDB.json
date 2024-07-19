@@ -3,7 +3,7 @@
         "AccountNumber": "902668452",
         "Age": 25,
         "Autority": "user",
-        "Balance": 4900,
+        "Balance": 4500,
         "Email": "nadamohamedmoharram@gmail.com",
         "FullName": "Nada Mohamed",
         "Password": "1234",
@@ -202,6 +202,16 @@
                 "Amount": 500,
                 "date": "16-07-2024",
                 "type": "deposit"
+            },
+            {
+                "Amount": 100,
+                "date": "19-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": -500,
+                "date": "19-07-2024",
+                "type": "transfer_to_401202154"
             }
         ],
         "Username": "Nada"
@@ -222,7 +232,7 @@
         "AccountNumber": "401202154",
         "Age": 18,
         "Autority": "user",
-        "Balance": 4600,
+        "Balance": 5100,
         "Email": "nmo12416@gmail.com",
         "FullName": "gana moharram",
         "Password": "3050",
@@ -295,6 +305,11 @@
             {
                 "Amount": 300,
                 "date": "16-07-2024",
+                "type": "transfer_from_902668452"
+            },
+            {
+                "Amount": 500,
+                "date": "19-07-2024",
                 "type": "transfer_from_902668452"
             }
         ],

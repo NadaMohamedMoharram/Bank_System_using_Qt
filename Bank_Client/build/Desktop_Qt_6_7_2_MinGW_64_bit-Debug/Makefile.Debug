@@ -119,7 +119,38 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug/qrc_images.cpp
 debug/qrc_images.cpp: ../../images.qrc \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/bin/rcc.exe \
-		../../Bank_.png
+		../../transfer.jfif \
+		../../Bank_.png \
+		../../images/download\ (1).jfif \
+		../../images/OIP.jfif \
+		../../images/Career-in-Banking.png \
+		../../images/services1.png \
+		../../images/shutterstock_1354967570-1000x667-1.jpg \
+		../../images/password.png \
+		../../images/Bank.png \
+		../../images/images.ico \
+		../../images/mony.png \
+		../../images/services5-removebg-preview.png \
+		../../images/images.png \
+		../../images/username.jfif \
+		../../images/Capture1.PNG \
+		../../images/images\ (3).jfif \
+		../../images/images.jfif \
+		../../images/360px-Perseiid_2016._aasta_augustis.jpg \
+		../../images/meteor-streaking-through-the-night-sky.jpg \
+		../../images/OIP.png \
+		../../images/Bank_services.png \
+		../../images/Core-Banking-1-700x427.png \
+		../../images/bankingCapture.PNG \
+		../../images/20th_century_animation_logo__2020___sky_background_by_daohong135_dgh5vyc-375w-2x.jpg \
+		../../images/transfer-removebg-preview.png \
+		../../images/services2.png \
+		../../images/GettyImages-1073148890.webp \
+		../../images/download\ (2).jfif \
+		../../images/Finance-Domain-300x300.png \
+		../../images/services3_remove.png \
+		../../images/pink-sky-horizon-scenic-flying-birds-seascape-sunset-2560x1440-4586.jpg \
+		../../images/services4-removebg-preview.png
 	'D:\ITIDA_Scholarship\Download\Qt_setup\6.7.2\mingw_64\bin\rcc.exe' -name images --no-zstd ../../images.qrc -o debug/qrc_images.cpp
 
 compiler_moc_predefs_make_all: debug/moc_predefs.h
@@ -345,6 +376,8 @@ debug/moc_Myclient.cpp: ../../Myclient.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		../../qaesencryption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QBuffer \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbuffer.h \
 		debug/moc_predefs.h \
@@ -569,12 +602,12 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		../../qaesencryption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QBuffer \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbuffer.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QMetaEnum \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmetaobject.h \
-		../../qaesencryption.h \
-		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
 		debug/moc_predefs.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/bin/moc.exe
 	'D:\ITIDA_Scholarship\Download\Qt_setup\6.7.2\mingw_64\bin\moc.exe' $(DEFINES) --include 'D:/ITIDA_Scholarship/Final project/Bank_System/Bank_Client/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/debug/moc_predefs.h' -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/mkspecs/win32-g++ -I'D:/ITIDA_Scholarship/Final project/Bank_System/Bank_Client' -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtNetwork -ID:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore -I. -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/ITIDA_Scholarship/Download/Qt_setup/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../mainwindow.h -o debug/moc_mainwindow.cpp
@@ -922,10 +955,14 @@ debug/Myclient.o: ../../Myclient.cpp ../../MyClient.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		../../qaesencryption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QBuffer \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbuffer.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QProcess \
-		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qprocess.h
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qprocess.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QCryptographicHash \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qcryptographichash.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/Myclient.o ../../Myclient.cpp
 
 debug/main.o: ../../main.cpp ../../mainwindow.h \
@@ -1146,12 +1183,12 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		../../qaesencryption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QBuffer \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbuffer.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QMetaEnum \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmetaobject.h \
-		../../qaesencryption.h \
-		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/QApplication \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/main.o ../../main.cpp
@@ -1374,12 +1411,12 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		../../qaesencryption.h \
+		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QBuffer \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qbuffer.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QMetaEnum \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/qmetaobject.h \
-		../../qaesencryption.h \
-		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QByteArray \
 		ui_mainwindow.h \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtCore/QVariant \
 		D:/ITIDA_Scholarship/Download/Qt_setup/6.7.2/mingw_64/include/QtGui/QIcon \

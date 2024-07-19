@@ -29,44 +29,48 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:1 rgba(0, 145, 200, 255));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 132, 162, 255), stop:1 rgba(255, 255, 255, 255));
 
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.0111732 rgba(255, 105, 142, 255), stop:1 rgba(255, 255, 255, 255));
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLineEdit" name="lineEdit_username">
       <property name="geometry">
        <rect>
-        <x>470</x>
-        <y>250</y>
-        <width>181</width>
+        <x>40</x>
+        <y>230</y>
+        <width>211</width>
         <height>41</height>
        </rect>
       </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_password">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>310</y>
-        <width>181</width>
-        <height>41</height>
-       </rect>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: rgb(74, 92, 255);
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="PB_Login">
       <property name="geometry">
        <rect>
-        <x>510</x>
-        <y>370</y>
-        <width>91</width>
-        <height>31</height>
+        <x>70</x>
+        <y>340</y>
+        <width>141</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);</string>
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0, stop:0 rgba(255, 59, 88, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;</string>
       </property>
       <property name="text">
        <string>Login</string>
@@ -75,8 +79,8 @@
      <widget class="QLineEdit" name="leIP">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>350</y>
+        <x>260</x>
+        <y>30</y>
         <width>141</width>
         <height>24</height>
        </rect>
@@ -85,8 +89,8 @@
      <widget class="QLineEdit" name="lePort">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>380</y>
+        <x>260</x>
+        <y>60</y>
         <width>141</width>
         <height>24</height>
        </rect>
@@ -95,8 +99,8 @@
      <widget class="QLabel" name="pic2_userame">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>250</y>
+        <x>0</x>
+        <y>230</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -105,7 +109,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../OIP.png</pixmap>
+       <pixmap resource="images.qrc">:/new/prefix1/images/OIP.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -114,8 +118,8 @@
      <widget class="QLabel" name="pic3_password">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>310</y>
+        <x>10</x>
+        <y>290</y>
         <width>21</width>
         <height>31</height>
        </rect>
@@ -124,41 +128,119 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../password.png</pixmap>
+       <pixmap resource="images.qrc">:/new/prefix1/images/password.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="pic1_bankLogo">
+     <widget class="QLabel" name="label_20">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>20</y>
-        <width>241</width>
-        <height>221</height>
+        <x>-10</x>
+        <y>0</y>
+        <width>761</width>
+        <height>431</height>
        </rect>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../images-removebg-preview.png</pixmap>
+       <pixmap resource="images.qrc">:/new/prefix1/images/bankingCapture.PNG</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>110</y>
+        <width>221</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(66, 133, 199);
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 22pt &quot;Segoe Print&quot;;
+font: 28pt &quot;Segoe UI&quot;;
+font: 900 35pt &quot;Segoe UI&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="pic1_bankLogo">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>50</y>
+        <width>151</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/new/prefix1/images/images.ico</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_password">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>280</y>
+        <width>211</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: rgb(74, 92, 255);
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;</string>
+      </property>
+     </widget>
+     <zorder>label_20</zorder>
+     <zorder>lineEdit_username</zorder>
+     <zorder>PB_Login</zorder>
+     <zorder>leIP</zorder>
+     <zorder>lePort</zorder>
+     <zorder>pic2_userame</zorder>
+     <zorder>pic3_password</zorder>
+     <zorder>label_21</zorder>
+     <zorder>pic1_bankLogo</zorder>
+     <zorder>lineEdit_password</zorder>
     </widget>
     <widget class="QWidget" name="page_3">
      <widget class="QPushButton" name="UserGetAccountNo_PB">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>130</y>
-        <width>151</width>
-        <height>51</height>
+        <x>20</x>
+        <y>80</y>
+        <width>211</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 12pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+</string>
       </property>
       <property name="text">
        <string>Get Account Number</string>
@@ -167,11 +249,24 @@
      <widget class="QPushButton" name="UserAccountBalance_PB">
       <property name="geometry">
        <rect>
-        <x>530</x>
-        <y>130</y>
-        <width>151</width>
-        <height>51</height>
+        <x>500</x>
+        <y>80</y>
+        <width>211</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 12pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+</string>
       </property>
       <property name="text">
        <string>View Account Balance</string>
@@ -180,11 +275,24 @@
      <widget class="QPushButton" name="UserViewTransaction_PB_2">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>230</y>
-        <width>151</width>
-        <height>51</height>
+        <x>20</x>
+        <y>210</y>
+        <width>211</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 12pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+</string>
       </property>
       <property name="text">
        <string>View Account Transaction</string>
@@ -193,11 +301,24 @@
      <widget class="QPushButton" name="UserMakeTransaction_PB">
       <property name="geometry">
        <rect>
-        <x>530</x>
-        <y>230</y>
-        <width>151</width>
-        <height>51</height>
+        <x>500</x>
+        <y>210</y>
+        <width>211</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 12pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+</string>
       </property>
       <property name="text">
        <string>Make Transaction</string>
@@ -206,11 +327,24 @@
      <widget class="QPushButton" name="UserTransferAmount_PB">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>20</x>
         <y>330</y>
-        <width>151</width>
-        <height>51</height>
+        <width>211</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 12pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+</string>
       </property>
       <property name="text">
        <string>Transfer Amount</string>
@@ -219,11 +353,32 @@
      <widget class="QPushButton" name="UserLogout_PB">
       <property name="geometry">
        <rect>
-        <x>530</x>
+        <x>520</x>
         <y>330</y>
         <width>151</width>
-        <height>51</height>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+
+QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0, stop:0 rgba(255, 59, 88, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 0);
+
+
+</string>
       </property>
       <property name="text">
        <string>Log out</string>
@@ -232,29 +387,62 @@
      <widget class="QLabel" name="Label_textUser">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>190</x>
         <y>20</y>
         <width>491</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
+       <string notr="true">font: 28pt &quot;Symbol&quot;;
+
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+font: 700 italic 36pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+color: rgb(0, 0, 60);
+</string>
       </property>
       <property name="text">
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>741</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/new/prefix1/images/pink-sky-horizon-scenic-flying-birds-seascape-sunset-2560x1440-4586.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>label_27</zorder>
+     <zorder>UserViewTransaction_PB_2</zorder>
+     <zorder>UserMakeTransaction_PB</zorder>
+     <zorder>UserTransferAmount_PB</zorder>
+     <zorder>UserLogout_PB</zorder>
+     <zorder>Label_textUser</zorder>
+     <zorder>UserAccountBalance_PB</zorder>
+     <zorder>UserGetAccountNo_PB</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QTableWidget" name="transactionHistoryTable">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>40</y>
+        <x>290</x>
+        <y>100</y>
         <width>441</width>
-        <height>281</height>
+        <height>251</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -266,20 +454,29 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>60</y>
-        <width>191</width>
-        <height>31</height>
+        <y>150</y>
+        <width>201</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_AccountNumber">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>30</y>
+        <y>110</y>
         <width>161</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 14pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Account Number</string>
@@ -288,21 +485,30 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QSpinBox" name="spinBox_UserCount">
       <property name="geometry">
        <rect>
-        <x>21</x>
-        <y>150</y>
-        <width>191</width>
-        <height>25</height>
+        <x>20</x>
+        <y>250</y>
+        <width>201</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_Count">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>120</y>
+        <x>20</x>
+        <y>220</y>
         <width>161</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 14pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Count</string>
@@ -311,11 +517,24 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="UserShowTransactin_PB">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>370</y>
-        <width>171</width>
-        <height>31</height>
+        <x>490</x>
+        <y>360</y>
+        <width>211</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 12pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+</string>
       </property>
       <property name="text">
        <string>ShowResult</string>
@@ -324,26 +543,116 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Back_PB">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>363</y>
-        <width>151</width>
-        <height>41</height>
+        <x>20</x>
+        <y>360</y>
+        <width>211</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+
+QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0, stop:0 rgba(255, 59, 88, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 0);
+</string>
       </property>
       <property name="text">
        <string>Back</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_33">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>741</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/new/prefix1/images/pink-sky-horizon-scenic-flying-birds-seascape-sunset-2560x1440-4586.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_63">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>0</y>
+        <width>441</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+
+font: 28pt &quot;Symbol&quot;;
+
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+font: 700 italic 36pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+color: rgb(0, 0, 100);
+</string>
+      </property>
+      <property name="text">
+       <string>Transaction History</string>
+      </property>
+     </widget>
+     <zorder>label_33</zorder>
+     <zorder>transactionHistoryTable</zorder>
+     <zorder>lineEdit_UserAccountNumber</zorder>
+     <zorder>label_AccountNumber</zorder>
+     <zorder>spinBox_UserCount</zorder>
+     <zorder>label_Count</zorder>
+     <zorder>UserShowTransactin_PB</zorder>
+     <zorder>Back_PB</zorder>
+     <zorder>label_63</zorder>
     </widget>
     <widget class="QWidget" name="page_4">
      <widget class="QPushButton" name="UserConfirmTransaction_PB">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>313</y>
+        <x>480</x>
+        <y>340</y>
         <width>201</width>
         <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 16pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>Confirm</string>
@@ -352,11 +661,30 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="UserBack_Transaction_PB">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>310</y>
+        <x>60</x>
+        <y>340</y>
         <width>201</width>
         <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+
+QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0, stop:0 rgba(255, 59, 88, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 0);
+</string>
       </property>
       <property name="text">
        <string>Back</string>
@@ -366,10 +694,15 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>30</y>
-        <width>161</width>
+        <y>90</y>
+        <width>141</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Account Number</string>
@@ -379,30 +712,44 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>60</y>
-        <width>191</width>
-        <height>31</height>
+        <y>120</y>
+        <width>261</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: rgb(74, 92, 255);
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;</string>
       </property>
      </widget>
      <widget class="QComboBox" name="comboBox_UserTransactionType">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>210</y>
-        <width>191</width>
-        <height>31</height>
+        <x>260</x>
+        <y>220</y>
+        <width>261</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_userTransactionType">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>180</y>
-        <width>91</width>
+        <x>260</x>
+        <y>200</y>
+        <width>151</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Transaction Type</string>
@@ -411,36 +758,119 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLineEdit" name="lineEdit_UserTransactionAmount">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>140</y>
-        <width>191</width>
-        <height>31</height>
+        <x>460</x>
+        <y>120</y>
+        <width>261</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: rgb(74, 92, 255);
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_UserTransactionAmount">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>110</y>
-        <width>141</width>
-        <height>16</height>
+        <x>460</x>
+        <y>95</y>
+        <width>171</width>
+        <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Transaction Amount</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>741</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/new/prefix1/images/pink-sky-horizon-scenic-flying-birds-seascape-sunset-2560x1440-4586.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_64">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>10</y>
+        <width>441</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+
+font: 28pt &quot;Symbol&quot;;
+
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+font: 700 italic 36pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+color: rgb(0, 0, 100);
+</string>
+      </property>
+      <property name="text">
+       <string>Make Transaction </string>
+      </property>
+     </widget>
+     <zorder>label_26</zorder>
+     <zorder>UserConfirmTransaction_PB</zorder>
+     <zorder>UserBack_Transaction_PB</zorder>
+     <zorder>label_AccountNumber_Transaction</zorder>
+     <zorder>lineEdit_UserAccountNumber_Transaction</zorder>
+     <zorder>comboBox_UserTransactionType</zorder>
+     <zorder>label_userTransactionType</zorder>
+     <zorder>lineEdit_UserTransactionAmount</zorder>
+     <zorder>label_UserTransactionAmount</zorder>
+     <zorder>label_64</zorder>
     </widget>
     <widget class="QWidget" name="page_5">
      <widget class="QPushButton" name="UserTransfer_confirm_PB">
       <property name="geometry">
        <rect>
-        <x>379</x>
-        <y>323</y>
+        <x>540</x>
+        <y>330</y>
         <width>161</width>
         <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 16pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>Confirm</string>
@@ -449,11 +879,30 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="UserTransfer_Back_PB">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>320</y>
+        <x>50</x>
+        <y>330</y>
         <width>161</width>
         <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+
+QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0, stop:0 rgba(255, 59, 88, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 0);
+</string>
       </property>
       <property name="text">
        <string>Back</string>
@@ -462,41 +911,64 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLineEdit" name="fromAccountNumberLineEdit">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>60</y>
-        <width>161</width>
-        <height>41</height>
+        <x>30</x>
+        <y>110</y>
+        <width>271</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: rgb(74, 92, 255);
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="toAccountNumberLineEdit">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>130</y>
-        <width>161</width>
-        <height>41</height>
+        <x>450</x>
+        <y>110</y>
+        <width>271</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: rgb(74, 92, 255);
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="transferAmountLineEdit">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>200</y>
-        <width>161</width>
-        <height>41</height>
+        <x>250</x>
+        <y>220</y>
+        <width>271</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: rgb(74, 92, 255);
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>161</width>
+        <x>30</x>
+        <y>90</y>
+        <width>211</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>From Account Number</string>
@@ -505,11 +977,16 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>110</y>
+        <x>460</x>
+        <y>91</y>
         <width>161</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>To Account Number</string>
@@ -518,26 +995,103 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>180</y>
+        <x>250</x>
+        <y>200</y>
         <width>161</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Transfer Amount</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>741</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/new/prefix1/images/pink-sky-horizon-scenic-flying-birds-seascape-sunset-2560x1440-4586.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_65">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>-20</y>
+        <width>441</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+
+font: 28pt &quot;Symbol&quot;;
+
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+font: 700 italic 36pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+color: rgb(0, 0, 100);
+</string>
+      </property>
+      <property name="text">
+       <string>Make Transfer</string>
+      </property>
+     </widget>
+     <zorder>label_32</zorder>
+     <zorder>UserTransfer_confirm_PB</zorder>
+     <zorder>UserTransfer_Back_PB</zorder>
+     <zorder>fromAccountNumberLineEdit</zorder>
+     <zorder>toAccountNumberLineEdit</zorder>
+     <zorder>transferAmountLineEdit</zorder>
+     <zorder>label</zorder>
+     <zorder>label_2</zorder>
+     <zorder>label_3</zorder>
+     <zorder>label_65</zorder>
     </widget>
     <widget class="QWidget" name="page_6">
      <widget class="QPushButton" name="Admin_GetAccountNo_PB">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>40</y>
-        <width>141</width>
-        <height>31</height>
+        <x>120</x>
+        <y>50</y>
+        <width>151</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 10pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>Get Account Number</string>
@@ -546,11 +1100,25 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Admin_ViewAcountBalance_PB">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>40</y>
-        <width>141</width>
-        <height>31</height>
+        <x>330</x>
+        <y>50</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 10pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>View Acount Balance</string>
@@ -559,11 +1127,25 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Admin_ViewTransactionHistory_PB">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>40</y>
-        <width>141</width>
-        <height>31</height>
+        <x>530</x>
+        <y>50</y>
+        <width>171</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 10pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>View Transaction History</string>
@@ -572,11 +1154,25 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Admin_ViewBankDatabase_PB">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>120</y>
-        <width>151</width>
-        <height>31</height>
+        <x>10</x>
+        <y>190</y>
+        <width>141</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 10pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>View Bank Database</string>
@@ -585,11 +1181,25 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Admin_CreateNewUser_PB">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>120</y>
-        <width>101</width>
-        <height>31</height>
+        <x>600</x>
+        <y>190</y>
+        <width>131</width>
+        <height>71</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 10pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>Create New User</string>
@@ -598,11 +1208,25 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Admin_DeleteUser_PB">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>200</y>
-        <width>101</width>
-        <height>31</height>
+        <x>150</x>
+        <y>370</y>
+        <width>131</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 10pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>Delete User</string>
@@ -611,11 +1235,25 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Admin_UpdateUser_PB">
       <property name="geometry">
        <rect>
-        <x>530</x>
-        <y>200</y>
-        <width>101</width>
-        <height>31</height>
+        <x>320</x>
+        <y>370</y>
+        <width>141</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 10pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>Update User</string>
@@ -624,23 +1262,70 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Admin_Logout_PB">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>310</y>
-        <width>101</width>
-        <height>31</height>
+        <x>480</x>
+        <y>370</y>
+        <width>131</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+
+QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0, stop:0 rgba(255, 59, 88, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 0);
+</string>
       </property>
       <property name="text">
        <string>Logout</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_24">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>100</y>
+        <width>531</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/new/prefix1/images/services1.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>label_24</zorder>
+     <zorder>Admin_GetAccountNo_PB</zorder>
+     <zorder>Admin_ViewAcountBalance_PB</zorder>
+     <zorder>Admin_ViewTransactionHistory_PB</zorder>
+     <zorder>Admin_ViewBankDatabase_PB</zorder>
+     <zorder>Admin_CreateNewUser_PB</zorder>
+     <zorder>Admin_DeleteUser_PB</zorder>
+     <zorder>Admin_UpdateUser_PB</zorder>
+     <zorder>Admin_Logout_PB</zorder>
     </widget>
     <widget class="QWidget" name="page_7">
      <widget class="QTableWidget" name="Admin_transactionHistoryTable">
       <property name="geometry">
        <rect>
-        <x>405</x>
-        <y>30</y>
+        <x>430</x>
+        <y>90</y>
         <width>291</width>
         <height>221</height>
        </rect>
@@ -653,31 +1338,62 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLineEdit" name="LineEdit_Admin_AccountNo_ViewHistory">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>60</y>
-        <width>181</width>
-        <height>31</height>
+        <x>15</x>
+        <y>140</y>
+        <width>201</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: rgb(74, 92, 255);
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;</string>
       </property>
      </widget>
      <widget class="QSpinBox" name="spinBox__Admin_Count_ViewHistory">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>130</y>
-        <width>181</width>
-        <height>31</height>
+        <x>15</x>
+        <y>240</y>
+        <width>191</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: rgb(74, 92, 255);
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="Back_AdminViewHistory_PB">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>360</y>
-        <width>131</width>
-        <height>31</height>
+        <x>20</x>
+        <y>340</y>
+        <width>201</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+
+QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0, stop:0 rgba(255, 59, 88, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 0);
+</string>
       </property>
       <property name="text">
        <string>Back</string>
@@ -686,11 +1402,25 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Display_AdminViewHistory_PB">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>360</y>
-        <width>111</width>
-        <height>31</height>
+        <x>490</x>
+        <y>340</y>
+        <width>211</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 16pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>Display</string>
@@ -699,11 +1429,17 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>131</width>
+        <x>15</x>
+        <y>110</y>
+        <width>211</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 14pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Enter Account Number</string>
@@ -712,16 +1448,79 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>100</y>
+        <x>15</x>
+        <y>210</y>
         <width>131</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 14pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Count</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_28">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>741</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/new/prefix1/images/pink-sky-horizon-scenic-flying-birds-seascape-sunset-2560x1440-4586.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_62">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>10</y>
+        <width>441</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+
+font: 28pt &quot;Symbol&quot;;
+
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+font: 700 italic 36pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+color: rgb(0, 0, 100);
+</string>
+      </property>
+      <property name="text">
+       <string>Transaction History</string>
+      </property>
+     </widget>
+     <zorder>label_28</zorder>
+     <zorder>Admin_transactionHistoryTable</zorder>
+     <zorder>LineEdit_Admin_AccountNo_ViewHistory</zorder>
+     <zorder>spinBox__Admin_Count_ViewHistory</zorder>
+     <zorder>Back_AdminViewHistory_PB</zorder>
+     <zorder>Display_AdminViewHistory_PB</zorder>
+     <zorder>label_4</zorder>
+     <zorder>label_9</zorder>
+     <zorder>label_62</zorder>
     </widget>
     <widget class="QWidget" name="page_8">
      <widget class="QPushButton" name="Back_AdminViewBankDatabase_PB">
@@ -733,6 +1532,25 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
         <height>41</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">
+
+QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0, stop:0 rgba(255, 59, 88, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 0);
+</string>
+      </property>
       <property name="text">
        <string>Back</string>
       </property>
@@ -741,9 +1559,9 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>20</y>
-        <width>711</width>
-        <height>361</height>
+        <y>70</y>
+        <width>721</width>
+        <height>311</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -751,16 +1569,84 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
 </string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_29">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>741</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/new/prefix1/images/pink-sky-horizon-scenic-flying-birds-seascape-sunset-2560x1440-4586.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_61">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>10</y>
+        <width>401</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+
+font: 28pt &quot;Symbol&quot;;
+
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+font: 700 italic 36pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+color: rgb(0, 0, 100);
+</string>
+      </property>
+      <property name="text">
+       <string>Bank DataBase</string>
+      </property>
+     </widget>
+     <zorder>label_29</zorder>
+     <zorder>Back_AdminViewBankDatabase_PB</zorder>
+     <zorder>TW_AdminViewBankDatabase</zorder>
+     <zorder>label_61</zorder>
     </widget>
     <widget class="QWidget" name="page_9">
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>210</x>
         <y>10</y>
-        <width>131</width>
-        <height>21</height>
+        <width>401</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+
+font: 28pt &quot;Symbol&quot;;
+
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+font: 700 italic 36pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+color: rgb(0, 0, 100);
+</string>
       </property>
       <property name="text">
        <string>Create New User</string>
@@ -769,21 +1655,30 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLineEdit" name="LE_CreatUser_FullName">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>80</y>
+        <x>20</x>
+        <y>110</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>50</y>
-        <width>71</width>
+        <x>20</x>
+        <y>80</y>
+        <width>91</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Full Name</string>
@@ -792,21 +1687,30 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLineEdit" name="LE_CreatUser_Age">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>80</y>
+        <x>440</x>
+        <y>110</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>50</y>
+        <x>440</x>
+        <y>80</y>
         <width>71</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Age</string>
@@ -815,11 +1719,17 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>140</y>
-        <width>71</width>
+        <x>20</x>
+        <y>170</y>
+        <width>91</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Username</string>
@@ -828,21 +1738,30 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLineEdit" name="LE_CreatUser_UserName">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>170</y>
+        <x>20</x>
+        <y>200</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>140</y>
+        <x>440</x>
+        <y>170</y>
         <width>71</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Password</string>
@@ -851,21 +1770,30 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLineEdit" name="LE_CreatUser_Password">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>170</y>
+        <x>440</x>
+        <y>200</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>230</y>
+        <x>20</x>
+        <y>260</y>
         <width>71</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Email</string>
@@ -874,31 +1802,43 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QLineEdit" name="LE_CreatUser_Email">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>260</y>
+        <x>20</x>
+        <y>290</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="LE_CreatUser_AccountNumber">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>260</y>
+        <x>440</x>
+        <y>290</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>230</y>
+        <x>440</x>
+        <y>260</y>
         <width>111</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Account number</string>
@@ -907,11 +1847,30 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Back_AdminCreateUser_PB">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>9</x>
         <y>360</y>
-        <width>80</width>
-        <height>24</height>
+        <width>161</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+
+QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0, stop:0 rgba(255, 59, 88, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 0);
+</string>
       </property>
       <property name="text">
        <string>Back</string>
@@ -920,26 +1879,94 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Confirm_AdminCreateUser_PB">
       <property name="geometry">
        <rect>
-        <x>450</x>
+        <x>520</x>
         <y>360</y>
-        <width>80</width>
-        <height>24</height>
+        <width>181</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 16pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>Confirm</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_30">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>741</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/new/prefix1/images/pink-sky-horizon-scenic-flying-birds-seascape-sunset-2560x1440-4586.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>label_30</zorder>
+     <zorder>label_5</zorder>
+     <zorder>LE_CreatUser_FullName</zorder>
+     <zorder>label_6</zorder>
+     <zorder>LE_CreatUser_Age</zorder>
+     <zorder>label_7</zorder>
+     <zorder>label_8</zorder>
+     <zorder>LE_CreatUser_UserName</zorder>
+     <zorder>label_10</zorder>
+     <zorder>LE_CreatUser_Password</zorder>
+     <zorder>label_11</zorder>
+     <zorder>LE_CreatUser_Email</zorder>
+     <zorder>LE_CreatUser_AccountNumber</zorder>
+     <zorder>label_12</zorder>
+     <zorder>Back_AdminCreateUser_PB</zorder>
+     <zorder>Confirm_AdminCreateUser_PB</zorder>
     </widget>
     <widget class="QWidget" name="page_10">
      <widget class="QPushButton" name="Back_AdminUpdateUser_PB">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>370</y>
-        <width>80</width>
-        <height>24</height>
+        <x>30</x>
+        <y>350</y>
+        <width>151</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+
+QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 16pt &quot;Segoe UI&quot;;
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 62, 110, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0, stop:0 rgba(255, 59, 88, 255), stop:1 rgba(255, 255, 255, 255));
+border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 0);
+</string>
       </property>
       <property name="text">
        <string>Back</string>
@@ -948,11 +1975,25 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
      <widget class="QPushButton" name="Confirm_AdminUpdateUser_PB">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>370</y>
-        <width>80</width>
-        <height>24</height>
+        <x>550</x>
+        <y>350</y>
+        <width>151</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    border-width: 2px;
+    border-radius: 15px;
+    padding: 5px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+color: rgb(255, 170, 0);
+
+font: 700 16pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+};
+
+</string>
       </property>
       <property name="text">
        <string>Confirm</string>
@@ -962,10 +2003,16 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>240</y>
-        <width>111</width>
+        <y>250</y>
+        <width>121</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Account number</string>
@@ -975,20 +2022,34 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>270</y>
+        <y>280</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_14">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>21</height>
+        <x>230</x>
+        <y>0</y>
+        <width>411</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+font: 28pt &quot;Symbol&quot;;
+
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));
+
+font: 700 italic 36pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+color: rgb(0, 0, 100);
+</string>
       </property>
       <property name="text">
        <string>Update User</string>
@@ -998,20 +2059,29 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>90</y>
+        <y>100</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_15">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>60</y>
+        <y>70</y>
         <width>71</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Full Name</string>
@@ -1021,10 +2091,16 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>150</y>
+        <y>160</y>
         <width>71</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Username</string>
@@ -1034,10 +2110,16 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>150</y>
+        <y>160</y>
         <width>71</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Password</string>
@@ -1047,30 +2129,42 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>180</y>
+        <y>190</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="LE_UpdateUser_AccountNumber">
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>270</y>
+        <y>280</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_18">
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>60</y>
+        <y>70</y>
         <width>71</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Age</string>
@@ -1080,35 +2174,82 @@ font: 30pt &quot;Segoe MDL2 Assets&quot;;</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>180</y>
+        <y>190</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="LE_UpdateUser_Age">
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>90</y>
+        <y>100</y>
         <width>281</width>
-        <height>24</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_19">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>240</y>
+        <y>250</y>
         <width>71</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
        <string>Email</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>741</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="images.qrc">:/new/prefix1/images/pink-sky-horizon-scenic-flying-birds-seascape-sunset-2560x1440-4586.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>label_31</zorder>
+     <zorder>Back_AdminUpdateUser_PB</zorder>
+     <zorder>Confirm_AdminUpdateUser_PB</zorder>
+     <zorder>label_13</zorder>
+     <zorder>LE_UpdateUser_Email</zorder>
+     <zorder>label_14</zorder>
+     <zorder>LE_UpdateUser_FullName</zorder>
+     <zorder>label_15</zorder>
+     <zorder>label_16</zorder>
+     <zorder>label_17</zorder>
+     <zorder>LE_UpdateUser_Password</zorder>
+     <zorder>LE_UpdateUser_AccountNumber</zorder>
+     <zorder>label_18</zorder>
+     <zorder>LE_UpdateUser_UserName</zorder>
+     <zorder>LE_UpdateUser_Age</zorder>
+     <zorder>label_19</zorder>
     </widget>
    </widget>
   </widget>

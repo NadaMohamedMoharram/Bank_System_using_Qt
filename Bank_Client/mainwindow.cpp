@@ -7,7 +7,7 @@
 #include <QJsonDocument>
 #include <QFile>
 #include<QPixmap> // Including QPixmap for handling images
-
+#include<QWidget>
 #include<QInputDialog>
 
 
@@ -37,6 +37,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&client,&MyClient::StateChanged,this,&MainWindow::onStateChangedDevice);
     connect(&client,&MyClient::ReadyRead,this,&MainWindow::onReadyReadDevice);
     ui->Login_page->setCurrentIndex(LoginPage);
+    // ui->Login_page->setObjectName("LoginPage");
+    // ui->Login_page->setStyleSheet("#LoginPage { background-image: url(:/new/prefix1/images/Career-in-Banking.png); }");
+
     ui->lineEdit_password->setEchoMode(QLineEdit::Password);
 
     QStringList options;
@@ -44,8 +47,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBox_UserTransactionType->addItems(options);
 
     ui->LE_CreatUser_Password->setEchoMode(QLineEdit::Password);
-
+   // ui->Login_page->setStyleSheet("background-image: url(:/new/prefix1/images/Core-Banking-1-700x427.png);");
     Images_init();
+
+
 
 
 }
@@ -56,13 +61,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::Images_init()
 {
-    QPixmap pix("D:\\ITIDA_Scholarship\\Final project\\Bank_.png"); // Loading an image
+    QPixmap pix("D:\\ITIDA_Scholarship\\Final project\\images.ico"); // Loading an image
     ui->pic1_bankLogo->setPixmap(pix); // Setting the image to a label
 
-    QPixmap pix2("D:\\ITIDA_Scholarship\\Final project\\user_.png"); // Loading another image
+    QPixmap pix2("D:\\ITIDA_Scholarship\\Final project\\OIP.png"); // Loading another image
     ui->pic2_userame->setPixmap(pix2); // Setting the image to a label
 
-    QPixmap pix3("D:\\ITIDA_Scholarship\\Final project\\password_.png"); // Loading another image
+    QPixmap pix3("D:\\ITIDA_Scholarship\\Final project\\password.png"); // Loading another image
     ui->pic3_password->setPixmap(pix3); // Setting the image to a label
 
 }
@@ -248,7 +253,7 @@ void MainWindow::handleAccountBalancerResponse(const QJsonObject& response)
     int balance = response["balance"].toInt();
     QString str_balance= QString::number(balance);
 
-    if(str_balance.isEmpty())
+    if(balance<=0)
     QMessageBox::critical(nullptr, "Error", "This account number doesn't exist");
     else
     QMessageBox::information(nullptr, "Account Balance", "The account balance is ==>"+str_balance);
@@ -681,6 +686,29 @@ void MainWindow::on_UserTransfer_PB_clicked()
     QString fromAccountNumber = ui->fromAccountNumberLineEdit->text();
     QString toAccountNumber = ui->toAccountNumberLineEdit->text();
     int transferAmount = ui->transferAmountLineEdit->text().toInt();  // Assuming a QSpinBox for transfer amount
+
+    // Validate the inputs
+    if (fromAccountNumber.isEmpty()) {
+        QMessageBox::warning(this, "Input Error", "From account number cannot be empty.");
+        return;
+    }
+
+    if(fromAccountNumber!=this->client_accountNumber)
+    {
+        QMessageBox::critical(this, "Input Error", "Wrong account number.please try again");
+        return;
+
+    }
+
+    if (toAccountNumber.isEmpty()) {
+        QMessageBox::warning(this, "Input Error", "To account number cannot be empty.");
+        return;
+    }
+
+    if ( transferAmount <= 0) {
+        QMessageBox::warning(this, "Input Error", "Please enter a valid transfer amount.");
+        return;
+    }
 
     QJsonObject request;
     request["type"] = "TransferAmount";
