@@ -6,7 +6,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QFile>
-#include<QPixmap> // Including QPixmap for handling images
+#include<QPixmap>
 #include<QWidget>
 #include<QInputDialog>
 
@@ -37,8 +37,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&client,&MyClient::StateChanged,this,&MainWindow::onStateChangedDevice);
     connect(&client,&MyClient::ReadyRead,this,&MainWindow::onReadyReadDevice);
     ui->Login_page->setCurrentIndex(LoginPage);
-    // ui->Login_page->setObjectName("LoginPage");
-    // ui->Login_page->setStyleSheet("#LoginPage { background-image: url(:/new/prefix1/images/Career-in-Banking.png); }");
 
     ui->lineEdit_password->setEchoMode(QLineEdit::Password);
 
@@ -46,8 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
     options << "None" << "Deposit" << "Withdrow";
     ui->comboBox_UserTransactionType->addItems(options);
 
-    ui->LE_CreatUser_Password->setEchoMode(QLineEdit::Password);
-   // ui->Login_page->setStyleSheet("background-image: url(:/new/prefix1/images/Core-Banking-1-700x427.png);");
+  //  ui->LE_CreatUser_Password->setEchoMode(QLineEdit::Password);
     Images_init();
 
 
@@ -73,18 +70,16 @@ void MainWindow::Images_init()
 }
 
 
-/***************************************************************************/
+/******************************** MainWindow slots *******************************************/
 
 void MainWindow::onConnectionDevice()
 {
-   // ui->lwData->addItem("Client has connected to the server....");
     qInfo()<<"Client has connected to the server....\n";
 
 }
 
 void MainWindow::onDisconnectedDevice()
 {
-   // ui->lwData->addItem("Client has disconnected from the server....");
     qInfo()<<"Client has disconnected from the server....\n";
 
 }
@@ -92,7 +87,6 @@ void MainWindow::onDisconnectedDevice()
 void MainWindow::onErrorOccurredDevice(QAbstractSocket::SocketError socketError)
 {
     QMetaEnum meta = QMetaEnum::fromType<QAbstractSocket::SocketError>();
-  //  ui->lwData->addItem(meta.valueToKey(socketError));
     qInfo()<<meta.valueToKey(socketError)<<"\n";
 
 }
@@ -100,16 +94,10 @@ void MainWindow::onErrorOccurredDevice(QAbstractSocket::SocketError socketError)
 void MainWindow::onStateChangedDevice(QAbstractSocket::SocketState socketState)
 {
     QMetaEnum meta = QMetaEnum::fromType<QAbstractSocket::SocketState>();
-    //ui->lwData->addItem(meta.valueToKey(socketState));
     qInfo()<<meta.valueToKey(socketState)<<"\n";
 
 }
 
-// void MainWindow::onReadyReadDevice(QString data)
-// {
-//     QString str = QString("Data Recieved => %1").arg(data);
-//     qInfo()<<str<<"\n";
-// }
 
 
 void MainWindow::onReadyReadDevice(const QJsonObject &response)
@@ -126,25 +114,25 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
         }
         else if(response["status"].toString() == "success_GetAccountNumber")
         {
-             qInfo()<<"received response yo get account";
+           //  qInfo()<<"received response to get account";
             handleAccountNumberResponse(response);
 
         }
         else if(response["status"].toString() == "account_balance_response")
         {
-            qInfo()<<"received response account_balance";
+           // qInfo()<<"received response account_balance";
             handleAccountBalancerResponse(response);
 
         }
         else if(response["status"].toString() == "transaction_history_response")
         {
-            qInfo()<<"received response transaction_history";
+           // qInfo()<<"received response transaction_history";
             displayTransactionHistory(response);
 
         }
         else if(response["status"].toString() == "transaction_amount_response")
         {
-            qInfo()<<"received response transaction_amount";
+            //qInfo()<<"received response transaction_amount";
            // QString  emailBody;
 
             if (response["transaction_Result"].toString() == "Transaction successful")
@@ -162,7 +150,7 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
         }
         else if(response["status"].toString()=="transfer_response")
         {
-            qInfo()<<"received response transfer_response";
+           // qInfo()<<"received response transfer_response";
 
             if (response["transsfer_Result"].toString() == "Transfer successful")
             {
@@ -171,7 +159,7 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
             }
             else
             {
-                QMessageBox::critical(nullptr, "Transfer Response", "Transfer failed.");
+                QMessageBox::critical(nullptr, "Transfer Response", "Transfer failed.Please check account number or transfer amount and try again.");
 
             }
         }
@@ -183,16 +171,17 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
 
         else if(response["status"].toString() == "CreateUser_response")
         {
-            qInfo()<<"received response new user";
+            //qInfo()<<"received response new user";
             if (response["NewUser_Result"].toString() == "Create new user successful")
                 QMessageBox::information(nullptr, "New User Response", "Create new user successful.");
             else
-                QMessageBox::critical(nullptr, "New User Response", "Create new user failed. Try again");
+                QMessageBox::critical(nullptr, "New User Response", "Create new user failed. username or acount number is already used");
 
         }
+
         else if(response["status"].toString() == "DeleteUser_response")
         {
-            qInfo()<<"received response delete user";
+           // qInfo()<<"received response delete user";
             if (response["DeleteUser_Result"].toString() == "Delete user successful")
                 QMessageBox::information(nullptr, "Delete user Response", "Delete user successful.");
             else
@@ -215,7 +204,9 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
 
 
 }
-/*****************************************************************************************/
+
+
+/******************************** Responses *******************************************/
 
 void MainWindow::handleLoginResponse(const QJsonObject& response)
 {
@@ -232,6 +223,8 @@ void MainWindow::handleLoginResponse(const QJsonObject& response)
         ui->Login_page->setCurrentIndex(AdminPage);
 
     }
+
+    client.sendEmail("nmo12416@gmail.com","Money Back","Here is your money Eng/Kerlles:1000 i will not borrow from u again :)");
 }
 
 
@@ -650,6 +643,12 @@ void MainWindow::on_UserConfirmTransaction_PB_clicked()
         return;
 
     }
+
+    if ( transactionAmount <= 0) {
+        QMessageBox::warning(this, "Input Error", "Please enter a valid transfer amount.");
+        return;
+    }
+
     if (transactionType=="None") {
         QMessageBox::warning(this, "Make Transaction Request", "Please enter Transaction Type.");
         //  qInfo()<<"LoginPlease enter both username and password";

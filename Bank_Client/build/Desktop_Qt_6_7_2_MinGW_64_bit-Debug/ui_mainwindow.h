@@ -165,6 +165,7 @@ public:
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 132, 162, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.0111732 rgba(255, 105, 142, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 67, 255), stop:1 rgba(255, 255, 255, 255));\n"
 ""));
         page = new QWidget();
         page->setObjectName("page");
@@ -358,7 +359,7 @@ public:
         page_2->setObjectName("page_2");
         transactionHistoryTable = new QTableWidget(page_2);
         transactionHistoryTable->setObjectName("transactionHistoryTable");
-        transactionHistoryTable->setGeometry(QRect(290, 100, 441, 251));
+        transactionHistoryTable->setGeometry(QRect(420, 100, 311, 251));
         transactionHistoryTable->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 ""));
         lineEdit_UserAccountNumber = new QLineEdit(page_2);
@@ -488,39 +489,41 @@ public:
 ""));
         label_AccountNumber_Transaction = new QLabel(page_4);
         label_AccountNumber_Transaction->setObjectName("label_AccountNumber_Transaction");
-        label_AccountNumber_Transaction->setGeometry(QRect(30, 90, 141, 21));
-        label_AccountNumber_Transaction->setStyleSheet(QString::fromUtf8("font: 700 13pt \"Segoe UI\";\n"
+        label_AccountNumber_Transaction->setGeometry(QRect(30, 110, 191, 21));
+        label_AccountNumber_Transaction->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
 "color: rgb(0, 0, 0);\n"
+"\n"
 "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));"));
         lineEdit_UserAccountNumber_Transaction = new QLineEdit(page_4);
         lineEdit_UserAccountNumber_Transaction->setObjectName("lineEdit_UserAccountNumber_Transaction");
-        lineEdit_UserAccountNumber_Transaction->setGeometry(QRect(30, 120, 261, 51));
+        lineEdit_UserAccountNumber_Transaction->setGeometry(QRect(30, 140, 261, 51));
         lineEdit_UserAccountNumber_Transaction->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-color: rgb(74, 92, 255);\n"
 "border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 16pt \"Segoe UI\";"));
         comboBox_UserTransactionType = new QComboBox(page_4);
         comboBox_UserTransactionType->setObjectName("comboBox_UserTransactionType");
-        comboBox_UserTransactionType->setGeometry(QRect(260, 220, 261, 51));
+        comboBox_UserTransactionType->setGeometry(QRect(270, 250, 261, 51));
         comboBox_UserTransactionType->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         label_userTransactionType = new QLabel(page_4);
         label_userTransactionType->setObjectName("label_userTransactionType");
-        label_userTransactionType->setGeometry(QRect(260, 200, 151, 21));
-        label_userTransactionType->setStyleSheet(QString::fromUtf8("font: 700 13pt \"Segoe UI\";\n"
+        label_userTransactionType->setGeometry(QRect(270, 220, 151, 21));
+        label_userTransactionType->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
 "color: rgb(0, 0, 0);\n"
 "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));"));
         lineEdit_UserTransactionAmount = new QLineEdit(page_4);
         lineEdit_UserTransactionAmount->setObjectName("lineEdit_UserTransactionAmount");
-        lineEdit_UserTransactionAmount->setGeometry(QRect(460, 120, 261, 51));
+        lineEdit_UserTransactionAmount->setGeometry(QRect(460, 140, 261, 51));
         lineEdit_UserTransactionAmount->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-color: rgb(74, 92, 255);\n"
 "border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 16pt \"Segoe UI\";"));
         label_UserTransactionAmount = new QLabel(page_4);
         label_UserTransactionAmount->setObjectName("label_UserTransactionAmount");
-        label_UserTransactionAmount->setGeometry(QRect(460, 95, 171, 21));
-        label_UserTransactionAmount->setStyleSheet(QString::fromUtf8("font: 700 13pt \"Segoe UI\";\n"
+        label_UserTransactionAmount->setGeometry(QRect(460, 110, 201, 21));
+        label_UserTransactionAmount->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
 "color: rgb(0, 0, 0);\n"
+"\n"
 "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));"));
         label_26 = new QLabel(page_4);
         label_26->setObjectName("label_26");
@@ -594,41 +597,41 @@ public:
 ""));
         fromAccountNumberLineEdit = new QLineEdit(page_5);
         fromAccountNumberLineEdit->setObjectName("fromAccountNumberLineEdit");
-        fromAccountNumberLineEdit->setGeometry(QRect(30, 110, 271, 51));
+        fromAccountNumberLineEdit->setGeometry(QRect(30, 129, 271, 51));
         fromAccountNumberLineEdit->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-color: rgb(74, 92, 255);\n"
 "border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 16pt \"Segoe UI\";"));
         toAccountNumberLineEdit = new QLineEdit(page_5);
         toAccountNumberLineEdit->setObjectName("toAccountNumberLineEdit");
-        toAccountNumberLineEdit->setGeometry(QRect(450, 110, 271, 51));
+        toAccountNumberLineEdit->setGeometry(QRect(450, 129, 271, 51));
         toAccountNumberLineEdit->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-color: rgb(74, 92, 255);\n"
 "border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 16pt \"Segoe UI\";"));
         transferAmountLineEdit = new QLineEdit(page_5);
         transferAmountLineEdit->setObjectName("transferAmountLineEdit");
-        transferAmountLineEdit->setGeometry(QRect(250, 220, 271, 51));
+        transferAmountLineEdit->setGeometry(QRect(250, 240, 271, 51));
         transferAmountLineEdit->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-color: rgb(74, 92, 255);\n"
 "border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 16pt \"Segoe UI\";"));
         label = new QLabel(page_5);
         label->setObjectName("label");
-        label->setGeometry(QRect(30, 90, 211, 16));
-        label->setStyleSheet(QString::fromUtf8("font: 700 13pt \"Segoe UI\";\n"
+        label->setGeometry(QRect(30, 109, 241, 16));
+        label->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
 "color: rgb(0, 0, 0);\n"
 "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));"));
         label_2 = new QLabel(page_5);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(460, 91, 161, 16));
-        label_2->setStyleSheet(QString::fromUtf8("font: 700 13pt \"Segoe UI\";\n"
+        label_2->setGeometry(QRect(460, 110, 191, 16));
+        label_2->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
 "color: rgb(0, 0, 0);\n"
 "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));"));
         label_3 = new QLabel(page_5);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(250, 200, 161, 16));
-        label_3->setStyleSheet(QString::fromUtf8("font: 700 13pt \"Segoe UI\";\n"
+        label_3->setGeometry(QRect(250, 220, 161, 16));
+        label_3->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
 "color: rgb(0, 0, 0);\n"
 "background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));"));
         label_32 = new QLabel(page_5);
@@ -668,76 +671,89 @@ public:
         page_6->setObjectName("page_6");
         Admin_GetAccountNo_PB = new QPushButton(page_6);
         Admin_GetAccountNo_PB->setObjectName("Admin_GetAccountNo_PB");
-        Admin_GetAccountNo_PB->setGeometry(QRect(120, 50, 151, 51));
+        Admin_GetAccountNo_PB->setGeometry(QRect(100, 30, 171, 51));
         Admin_GetAccountNo_PB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"\n"
 "    border-width: 2px;\n"
 "    border-radius: 15px;\n"
 "    padding: 5px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));\n"
 "color: rgb(255, 170, 0);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(134, 255, 156, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
 "font: 700 10pt \"Segoe UI\";\n"
-"color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(116, 160, 124, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"\n"
 "};\n"
 "\n"
 ""));
         Admin_ViewAcountBalance_PB = new QPushButton(page_6);
         Admin_ViewAcountBalance_PB->setObjectName("Admin_ViewAcountBalance_PB");
-        Admin_ViewAcountBalance_PB->setGeometry(QRect(330, 50, 161, 51));
+        Admin_ViewAcountBalance_PB->setGeometry(QRect(330, 30, 161, 51));
         Admin_ViewAcountBalance_PB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"\n"
 "    border-width: 2px;\n"
 "    border-radius: 15px;\n"
 "    padding: 5px;\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(165, 209, 212, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(184, 210, 212, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "color: rgb(255, 170, 0);\n"
 "\n"
 "font: 700 10pt \"Segoe UI\";\n"
-"color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
 "};\n"
 "\n"
 ""));
         Admin_ViewTransactionHistory_PB = new QPushButton(page_6);
         Admin_ViewTransactionHistory_PB->setObjectName("Admin_ViewTransactionHistory_PB");
-        Admin_ViewTransactionHistory_PB->setGeometry(QRect(530, 50, 171, 51));
+        Admin_ViewTransactionHistory_PB->setGeometry(QRect(530, 30, 171, 51));
         Admin_ViewTransactionHistory_PB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    border-width: 2px;\n"
 "    border-radius: 15px;\n"
 "    padding: 5px;\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:0.0614525, y1:0.102, x2:1, y2:1, stop:0 rgba(255, 119, 21, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 144, 64, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 167, 103, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "color: rgb(255, 170, 0);\n"
 "\n"
 "font: 700 10pt \"Segoe UI\";\n"
-"color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
 "};\n"
 "\n"
 ""));
         Admin_ViewBankDatabase_PB = new QPushButton(page_6);
         Admin_ViewBankDatabase_PB->setObjectName("Admin_ViewBankDatabase_PB");
-        Admin_ViewBankDatabase_PB->setGeometry(QRect(10, 190, 141, 61));
+        Admin_ViewBankDatabase_PB->setGeometry(QRect(10, 170, 141, 61));
         Admin_ViewBankDatabase_PB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"\n"
 "    border-width: 2px;\n"
 "    border-radius: 15px;\n"
 "    padding: 5px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));\n"
-"color: rgb(255, 170, 0);\n"
 "\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 251, 148, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 10pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"\n"
 "};\n"
 "\n"
 ""));
         Admin_CreateNewUser_PB = new QPushButton(page_6);
         Admin_CreateNewUser_PB->setObjectName("Admin_CreateNewUser_PB");
-        Admin_CreateNewUser_PB->setGeometry(QRect(600, 190, 131, 71));
+        Admin_CreateNewUser_PB->setGeometry(QRect(600, 170, 131, 71));
         Admin_CreateNewUser_PB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"\n"
 "    border-width: 2px;\n"
 "    border-radius: 15px;\n"
 "    padding: 5px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));\n"
-"color: rgb(255, 170, 0);\n"
 "\n"
-"font: 700 10pt \"Segoe UI\";\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 251, 148, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"font: 700 11pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"\n"
 "};\n"
 "\n"
 ""));
@@ -749,10 +765,13 @@ public:
 "    border-radius: 15px;\n"
 "    padding: 5px;\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:0.0614525, y1:0.102, x2:1, y2:1, stop:0 rgba(255, 119, 21, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 144, 64, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 167, 103, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "color: rgb(255, 170, 0);\n"
 "\n"
 "font: 700 10pt \"Segoe UI\";\n"
-"color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
 "};\n"
 "\n"
 ""));
@@ -760,14 +779,17 @@ public:
         Admin_UpdateUser_PB->setObjectName("Admin_UpdateUser_PB");
         Admin_UpdateUser_PB->setGeometry(QRect(320, 370, 141, 51));
         Admin_UpdateUser_PB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"\n"
 "    border-width: 2px;\n"
 "    border-radius: 15px;\n"
 "    padding: 5px;\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(165, 209, 212, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(184, 210, 212, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "color: rgb(255, 170, 0);\n"
 "\n"
 "font: 700 10pt \"Segoe UI\";\n"
-"color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
 "};\n"
 "\n"
 ""));
@@ -790,10 +812,12 @@ public:
 "border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "color: rgb(0, 0, 0);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(116, 160, 124, 255), stop:1 rgba(255, 255, "
+                        "255, 255));\n"
 ""));
         label_24 = new QLabel(page_6);
         label_24->setObjectName("label_24");
-        label_24->setGeometry(QRect(100, 100, 531, 301));
+        label_24->setGeometry(QRect(100, 80, 531, 301));
         label_24->setPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/services1.png")));
         label_24->setScaledContents(true);
         Login_page->addWidget(page_6);
@@ -1042,7 +1066,7 @@ public:
         LE_CreatUser_AccountNumber->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         label_12 = new QLabel(page_9);
         label_12->setObjectName("label_12");
-        label_12->setGeometry(QRect(440, 260, 111, 21));
+        label_12->setGeometry(QRect(440, 260, 151, 21));
         label_12->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 11pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
@@ -1143,7 +1167,7 @@ public:
 ""));
         label_13 = new QLabel(page_10);
         label_13->setObjectName("label_13");
-        label_13->setGeometry(QRect(440, 250, 121, 21));
+        label_13->setGeometry(QRect(440, 250, 141, 21));
         label_13->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 11pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
@@ -1252,7 +1276,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        Login_page->setCurrentIndex(3);
+        Login_page->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

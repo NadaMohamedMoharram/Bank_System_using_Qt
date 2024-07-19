@@ -34,10 +34,11 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:1 rgb
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.463687 rgba(255, 132, 162, 255), stop:1 rgba(255, 255, 255, 255));
 
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.0111732 rgba(255, 105, 142, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 67, 255), stop:1 rgba(255, 255, 255, 255));
 </string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLineEdit" name="lineEdit_username">
@@ -439,9 +440,9 @@ color: rgb(0, 0, 60);
      <widget class="QTableWidget" name="transactionHistoryTable">
       <property name="geometry">
        <rect>
-        <x>290</x>
+        <x>420</x>
         <y>100</y>
-        <width>441</width>
+        <width>311</width>
         <height>251</height>
        </rect>
       </property>
@@ -694,14 +695,15 @@ color: rgb(0, 0, 0);
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>90</y>
-        <width>141</width>
+        <y>110</y>
+        <width>191</width>
         <height>21</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+       <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
 color: rgb(0, 0, 0);
+
 background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
@@ -712,7 +714,7 @@ background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>120</y>
+        <y>140</y>
         <width>261</width>
         <height>51</height>
        </rect>
@@ -727,8 +729,8 @@ font: 700 16pt &quot;Segoe UI&quot;;</string>
      <widget class="QComboBox" name="comboBox_UserTransactionType">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>220</y>
+        <x>270</x>
+        <y>250</y>
         <width>261</width>
         <height>51</height>
        </rect>
@@ -740,14 +742,14 @@ font: 700 16pt &quot;Segoe UI&quot;;</string>
      <widget class="QLabel" name="label_userTransactionType">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>200</y>
+        <x>270</x>
+        <y>220</y>
         <width>151</width>
         <height>21</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+       <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
 color: rgb(0, 0, 0);
 background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
@@ -759,7 +761,7 @@ background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5
       <property name="geometry">
        <rect>
         <x>460</x>
-        <y>120</y>
+        <y>140</y>
         <width>261</width>
         <height>51</height>
        </rect>
@@ -775,14 +777,15 @@ font: 700 16pt &quot;Segoe UI&quot;;</string>
       <property name="geometry">
        <rect>
         <x>460</x>
-        <y>95</y>
-        <width>171</width>
+        <y>110</y>
+        <width>201</width>
         <height>21</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+       <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
 color: rgb(0, 0, 0);
+
 background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
@@ -912,7 +915,7 @@ color: rgb(0, 0, 0);
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>110</y>
+        <y>129</y>
         <width>271</width>
         <height>51</height>
        </rect>
@@ -928,7 +931,7 @@ font: 700 16pt &quot;Segoe UI&quot;;</string>
       <property name="geometry">
        <rect>
         <x>450</x>
-        <y>110</y>
+        <y>129</y>
         <width>271</width>
         <height>51</height>
        </rect>
@@ -944,7 +947,7 @@ font: 700 16pt &quot;Segoe UI&quot;;</string>
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>220</y>
+        <y>240</y>
         <width>271</width>
         <height>51</height>
        </rect>
@@ -960,13 +963,13 @@ font: 700 16pt &quot;Segoe UI&quot;;</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>90</y>
-        <width>211</width>
+        <y>109</y>
+        <width>241</width>
         <height>16</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+       <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
 color: rgb(0, 0, 0);
 background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
@@ -978,13 +981,13 @@ background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5
       <property name="geometry">
        <rect>
         <x>460</x>
-        <y>91</y>
-        <width>161</width>
+        <y>110</y>
+        <width>191</width>
         <height>16</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+       <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
 color: rgb(0, 0, 0);
 background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
@@ -996,13 +999,13 @@ background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>200</y>
+        <y>220</y>
         <width>161</width>
         <height>16</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 13pt &quot;Segoe UI&quot;;
+       <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
 color: rgb(0, 0, 0);
 background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
@@ -1073,22 +1076,25 @@ color: rgb(0, 0, 100);
      <widget class="QPushButton" name="Admin_GetAccountNo_PB">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>50</y>
-        <width>151</width>
+        <x>100</x>
+        <y>30</y>
+        <width>171</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+
     border-width: 2px;
     border-radius: 15px;
     padding: 5px;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
 color: rgb(255, 170, 0);
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(134, 255, 156, 255), stop:1 rgba(255, 255, 255, 255));
 
 font: 700 10pt &quot;Segoe UI&quot;;
-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(116, 160, 124, 255), stop:1 rgba(255, 255, 255, 255));
+
 };
 
 </string>
@@ -1101,21 +1107,24 @@ color: rgb(255, 255, 255);
       <property name="geometry">
        <rect>
         <x>330</x>
-        <y>50</y>
+        <y>30</y>
         <width>161</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+
     border-width: 2px;
     border-radius: 15px;
     padding: 5px;
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(165, 209, 212, 255), stop:1 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(184, 210, 212, 255), stop:1 rgba(255, 255, 255, 255));
 color: rgb(255, 170, 0);
 
 font: 700 10pt &quot;Segoe UI&quot;;
-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 };
 
 </string>
@@ -1128,7 +1137,7 @@ color: rgb(255, 255, 255);
       <property name="geometry">
        <rect>
         <x>530</x>
-        <y>50</y>
+        <y>30</y>
         <width>171</width>
         <height>51</height>
        </rect>
@@ -1139,10 +1148,13 @@ color: rgb(255, 255, 255);
     border-radius: 15px;
     padding: 5px;
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+	background-color: qlineargradient(spread:pad, x1:0.0614525, y1:0.102, x2:1, y2:1, stop:0 rgba(255, 119, 21, 255), stop:1 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 144, 64, 255), stop:1 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 167, 103, 255), stop:1 rgba(255, 255, 255, 255));
 color: rgb(255, 170, 0);
 
 font: 700 10pt &quot;Segoe UI&quot;;
-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 };
 
 </string>
@@ -1155,21 +1167,23 @@ color: rgb(255, 255, 255);
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>190</y>
+        <y>170</y>
         <width>141</width>
         <height>61</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+
     border-width: 2px;
     border-radius: 15px;
     padding: 5px;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
-color: rgb(255, 170, 0);
 
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 251, 148, 255), stop:1 rgba(255, 255, 255, 255));
 font: 700 10pt &quot;Segoe UI&quot;;
 color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+
 };
 
 </string>
@@ -1182,21 +1196,23 @@ color: rgb(255, 255, 255);
       <property name="geometry">
        <rect>
         <x>600</x>
-        <y>190</y>
+        <y>170</y>
         <width>131</width>
         <height>71</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+
     border-width: 2px;
     border-radius: 15px;
     padding: 5px;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
-color: rgb(255, 170, 0);
 
-font: 700 10pt &quot;Segoe UI&quot;;
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 251, 148, 255), stop:1 rgba(255, 255, 255, 255));
+font: 700 11pt &quot;Segoe UI&quot;;
 color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+
 };
 
 </string>
@@ -1220,10 +1236,13 @@ color: rgb(255, 255, 255);
     border-radius: 15px;
     padding: 5px;
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+	background-color: qlineargradient(spread:pad, x1:0.0614525, y1:0.102, x2:1, y2:1, stop:0 rgba(255, 119, 21, 255), stop:1 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 144, 64, 255), stop:1 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(255, 167, 103, 255), stop:1 rgba(255, 255, 255, 255));
 color: rgb(255, 170, 0);
 
 font: 700 10pt &quot;Segoe UI&quot;;
-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 };
 
 </string>
@@ -1243,14 +1262,17 @@ color: rgb(255, 255, 255);
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+
     border-width: 2px;
     border-radius: 15px;
     padding: 5px;
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.96648, y2:1, stop:1 rgba(11, 9, 84, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(165, 209, 212, 255), stop:1 rgba(255, 255, 255, 255));
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(184, 210, 212, 255), stop:1 rgba(255, 255, 255, 255));
 color: rgb(255, 170, 0);
 
 font: 700 10pt &quot;Segoe UI&quot;;
-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 };
 
 </string>
@@ -1285,6 +1307,7 @@ background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0,
 border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));
 background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(255, 95, 119, 255), stop:1 rgba(255, 255, 255, 255));
 color: rgb(0, 0, 0);
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(116, 160, 124, 255), stop:1 rgba(255, 255, 255, 255));
 </string>
       </property>
       <property name="text">
@@ -1295,7 +1318,7 @@ color: rgb(0, 0, 0);
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>100</y>
+        <y>80</y>
         <width>531</width>
         <height>301</height>
        </rect>
@@ -1830,7 +1853,7 @@ background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5
        <rect>
         <x>440</x>
         <y>260</y>
-        <width>111</width>
+        <width>151</width>
         <height>21</height>
        </rect>
       </property>
@@ -2004,7 +2027,7 @@ color: rgb(255, 255, 255);
        <rect>
         <x>440</x>
         <y>250</y>
-        <width>121</width>
+        <width>141</width>
         <height>21</height>
        </rect>
       </property>

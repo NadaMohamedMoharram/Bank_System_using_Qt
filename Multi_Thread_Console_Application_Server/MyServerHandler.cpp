@@ -37,88 +37,6 @@ void MyServerHandler::run()
 void MyServerHandler::onReadyRead()
 {
 
-    // QByteArray ByteArr = Socket->readAll();
-
-
-    // qDebug()<<"My Server Received Data From Client"<<Qt::endl;
-    // Operation(QString(ByteArr));
-
-    // qInfo()<<" receiveing encrypted request"<<Qt::endl;
-
-    // QByteArray encryptedMessage = Socket->readAll();
-    // qDebug() << "Encrypted message received from client: " << encryptedMessage;
-
-    // // Define your AES encryption parameters
-    // QAESEncryption::Aes aesLevel = QAESEncryption::AES_256; // or AES_128, AES_192
-    // QAESEncryption::Mode aesMode = QAESEncryption::CBC; // or ECB, CFB, OFB
-    // QAESEncryption::Padding aesPadding = QAESEncryption::PKCS7; // or ZERO, ISO
-
-    // // Your key and IV (Initialization Vector) should be the same as used for encryption
-    // // QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef"); // 256-bit key (32 bytes)
-    // // QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210");  // 128-bit IV (16 bytes)
-    // // Define your AES parameters
-    // const QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef"); // Example: 32 bytes key for AES-256
-    // const QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210");   // Example: 16 bytes IV for AES
-
-    // // Decrypt the message
-    // QByteArray decryptedMessage = QAESEncryption::Decrypt(aesLevel, aesMode, encryptedMessage, key, iv, aesPadding);
-
-    // qDebug() << "Decrypted message: " << QString(decryptedMessage);
-    // // Remove PKCS7 padding
-    // int paddingLength = decryptedMessage.at(decryptedMessage.size() - 1);
-    // if (paddingLength > 0 && paddingLength <= 16) {
-    //     decryptedMessage.chop(paddingLength);
-    // }
-
-    /***************/
-    /*
-    QByteArray key = "0123456789abcdef0123456789abcdef"; // Encryption key
-    QByteArray iv = "abcdef9876543210abcdef9876543210"; // Initialization vector
-    // Decrypt the data
-    QByteArray decryptedData = QAESEncryption::Decrypt(QAESEncryption::AES_128, QAESEncryption::CBC, decryptedData, key, iv, QAESEncryption::PKCS7);
-
-    int padLength = decryptedData.at(decryptedData.length() - 1); // Get padding length
-    decryptedData = decryptedData.left(decryptedData.length() - padLength); // Remove padding
-
-    qInfo()<<"dataaa-->"<<QString(decryptedData)<<Qt::endl;
-
-    logRequest(QString(decryptedData));
-     Operation(QString(decryptedData));
-     */
-/********true code*************/
-    /* QByteArray encryptedMessage = Socket->readAll();
-    qDebug() << "Encrypted message received from client: " << encryptedMessage;
-
-    // Define AES parameters
-    QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef"); // 32 bytes key for AES-256
-    QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210");  // 16 bytes IV for AES
-
-    // Decrypt the message
-    QAESEncryption encryption(QAESEncryption::AES_128, QAESEncryption::CBC, QAESEncryption::PKCS7);
-    QByteArray decryptedMessage = encryption.decode(encryptedMessage, key, iv);
-
-    // Check if the decryption produced any data
-    if (decryptedMessage.isEmpty()) {
-        qWarning() << "Decryption failed, no data produced.";
-        return;
-    }
-
-    qDebug() << "Decrypted message: " << QString(decryptedMessage);
-
-    // Handle the operation
-    Operation(QString(decryptedMessage));
-
-    */
-
-
-
-
-    /*************/
-
-
-
-
-
 
     qInfo() << "Receiving encrypted request" << Qt::endl;
 
@@ -161,10 +79,7 @@ void MyServerHandler::onReadyRead()
         return;
     }
 
-    //  logRequest(QString(decryptedMessage));
 
-    // qDebug() << "Decrypted message after remove padding: " << QString(decryptedMessage);
-    // Operation(QString(decryptedMessage));
 
 
     QString decryptedMessageStr = QString(decryptedMessage);
@@ -472,7 +387,7 @@ void MyServerHandler::MakeTransactionRequest(const QString &accountNumber, int t
     QString to = "nadamohamedmoharram@gmail.com";  // Replace with the actual recipient email
     QString subject = "Transaction Notification";
 
-     sendEmail(to, subject, emailBody);
+//     sendEmail(to, subject, emailBody);
 
     sendMessage(QJsonDocument(response).toJson());
 }
@@ -509,7 +424,7 @@ void MyServerHandler::TransferAmountRequest(const QString &fromAccountNumber, co
     QString to = "nmo12416@gmail.com";  // Replace with the actual recipient email
     QString subject = "Transfer Notification";
 
-    sendEmail(to, subject, emailBody);
+   // sendEmail(to, subject, emailBody);
 
 }
 
@@ -575,6 +490,7 @@ void MyServerHandler::UpdateUserRequest(const QString &accountNumber, const QJso
 void MyServerHandler::sendEmail(const QString &to, const QString &subject, const QString &body)
 {
 
+    /*
     QProcess process;
 
     // Path to your batch script
@@ -605,6 +521,33 @@ void MyServerHandler::sendEmail(const QString &to, const QString &subject, const
         qDebug() << "Output:" << output;
     }
 
+*/
+
+
+    QString scriptPath = "D:\\ITIDA_Scholarship\\Final project\\send_email.bat"; // Replace with the actual path to your SendEmail.bat script
+    QStringList arguments;
+    arguments << to << subject << body;
+
+    QProcess process;
+  //  process.start(scriptPath, arguments);
+process.startDetached(scriptPath, arguments);
+    if (!process.waitForFinished())
+    {
+        qDebug() << "Failed to run batch script:" << process.errorString();
+        return;
+    }
+
+    // Read and display the output or error
+    QString output = process.readAllStandardOutput();
+    QString error = process.readAllStandardError();
+    if (!error.isEmpty())
+    {
+        qDebug() << "Error sending email:" << error;
+    }
+    else
+    {
+        qDebug() << "Output:" << output;
+    }
 
 
     }

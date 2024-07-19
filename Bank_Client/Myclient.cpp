@@ -2,6 +2,16 @@
 #include<QProcess>
 #include <QCryptographicHash>
 
+
+/********/
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QUrl>
+#include <QUrlQuery>
+#include <QDebug>
+/*************/
+
 MyClient::MyClient(QObject *parent)
     : QObject{parent}
 {
@@ -239,7 +249,39 @@ void MyClient::sendRequest(const QJsonObject &request)
 }
 
 
+void MyClient::sendEmail(const QString &to, const QString &subject, const QString &body)
+{
 
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+
+    QUrl url("https://nadamohamed2001.pythonanywhere.com/receive_email");
+    QNetworkRequest request(url);
+
+    QUrlQuery query;
+    query.addQueryItem("to", to);
+    query.addQueryItem("subject", subject);
+    query.addQueryItem("body", body);
+
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+
+   // QNetworkReply *reply = manager->post(request, query.toString(QUrl::FullyEncoded).toUtf8());
+    QNetworkReply *reply = manager->get(request, query.toString(QUrl::FullyEncoded).toUtf8());
+
+    connect(reply, &QNetworkReply::finished, [reply]() {
+        if (reply->error() == QNetworkReply::NoError) {
+            qDebug() << "Email data sent successfully!";
+        } else {
+            qDebug() << "Error sending email data:" << reply->errorString();
+        }
+        reply->deleteLater();
+    });
+}
+
+
+
+
+
+/*
 void MyClient::sendEmail(const QString &to, const QString &subject, const QString &body)
 {
 
@@ -249,7 +291,7 @@ void MyClient::sendEmail(const QString &to, const QString &subject, const QStrin
     QProcess process; // Create a QProcess object to run external processes
 
     // Path to your batch script
-    QString batchFilePath = "D:\\ITIDA_Scholarship\\Final project\\send_email.bat"; // Specify the path to the batch file for sending emails
+    QString batchFilePath = "D:\\ITIDA_Scholarship\\Final project\\sendEmail.bat"; // Specify the path to the batch file for sending emails
 
     // Prepare arguments
     QStringList arguments;
@@ -278,7 +320,7 @@ void MyClient::sendEmail(const QString &to, const QString &subject, const QStrin
         qDebug() << "successful sending email.........."<<Qt::endl;
         qDebug() << "Output:" << output;
     }
-}
+}*/
 
 /*
 
