@@ -384,10 +384,10 @@ void MyServerHandler::MakeTransactionRequest(const QString &accountNumber, int t
     }
 
 
-    QString to = "nadamohamedmoharram@gmail.com";  // Replace with the actual recipient email
+    QString to = "nmo12416@gmail.com";  // Replace with the actual recipient email
     QString subject = "Transaction Notification";
 
-//     sendEmail(to, subject, emailBody);
+     sendEmail(to, subject, emailBody);
 
     sendMessage(QJsonDocument(response).toJson());
 }
@@ -487,70 +487,37 @@ void MyServerHandler::UpdateUserRequest(const QString &accountNumber, const QJso
     sendMessage(QJsonDocument(response).toJson());
 }
 
+
 void MyServerHandler::sendEmail(const QString &to, const QString &subject, const QString &body)
 {
 
-    /*
-    QProcess process;
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
 
-    // Path to your batch script
-    QString batchFilePath = "D:\\ITIDA_Scholarship\\Final project\\send_email.bat";
+    QUrl url("https://nadamohamed2001.pythonanywhere.com/receive_email");
+    QNetworkRequest request(url);
 
-    // Prepare arguments
-    QStringList arguments;
-    arguments << to << subject << body;
+    QUrlQuery query;
+    query.addQueryItem("to", to);
+    query.addQueryItem("subject", subject);
+    query.addQueryItem("body", body);
 
-    // Start the batch script with arguments
-    qDebug() << "Starting batch script with arguments:" << arguments;
-    process.start(batchFilePath, arguments);
-    if (!process.waitForFinished())
-    {
-        qDebug() << "Failed to run batch script:" << process.errorString();
-        return;
-    }
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 
-    // Read and display the output or error
-    QString output = process.readAllStandardOutput();
-    QString error = process.readAllStandardError();
-    if (!error.isEmpty())
-    {
-        qDebug() << "Error sending email:" << error;
-    }
-    else
-    {
-        qDebug() << "Output:" << output;
-    }
+    // QNetworkReply *reply = manager->post(request, query.toString(QUrl::FullyEncoded).toUtf8());
+    QNetworkReply *reply = manager->get(request, query.toString(QUrl::FullyEncoded).toUtf8());
 
-*/
+    connect(reply, &QNetworkReply::finished, [reply]() {
+        if (reply->error() == QNetworkReply::NoError) {
+            qDebug() << "Email data sent successfully!";
+        } else {
+            qDebug() << "Error sending email data:" << reply->errorString();
+        }
+        reply->deleteLater();
+    });
+}
 
 
-    QString scriptPath = "D:\\ITIDA_Scholarship\\Final project\\send_email.bat"; // Replace with the actual path to your SendEmail.bat script
-    QStringList arguments;
-    arguments << to << subject << body;
 
-    QProcess process;
-  //  process.start(scriptPath, arguments);
-process.startDetached(scriptPath, arguments);
-    if (!process.waitForFinished())
-    {
-        qDebug() << "Failed to run batch script:" << process.errorString();
-        return;
-    }
-
-    // Read and display the output or error
-    QString output = process.readAllStandardOutput();
-    QString error = process.readAllStandardError();
-    if (!error.isEmpty())
-    {
-        qDebug() << "Error sending email:" << error;
-    }
-    else
-    {
-        qDebug() << "Output:" << output;
-    }
-
-
-    }
 
 void MyServerHandler::logRequest(const QString &message)
     {     /*   QFile logFile("D:\\ITIDA_Scholarship\\Final project\\Bank_System\\Multi_Thread_Console_Application_Server\\server_log.log");

@@ -4,8 +4,17 @@
 #include <QMainWindow>
 #include "MyClient.h"
 #include <QMetaEnum>
-
 #include"qaesencryption.h"
+
+#include"QMessageBox"
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QFile>
+#include<QPixmap>
+#include<QWidget>
+#include<QInputDialog>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

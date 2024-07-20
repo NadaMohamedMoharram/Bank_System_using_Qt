@@ -15,6 +15,18 @@
 #include <QNetworkRequest>
 #include <QProcess>
 
+
+
+
+/********/
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QUrl>
+#include <QUrlQuery>
+#include <QDebug>
+/*************/
+
 #include"qaesencryption.h"
 //class database--->databaseinit  vector from Qjsonobject
 

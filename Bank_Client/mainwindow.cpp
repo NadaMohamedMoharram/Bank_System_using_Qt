@@ -1,14 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include"QMessageBox"
 
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QJsonDocument>
-#include <QFile>
-#include<QPixmap>
-#include<QWidget>
-#include<QInputDialog>
 
 
 enum GUI_Windows
@@ -44,7 +36,6 @@ MainWindow::MainWindow(QWidget *parent)
     options << "None" << "Deposit" << "Withdrow";
     ui->comboBox_UserTransactionType->addItems(options);
 
-  //  ui->LE_CreatUser_Password->setEchoMode(QLineEdit::Password);
     Images_init();
 
 
@@ -114,43 +105,45 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
         }
         else if(response["status"].toString() == "success_GetAccountNumber")
         {
-           //  qInfo()<<"received response to get account";
             handleAccountNumberResponse(response);
 
         }
         else if(response["status"].toString() == "account_balance_response")
         {
-           // qInfo()<<"received response account_balance";
             handleAccountBalancerResponse(response);
 
         }
         else if(response["status"].toString() == "transaction_history_response")
         {
-           // qInfo()<<"received response transaction_history";
             displayTransactionHistory(response);
 
         }
         else if(response["status"].toString() == "transaction_amount_response")
         {
-            //qInfo()<<"received response transaction_amount";
-           // QString  emailBody;
+            QString  emailBody;
 
             if (response["transaction_Result"].toString() == "Transaction successful")
             {
                 QMessageBox::information(nullptr, "Transaction Response", "Transaction successful.");
-              //  emailBody = QString("Transaction success.");
+                emailBody = QString("Transaction success.");
 
             }
                 else
             {
                 QMessageBox::critical(nullptr, "Transaction Response", "Transaction failed. No suffecient balance");
-              //  emailBody = QString("Transaction fail.");
+                emailBody = QString("Transaction failed.");
 
             }
+
+            QString to = "nmo12416@gmail.com";  // Replace with the actual recipient email
+            QString subject = "Transaction Notification";
+
+          // client.sendEmail(to, subject, emailBody);
+
+
         }
         else if(response["status"].toString()=="transfer_response")
         {
-           // qInfo()<<"received response transfer_response";
 
             if (response["transsfer_Result"].toString() == "Transfer successful")
             {
@@ -171,17 +164,15 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
 
         else if(response["status"].toString() == "CreateUser_response")
         {
-            //qInfo()<<"received response new user";
             if (response["NewUser_Result"].toString() == "Create new user successful")
                 QMessageBox::information(nullptr, "New User Response", "Create new user successful.");
             else
-                QMessageBox::critical(nullptr, "New User Response", "Create new user failed. username or acount number is already used");
+                QMessageBox::critical(nullptr, "New User Response", "Create new user failed.");
 
         }
 
         else if(response["status"].toString() == "DeleteUser_response")
         {
-           // qInfo()<<"received response delete user";
             if (response["DeleteUser_Result"].toString() == "Delete user successful")
                 QMessageBox::information(nullptr, "Delete user Response", "Delete user successful.");
             else
@@ -190,7 +181,6 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
         }
         else if(response["status"].toString() == "UpdateUser_response")
         {
-            qInfo()<<"received response delete user";
             if (response["UpdateUser_Result"].toString() == "Update user successful")
                 QMessageBox::information(nullptr, "Update user Response", "Update user successful.");
             else
@@ -200,6 +190,9 @@ void MainWindow::onReadyReadDevice(const QJsonObject &response)
         else
         {
             qInfo()<<"invalid response"<<Qt::endl;
+            QMessageBox::critical(nullptr, "Error", "something wrong happens in your request. try to start again");
+
+
         }
 
 
@@ -224,7 +217,6 @@ void MainWindow::handleLoginResponse(const QJsonObject& response)
 
     }
 
-    client.sendEmail("nmo12416@gmail.com","Money Back","Here is your money Eng/Kerlles:1000 i will not borrow from u again :)");
 }
 
 
@@ -233,9 +225,8 @@ void MainWindow::handleLoginResponse(const QJsonObject& response)
 void MainWindow::handleAccountNumberResponse(const QJsonObject& response)
 {
      QString accountNumber = response["account_number"].toString();
-   // this->client_accountNumber=accountNumber;
      if (accountNumber.isEmpty())
-        QMessageBox::critical(nullptr, "Error", "This user name doesn't exist");
+        QMessageBox::critical(nullptr, "Error", "This username doesn't exist");
     else
     QMessageBox::information(nullptr, "Information", "This is your account number message=>"+accountNumber);
 
@@ -472,27 +463,29 @@ void MainWindow::on_PB_Login_clicked()
     this->client_username=username;
     if (username.isEmpty() || password.isEmpty()) {
         QMessageBox::warning(this, "Login", "Please enter both username and password.");
-        qInfo()<<"LoginPlease enter both username and password";
 
         return;
     }
 
-    // QString ip="192.168.56.1";
-    // QString port_str="1234";
-    // qint32 port= port_str.toInt();
-    QString ip = ui->leIP->text();
-    qint32 port = ui->lePort->text().toInt();
+    if (username.contains(' ') || password.contains(' ') )
+    {
+        QMessageBox::warning(this, "Login", "Invalid username or password.Please enter both username and password without spaces.");
 
+        return;
+    }
+
+
+    QString ip = ui->leIP->text();
+   // qint32 port = ui->lePort->text().toInt();
+    qint32 port=321;
     client.ConnectToDevice(ip,port);
 
 
-    //  qInfo()<<"/**************************/\n";
     QJsonObject loginRequest;
     loginRequest["type"] = "login";
     loginRequest["username"] = username;
     loginRequest["password"] = password;
 
-    //client.sendRequest(loginRequest); // Send the login request
     // Convert QJsonObject to QJsonDocument
     QJsonDocument jsonDoc(loginRequest);
 
@@ -503,27 +496,19 @@ void MainWindow::on_PB_Login_clicked()
 
 
 
-// QString ConvertToString()
-
-
-
 void MainWindow::on_UserGetAccountNo_PB_clicked()
 {
-    qInfo()<<"in get account"<<Qt::endl;
-   // QString username= ui->lineEdit_username->text();
     QString username=this->client_username;
     QJsonObject request;
     request["type"] = "GetAccountNumber";
     request["username"] = username;
     qInfo()<<"username=>"<<username<<Qt::endl;
 
-   // sendMessage(QJsonDocument(request).toJson());
     QJsonDocument jsonDoc(request);
 
     // Convert QJsonDocument to string
     QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
     client.WriteData(jsonString);
-     qInfo()<<" get account request sent to server"<<Qt::endl;
 }
 
 
@@ -538,13 +523,18 @@ void MainWindow::on_UserAccountBalance_PB_clicked()
         QMessageBox::critical(this, "Error", "Account number is required");
         return;
     }
+    if (accountNumber.contains(' ') )
+    {
+        QMessageBox::critical(this, "Error", "Invalid account number.Please try again.");
+
+        return;
+    }
 
 
 
     QJsonObject request;
     request["type"] = "ViewAccountBalance";
     request["account_number"] = accountNumber;
-   // qInfo()<<"username=>"<<username<<Qt::endl;
 
     QJsonDocument jsonDoc(request);
 
@@ -557,7 +547,6 @@ void MainWindow::on_UserAccountBalance_PB_clicked()
 void MainWindow::on_UserViewTransaction_PB_2_clicked()
 {
 
-
     ui->Login_page->setCurrentIndex(ViewTransactionPage);
 
 }
@@ -569,12 +558,17 @@ void MainWindow::on_UserShowTransactin_PB_clicked()
     int count=ui->spinBox_UserCount->value();
 
     if (accountNumber.isEmpty()) {
-        QMessageBox::warning(this, "View Transaction", "Please enter both account number.");
-      //  qInfo()<<"LoginPlease enter both username and password";
+        QMessageBox::warning(this, "View Transaction", "Please enter account number.");
 
         return;
     }
-    else if(accountNumber!=this->client_accountNumber)
+    if (accountNumber.contains(' ') )
+    {
+        QMessageBox::critical(this, "Error", "Invalid account number.Please try again.");
+
+        return;
+    }
+     if(accountNumber!=this->client_accountNumber)
     {
         QMessageBox::critical(this, "View Transaction", "Wrong account number.please try again");
         return;
@@ -585,7 +579,6 @@ void MainWindow::on_UserShowTransactin_PB_clicked()
     request["type"] = "ViewTransactionHistory";
     request["account_number"] = accountNumber;
     request["count"] = count;
-    // qInfo()<<"username=>"<<username<<Qt::endl;
 
     QJsonDocument jsonDoc(request);
 
@@ -612,8 +605,7 @@ void MainWindow::on_Back_PB_clicked()
 void MainWindow::on_UserMakeTransaction_PB_clicked()
 {
     ui->Login_page->setCurrentIndex(MakeTransactionPage);
-   //  ui->listWidget_try->show();
-   // ui->listWidget_try->hide();
+
 
 
 }
@@ -633,7 +625,6 @@ void MainWindow::on_UserConfirmTransaction_PB_clicked()
 
     if (accountNumber.isEmpty()) {
         QMessageBox::warning(this, "Make Transaction Request", "Please enter account number.");
-        //  qInfo()<<"LoginPlease enter both username and password";
 
         return;
     }
@@ -643,6 +634,12 @@ void MainWindow::on_UserConfirmTransaction_PB_clicked()
         return;
 
     }
+    if (accountNumber.contains(' ') )
+    {
+        QMessageBox::critical(this, "Make Transaction Request", "Invalid account number.Please try again.");
+
+        return;
+    }
 
     if ( transactionAmount <= 0) {
         QMessageBox::warning(this, "Input Error", "Please enter a valid transfer amount.");
@@ -651,7 +648,6 @@ void MainWindow::on_UserConfirmTransaction_PB_clicked()
 
     if (transactionType=="None") {
         QMessageBox::warning(this, "Make Transaction Request", "Please enter Transaction Type.");
-        //  qInfo()<<"LoginPlease enter both username and password";
 
         return;
     }
@@ -736,24 +732,6 @@ void MainWindow::on_UserTransfer_confirm_PB_clicked()
     QString toAccountNumber = ui->toAccountNumberLineEdit->text();
     int transferAmount = ui->transferAmountLineEdit->text().toInt();  // Assuming a QSpinBox for transfer amount
 
-    // QJsonObject request;
-    // request["type"] = "TransferAmount";
-    // request["fromAccountNumber"] = fromAccountNumber;
-    // request["toAccountNumber"] = toAccountNumber;
-    // request["transferAmount"] = transferAmount;
-
-    // QJsonDocument jsonDoc(request);
-    // qInfo()<<"in transfer func"<<Qt::endl;
-    // // Convert QJsonDocument to string
-    // QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
-    // client.WriteData(jsonString);
-
-
-
-
-
-    /**********************************/
-
     if (fromAccountNumber.isEmpty()) {
         QMessageBox::critical(this, "Make Transfer Request", "Please enter the sender account number.");
         //  qInfo()<<"LoginPlease enter both username and password";
@@ -766,15 +744,30 @@ void MainWindow::on_UserTransfer_confirm_PB_clicked()
         return;
 
     }
+
+    if (fromAccountNumber.contains(' ') )
+    {
+        QMessageBox::critical(this, "Make Transfer Request", "Invalid sender account number.Please try again.");
+
+        return;
+    }
+
     if(toAccountNumber.isEmpty())
     {
         QMessageBox::critical(this, "Make Transfer Request","Please enter the receiver account number.");
         return;
 
     }
+
+    if (toAccountNumber.contains(' ') )
+    {
+        QMessageBox::critical(this, "Make Transfer Request", "Invalid receiver account number.Please try again.");
+
+        return;
+    }
+
     if (transferAmount<=0) {
         QMessageBox::warning(this, "Make Transfer Request", "Please enter a valid transfer amount.");
-        //  qInfo()<<"LoginPlease enter both username and password";
 
         return;
     }
@@ -807,24 +800,30 @@ void MainWindow::on_Admin_GetAccountNo_PB_clicked()
                                                   "", &ok);
     if (!ok || username.isEmpty())
     {
-        QMessageBox::critical(this, "Error", "username is required");
+        QMessageBox::critical(this, "Get Account Request", "username is required");
+        return;
+    }
+
+    if (username.contains(' ') )
+    {
+        QMessageBox::critical(this, "Get Account Request", "Invalid username.Please try again.");
+
         return;
     }
 
     QJsonObject request;
     request["type"] = "Admin_GetAccountNumber";
     request["username"] = username;
-    //qInfo()<<"username=>"<<username<<Qt::endl;
 
-    // sendMessage(QJsonDocument(request).toJson());
     QJsonDocument jsonDoc(request);
 
     // Convert QJsonDocument to string
     QString jsonString = jsonDoc.toJson(QJsonDocument::Compact);
     client.WriteData(jsonString);
-   // qInfo()<<" get account request sent to server"<<Qt::endl;
 
 }
+
+
 
 
 void MainWindow::on_Admin_ViewAcountBalance_PB_clicked()
@@ -835,16 +834,23 @@ void MainWindow::on_Admin_ViewAcountBalance_PB_clicked()
                                                   "", &ok);
     if (!ok || accountNumber.isEmpty())
     {
-        QMessageBox::critical(this, "Error", "Account number is required");
+        QMessageBox::critical(this, "View Account Balance Request", "Account number is required");
         return;
     }
+
+    if (accountNumber.contains(' ') )
+    {
+        QMessageBox::critical(this, "View Account Balance Request", "Invalid account number.Please try again.");
+
+        return;
+    }
+
 
 
 
     QJsonObject request;
     request["type"] = "Admin_ViewAccountBalance";
     request["account_number"] = accountNumber;
-    // qInfo()<<"username=>"<<username<<Qt::endl;
 
     QJsonDocument jsonDoc(request);
 
@@ -882,12 +888,18 @@ void MainWindow::on_Display_AdminViewHistory_PB_clicked()
         return;
     }
 
+    if (accountNumber.contains(' ') )
+    {
+        QMessageBox::critical(this, "View Transaction Request", "Invalid account number.Please try again.");
+
+        return;
+    }
+
 
     QJsonObject request;
     request["type"] = "Admin_ViewTransactionHistory";
     request["account_number"] = accountNumber;
     request["count"] = count;
-    // qInfo()<<"username=>"<<username<<Qt::endl;
 
     QJsonDocument jsonDoc(request);
 
@@ -910,7 +922,6 @@ void MainWindow::on_Admin_ViewBankDatabase_PB_clicked()
     QJsonObject request;
     request["type"] = "Admin_ViewBankDatabase";
 
-    // qInfo()<<"username=>"<<username<<Qt::endl;
 
     QJsonDocument jsonDoc(request);
 
@@ -944,6 +955,68 @@ void MainWindow::on_Confirm_AdminCreateUser_PB_clicked()
     QString AccountNo =ui->LE_CreatUser_AccountNumber->text();
     int Balance=0;
     QString Authority="user";
+
+    if (FullName.isEmpty()) {
+        QMessageBox::warning(this, "Create user Request", "Please enter Full name.");
+
+        return;
+    }
+
+    if (Username.isEmpty()) {
+        QMessageBox::warning(this, "Create user Request", "Please enter Username.");
+
+        return;
+    }
+
+    if (Username.contains(' ') )
+    {
+        QMessageBox::critical(this, "Create user Request", "Invalid Username.Please try again.");
+
+        return;
+    }
+
+    if (Password.isEmpty()) {
+        QMessageBox::warning(this, "Create user Request", "Please enter Password.");
+
+        return;
+    }
+
+    if (Password.contains(' ') )
+    {
+        QMessageBox::critical(this, "Create user Request", "Invalid Password.Please try again.");
+
+        return;
+    }
+
+    if (Email.isEmpty()) {
+        QMessageBox::warning(this, "Create user Request", "Please enter Email.");
+
+        return;
+    }
+
+    if (Email.contains(' ') )
+    {
+        QMessageBox::critical(this, "Create user Request", "Invalid Email.Please try again.");
+
+        return;
+    }
+
+    if (AccountNo.isEmpty()) {
+        QMessageBox::warning(this, "Create user Request", "Please enter Account number.");
+
+        return;
+    }
+    if (AccountNo.contains(' ') )
+    {
+        QMessageBox::critical(this, "Create user Request", "Invalid Account Number.Please try again.");
+
+        return;
+    }
+
+
+
+
+
 
     // Create a JSON object with the user data
     QJsonObject userData;
@@ -982,16 +1055,22 @@ void MainWindow::on_Admin_DeleteUser_PB_clicked()
                                                   "", &ok);
     if (!ok || accountNumber.isEmpty())
     {
-        QMessageBox::critical(this, "Error", "Account number is required");
+        QMessageBox::critical(this, "Delete user Request", "Account number is required");
         return;
     }
 
+
+    if (accountNumber.contains(' ') )
+    {
+        QMessageBox::critical(this, "Delete user Request", "Invalid account number.Please try again.");
+
+        return;
+    }
 
 
     QJsonObject request;
     request["type"] = "Admin_DeleteUser";
     request["account_number"] = accountNumber;
-    // qInfo()<<"username=>"<<username<<Qt::endl;
 
     QJsonDocument jsonDoc(request);
 
@@ -1018,17 +1097,89 @@ void MainWindow::on_Confirm_AdminUpdateUser_PB_clicked()
     QString username = ui->LE_UpdateUser_UserName->text();
     QString password = ui->LE_UpdateUser_Password->text();
     QString email = ui->LE_UpdateUser_Email->text();
-   // QString balance = ui->LE_UpdateUser_Balance->text();
-  //  QString authority = ui->LE_UpdateUser_Authority->text();
+
+
+    if (accountNumber.isEmpty()) {
+        QMessageBox::warning(this, "Update user Request", "Please enter Account number.");
+
+        return;
+    }
+
+    if (accountNumber.contains(' ') )
+    {
+        QMessageBox::critical(this, "Update user Request", "Invalid account number.Please try again.");
+
+        return;
+    }
+
+    if (fullName.isEmpty()) {
+        QMessageBox::warning(this, "Update user Request", "Please enter Full name.");
+
+        return;
+    }
+
+    if (age<=0)
+    {
+        QMessageBox::critical(this, "Update user Request", "Invalid age. Please try again.");
+
+        return;
+    }
+
+    if (username.isEmpty()) {
+        QMessageBox::warning(this, "Update user Request", "Please enter Username.");
+
+        return;
+    }
+
+    if (username.contains(' ') )
+    {
+        QMessageBox::critical(this, "Update user Request", "Invalid Username.Please try again.");
+
+        return;
+    }
+
+    if (password.isEmpty()) {
+        QMessageBox::warning(this, "Update user Request", "Please enter Password.");
+
+        return;
+    }
+
+    if (password.contains(' ') )
+    {
+        QMessageBox::critical(this, "Update user Request", "Invalid Password.Please try again.");
+
+        return;
+    }
+
+    if (email.isEmpty()) {
+        QMessageBox::warning(this, "Update user Request", "Please enter Email.");
+
+        return;
+    }
+
+    if (email.contains(' ') )
+    {
+        QMessageBox::critical(this, "Update user Request", "Invalid Email.Please try again.");
+
+        return;
+    }
+
+
 
     QJsonObject newData;
-    if (!fullName.isEmpty()) newData["FullName"] = fullName;
-    if (age != 0) newData["Age"] = age;
-    if (!username.isEmpty()) newData["Username"] = username;
-    if (!password.isEmpty()) newData["Password"] = password;
-    if (!email.isEmpty()) newData["Email"] = email;
-   // if (!balance.isEmpty()) newData["Balance"] = balance.toInt();
-   // if (!authority.isEmpty()) newData["Authority"] = authority;
+    // if (!fullName.isEmpty()) newData["FullName"] = fullName;
+    // if (age != 0) newData["Age"] = age;
+    // if (!username.isEmpty()) newData["Username"] = username;
+    // if (!password.isEmpty()) newData["Password"] = password;
+    // if (!email.isEmpty()) newData["Email"] = email;
+
+
+     newData["FullName"] = fullName;
+     newData["Age"] = age;
+     newData["Username"] = username;
+     newData["Password"] = password;
+     newData["Email"] = email;
+
 
     QJsonObject request;
     request["type"] = "Admin_UpdateUser";
