@@ -1,8 +1,6 @@
 #include "MyServerHandler.h"
 
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QJsonDocument>
+
 
 
 
@@ -11,15 +9,14 @@ MyServerHandler::MyServerHandler(qint32 ID,QObject *parent)
     : QThread{parent}
 {
     this->ID = ID;
-/////
+    // Connect the signal from Admin_Class to the slot in MyServerHandler
+    connect(&adminFacade, &Admin_Class::sendMessageSignal, this, &MyServerHandler::sendMessage ,Qt::DirectConnection);
+    connect(&userFacade, &User_Class::sendMessageSignal, this, &MyServerHandler::sendMessage ,Qt::DirectConnection);
 
 
 }
 
-MyServerHandler::~MyServerHandler()
-{
-  //  logFile.close();
-}
+
 
 void MyServerHandler::run()
 {
@@ -143,16 +140,33 @@ void MyServerHandler::Operation(QString Operation)
 
     }
 
-    else if( (type == "GetAccountNumber" ) || (type == "Admin_GetAccountNumber")  )
+    else if( type == "GetAccountNumber"   )
     {
         QString username = obj["username"].toString();
-        MyServerHandler::GetAccountNumber(username);
+       // MyServerHandler::GetAccountNumber(username);
+        //UserFacade.GetAccountNumber(username);
+        userFacade.GetAccountNumber(username);
     }
 
-    else if(  (type == "ViewAccountBalance") || (type == "Admin_ViewAccountBalance"))
+    else if( type == "Admin_GetAccountNumber"  )
+    {
+        QString username = obj["username"].toString();
+       // MyServerHandler::GetAccountNumber(username);
+        //UserFacade.GetAccountNumber(username);
+        adminFacade.GetAccountNumber(username);
+    }
+
+
+    else if(  (type == "ViewAccountBalance"))
     {
         QString accountNumber = obj["account_number"].toString();
-        GetBalance(accountNumber);
+        userFacade.GetBalance(accountNumber);
+    }
+
+    else if( (type == "Admin_ViewAccountBalance"))
+    {
+        QString accountNumber = obj["account_number"].toString();
+       adminFacade.GetBalance(accountNumber);
     }
 
     else if ( (type == "ViewTransactionHistory") ||  (type == "Admin_ViewTransactionHistory"))
@@ -186,7 +200,8 @@ void MyServerHandler::Operation(QString Operation)
     /*******************************admin *************************/
     else if(type == "Admin_ViewBankDatabase")
     {
-        ViewBankDatabaseRequest();
+        //ViewBankDatabaseRequest();
+        adminFacade.ViewBankDatabaseRequest();
     }
 
 
@@ -213,30 +228,13 @@ void MyServerHandler::Operation(QString Operation)
         qInfo()<<"invalid request"<<Qt::endl;
     }
 
-
-
-    // if(Operation == "Hello")
-    // {
-    //     sendMessage("Hello Dear Client");
-    // }
-    // else if(Operation == "What is your name")
-    // {
-    //     sendMessage("My name is Kerollos Server");
-    // }
-    // else if(Operation == "What is your Age")
-    // {
-    //     sendMessage("My Age is 27");
-    // }
-    // else
-    // {
-    //     QString str = "This is invalid request\n"
-    //     "Hello\n"
-    //     "What is your name\n"
-    //     "What is your Age\n";
-    //     sendMessage(str);
-    // }
 }
-
+/************************************/
+void MyServerHandler::handleAdminMessage(const QString &message)
+{
+    sendMessage(message);
+}
+/********************************************/
 void MyServerHandler::onDisconnected()
 {
     if(Socket->isOpen())
@@ -249,9 +247,13 @@ void MyServerHandler::onDisconnected()
 
 void MyServerHandler::sendMessage(QString Message)
 {
+    qDebug()<<"inside => sendMessage "<<Qt::endl;
+
     if(Socket->isOpen())
     {
         Socket->write(Message.toUtf8());
+        qDebug()<<"message => "<<Message<<Qt::endl;
+
         qDebug()<<"My server Send Data to Client => "<<Qt::endl;
     }
     else
@@ -274,7 +276,7 @@ QJsonObject MyServerHandler::ConvertToJsonObj(QString Message)
     }
 
 }
-/***************************/
+/****************************************************************/
 
 void MyServerHandler::OnLogin(QString username, QString password)
 {
@@ -301,19 +303,7 @@ void MyServerHandler::OnLogin(QString username, QString password)
         qDebug() << "Login failed for user:" << username << Qt::endl;
     }
 
-    // if ( Data_Base.verifyCredentials(username, password) )
-    // {
-    //     sendMessage("Login successful!");
-    //     qDebug() << "Login successful for user:" << username << Qt::endl;
 
-
-
-    // }
-    // else
-    // {
-    //     sendMessage("Login failed: Invalid username or password.");
-    //     qDebug() << "Login failed for user:" << username << Qt::endl;
-    // }
 }
 
 void MyServerHandler::GetAccountNumber(QString username)
@@ -373,13 +363,13 @@ void MyServerHandler::MakeTransactionRequest(const QString &accountNumber, int t
     if (transactionResult==true)
     {
     response["transaction_Result"] = "Transaction successful";
-        emailBody = QString("Transaction success.");
+        emailBody = QString("Dear Client,\nWe want to inform you that your transaction request succeeded.\nYou "+transactionType+" "+QString::number(transactionAmount)+" L.E\n\nBest Regards,\nIMT_ITIDA Bank");
 
     }
     else
     {
      response["transaction_Result"] = "Transaction failed";
-        emailBody = QString("Transaction failed.");
+        emailBody = QString("Dear Client,\nWe regret to inform you that your transaction request is failed.\nBest Regards,\nIMT_ITIDA Bank");
 
     }
 

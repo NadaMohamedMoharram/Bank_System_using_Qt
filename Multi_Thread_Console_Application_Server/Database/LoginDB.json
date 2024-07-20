@@ -3,7 +3,7 @@
         "AccountNumber": "902668452",
         "Age": 25,
         "Autority": "user",
-        "Balance": 6955,
+        "Balance": 7455,
         "Email": "nadamohamedmoharram@gmail.com",
         "FullName": "Nada Mohamed",
         "Password": "1234",
@@ -257,6 +257,11 @@
                 "Amount": 500,
                 "date": "20-07-2024",
                 "type": "deposit"
+            },
+            {
+                "Amount": 500,
+                "date": "20-07-2024",
+                "type": "deposit"
             }
         ],
         "Username": "Nada"
@@ -364,17 +369,5 @@
             }
         ],
         "Username": "gogo123"
-    },
-    {
-        "AccountNumber": "4015 4654",
-        "Age": 15,
-        "Authority": "user",
-        "Balance": 0,
-        "Email": "nafa@rfgr",
-        "FullName": "nada m",
-        "Password": "213545",
-        "Transactions": [
-        ],
-        "Username": "dd"
     }
 ]

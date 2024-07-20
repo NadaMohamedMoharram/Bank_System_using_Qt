@@ -6,6 +6,10 @@
 #include<QTcpSocket>
 #include<QDebug>
 #include"DataBase.h"
+#include"User_Class.h"
+#include"Admin_Class.h"
+
+
 
 #include <QFile>
 #include <QTextStream>
@@ -16,7 +20,9 @@
 #include <QProcess>
 
 
-
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonDocument>
 
 /********/
 #include <QNetworkAccessManager>
@@ -35,10 +41,9 @@ class MyServerHandler : public QThread
     Q_OBJECT
 public:
     explicit MyServerHandler(qint32 ID,QObject *parent = nullptr);
-    ~MyServerHandler();
     QJsonObject ConvertToJsonObj(QString Message);
 
-   /***********/ void OnLogin(QString username , QString password);
+ void OnLogin(QString username , QString password);
  void GetAccountNumber(QString username);
  void GetBalance(const QString& accountNumber);
  void GetTransactionHistory(const QString& accountNumber, int count);
@@ -56,6 +61,9 @@ private:
     qint32 ID;
     QTcpSocket* Socket;
     DataBase Data_Base;
+    Admin_Class adminFacade;
+    User_Class userFacade;
+\
 
     // QThread interface
 protected:
@@ -66,6 +74,10 @@ public slots:
     void onDisconnected();
     void sendMessage(QString Message);
     void Operation(QString Operation);
+
+public slots:
+    void handleAdminMessage(const QString &message);  // Slot to handle admin messages
+
 };
 
 #endif // MYSERVERHANDLER_H
