@@ -99,6 +99,20 @@ This project implements a client-server banking system using the client-server m
 11. **Output Formatting**
     - Client application should format JSON data into readable tables.
 
+12. **Server as a Service**
+     -The server can be set up as a service using systemctl.
+    
+13. **Logging Request**
+     -The server logs client requests to a file.
+
+14. **Request Signatures**
+     -Added for verification of request integrity.
+
+15. **Email Notifications**
+    -Server responses are sent to clients' emails.
+    
+![image](https://github.com/user-attachments/assets/2c949baa-4a08-4285-adad-643c60f543ca)
+
 
 ## Installation and Setup
 
