@@ -3,7 +3,7 @@
         "AccountNumber": "902668452",
         "Age": 25,
         "Autority": "user",
-        "Balance": 7000,
+        "Balance": 7500,
         "Email": "nadamohamedmoharram@gmail.com",
         "FullName": "Nada Mohamed",
         "Password": "1234",
@@ -187,6 +187,11 @@
                 "Amount": -455,
                 "date": "21-07-2024",
                 "type": "withdrawal"
+            },
+            {
+                "Amount": 500,
+                "date": "21-07-2024",
+                "type": "deposit"
             }
         ],
         "Username": "Nada"
