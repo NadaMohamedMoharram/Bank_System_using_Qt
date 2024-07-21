@@ -99,8 +99,6 @@ This project implements a client-server banking system using the client-server m
 11. **Output Formatting**
     - Client application should format JSON data into readable tables.
 
-12. **Version Control**
-    - Hosted on a private GitHub repository; will be made public upon delivery.
 
 ## Installation and Setup
 
