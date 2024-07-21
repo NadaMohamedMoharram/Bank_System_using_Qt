@@ -11,6 +11,7 @@ public:
     explicit Admin_Class(QObject *parent = nullptr);
     void GetAccountNumber(QString username);
     void GetBalance(const QString& accountNumber);
+    void GetTransactionHistory(const QString &accountNumber, int count);
     void ViewBankDatabaseRequest();
     void CreateNewUserRequest(const QJsonObject &userData);
     void DeleteUserRequest(const QString& accountNumber);
@@ -18,6 +19,7 @@ public:
 
 signals:
     void sendMessageSignal(const QString &message);  // Signal to send a message
+    void sendEmailSignal(const QString &to, const QString &subject, const QString &body);
 
 private:
        DataBase db;

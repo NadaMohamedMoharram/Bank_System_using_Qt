@@ -447,6 +447,9 @@ QJsonArray jsonArray = jsonObject["data"].toArray(); // Assuming 'data' key hold
         //     ui->TW_AdminViewBankDatabase->setItem(currentRow, 7, new QTableWidgetItem());
         // }
     }
+
+    ui->Login_page->setCurrentIndex(AdminViewBankDatabasePage);
+
 }
 
 
@@ -917,7 +920,7 @@ void MainWindow::on_Back_AdminViewBankDatabase_PB_clicked()
 
 void MainWindow::on_Admin_ViewBankDatabase_PB_clicked()
 {
-     ui->Login_page->setCurrentIndex(AdminViewBankDatabasePage);
+    // ui->Login_page->setCurrentIndex(AdminViewBankDatabasePage);
 
     QJsonObject request;
     request["type"] = "Admin_ViewBankDatabase";

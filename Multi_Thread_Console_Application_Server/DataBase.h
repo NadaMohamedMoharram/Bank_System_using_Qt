@@ -22,6 +22,7 @@ public:
     QString getAccountNumber(const QString& username);
     /**/int getAccountBalance(const QString& accountNumber);
     QJsonArray getTransactionHistory(const QString& accountNumber, int count);
+    QString getAccountEmail(const QString &accountNumber);
     bool makeTransaction( const QString& accountNumber, int transactionAmount);
     bool transferAmount(const QString& fromAccountNumber, const QString& toAccountNumber, int transferAmount);
     void saveDataBase();

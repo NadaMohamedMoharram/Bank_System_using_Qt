@@ -11,7 +11,9 @@ MyServerHandler::MyServerHandler(qint32 ID,QObject *parent)
     this->ID = ID;
     // Connect the signal from Admin_Class to the slot in MyServerHandler
     connect(&adminFacade, &Admin_Class::sendMessageSignal, this, &MyServerHandler::sendMessage ,Qt::DirectConnection);
+    connect(&adminFacade, &Admin_Class::sendEmailSignal, this, &MyServerHandler::sendMessage ,Qt::DirectConnection);
     connect(&userFacade, &User_Class::sendMessageSignal, this, &MyServerHandler::sendMessage ,Qt::DirectConnection);
+    connect(&userFacade, &User_Class::sendEmailSignal, this, &MyServerHandler::sendEmail ,Qt::DirectConnection);
 
 
 }
@@ -169,11 +171,17 @@ void MyServerHandler::Operation(QString Operation)
        adminFacade.GetBalance(accountNumber);
     }
 
-    else if ( (type == "ViewTransactionHistory") ||  (type == "Admin_ViewTransactionHistory"))
+    else if ( type == "ViewTransactionHistory")
     {
         QString accountNumber = obj["account_number"].toString();
         int count = obj["count"].toInt();
-        GetTransactionHistory(accountNumber, count);
+        userFacade.GetTransactionHistory(accountNumber, count);
+    }
+    else if (type == "Admin_ViewTransactionHistory")
+    {
+        QString accountNumber = obj["account_number"].toString();
+        int count = obj["count"].toInt();
+        adminFacade.GetTransactionHistory(accountNumber, count);
     }
 
     else if(type == "MakeTransaction")
@@ -183,7 +191,8 @@ void MyServerHandler::Operation(QString Operation)
         QString accountNumber = obj["account_number"].toString();
         int transactionAmount = obj["transaction_Amount"].toInt();
         QString transactionType= obj["transaction_Type"].toString();
-        MakeTransactionRequest(accountNumber, transactionAmount ,transactionType);
+       // MakeTransactionRequest(accountNumber, transactionAmount ,transactionType);
+        userFacade.MakeTransactionRequest(accountNumber, transactionAmount ,transactionType);
     }
 
    else if(type == "TransferAmount")
@@ -193,7 +202,7 @@ void MyServerHandler::Operation(QString Operation)
         QString toAccountNumber= obj["toAccountNumber"].toString();
         QString fromAccountNumber = obj["fromAccountNumber"].toString();
         int transferAmount = obj["transferAmount"].toInt();
-        TransferAmountRequest(fromAccountNumber, toAccountNumber ,transferAmount);
+        userFacade.TransferAmountRequest(fromAccountNumber, toAccountNumber ,transferAmount);
     }
 
 
@@ -208,13 +217,13 @@ void MyServerHandler::Operation(QString Operation)
     else if(type == "Admin_CreateUser")
     {
          QJsonObject userData = obj["data"].toObject();
-        CreateNewUserRequest(userData);
+       adminFacade.CreateNewUserRequest(userData);
     }
 
     else if(type == "Admin_DeleteUser")
     {
         QString accountNumber = obj["account_number"].toString();
-        DeleteUserRequest(accountNumber);
+        adminFacade.DeleteUserRequest(accountNumber);
     }
 
     else if(type == "Admin_UpdateUser")
@@ -222,7 +231,7 @@ void MyServerHandler::Operation(QString Operation)
         QString accountNumber = obj["account_number"].toString();
         QJsonObject userData = obj["data"].toObject();
 
-        UpdateUserRequest(accountNumber,userData);
+       adminFacade.UpdateUserRequest(accountNumber,userData);
     }
     else{
         qInfo()<<"invalid request"<<Qt::endl;
@@ -306,47 +315,49 @@ void MyServerHandler::OnLogin(QString username, QString password)
 
 }
 
-void MyServerHandler::GetAccountNumber(QString username)
-{
-    QJsonObject response;
-   // if (loggedInUsers.contains(username) && loggedInUsers[username] == "user")
- //   {
-        DataBase db;
-        QString accountNumber = db.getAccountNumber(username);
-        response["status"] = "success_GetAccountNumber";
-        response["account_number"] = accountNumber;
-  //  }
-    // else
-    // {
-    //     response["status"] = "failed";
-    //     response["account_number"] = "";
-    // }
-    sendMessage(QJsonDocument(response).toJson());
-}
+// void MyServerHandler::GetAccountNumber(QString username)
+// {
+//     QJsonObject response;
+//    // if (loggedInUsers.contains(username) && loggedInUsers[username] == "user")
+//  //   {
+//         DataBase db;
+//         QString accountNumber = db.getAccountNumber(username);
+//         response["status"] = "success_GetAccountNumber";
+//         response["account_number"] = accountNumber;
+//   //  }
+//     // else
+//     // {
+//     //     response["status"] = "failed";
+//     //     response["account_number"] = "";
+//     // }
+//     sendMessage(QJsonDocument(response).toJson());
+// }
 
-void MyServerHandler::GetBalance(const QString &accountNumber)
-{
-    DataBase db;
-    int balance = db.getAccountBalance(accountNumber);
+// void MyServerHandler::GetBalance(const QString &accountNumber)
+// {
+//     DataBase db;
+//     int balance = db.getAccountBalance(accountNumber);
 
-    QJsonObject response;
-    response["status"] = "account_balance_response";
-    response["account_number"] = accountNumber;
-    response["balance"] = balance;
-    sendMessage(QJsonDocument(response).toJson());
-}
+//     QJsonObject response;
+//     response["status"] = "account_balance_response";
+//     response["account_number"] = accountNumber;
+//     response["balance"] = balance;
+//     sendMessage(QJsonDocument(response).toJson());
+// }
 
-void MyServerHandler::GetTransactionHistory(const QString &accountNumber, int count)
-{
-    DataBase db;
-    QJsonArray transactions = db.getTransactionHistory(accountNumber, count);
+// void MyServerHandler::GetTransactionHistory(const QString &accountNumber, int count)
+// {
+//     DataBase db;
+//     QJsonArray transactions = db.getTransactionHistory(accountNumber, count);
 
-    QJsonObject response;
-    response["status"] = "transaction_history_response";
-    response["account_number"] = accountNumber;
-    response["transactions"] = transactions;
-    sendMessage(QJsonDocument(response).toJson());
-}
+//     QJsonObject response;
+//     response["status"] = "transaction_history_response";
+//     response["account_number"] = accountNumber;
+//     response["transactions"] = transactions;
+//     sendMessage(QJsonDocument(response).toJson());
+// }
+
+/*
 
 void MyServerHandler::MakeTransactionRequest(const QString &accountNumber, int transactionAmount, const QString &transactionType)
 {
@@ -380,7 +391,9 @@ void MyServerHandler::MakeTransactionRequest(const QString &accountNumber, int t
      sendEmail(to, subject, emailBody);
 
     sendMessage(QJsonDocument(response).toJson());
-}
+}*/
+
+/*
 
 void MyServerHandler::TransferAmountRequest(const QString &fromAccountNumber, const QString &toAccountNumber, int transferAmount)
 {
@@ -418,6 +431,8 @@ void MyServerHandler::TransferAmountRequest(const QString &fromAccountNumber, co
 
 }
 
+*/
+
 void MyServerHandler::ViewBankDatabaseRequest()
 {
     DataBase db;
@@ -428,7 +443,7 @@ void MyServerHandler::ViewBankDatabaseRequest()
      sendMessage(QJsonDocument(response).toJson());
 
 }
-
+/*
 void MyServerHandler::CreateNewUserRequest(const QJsonObject &userData)
 {
     DataBase db;
@@ -444,7 +459,9 @@ void MyServerHandler::CreateNewUserRequest(const QJsonObject &userData)
 
     sendMessage(QJsonDocument(response).toJson());
 }
+*/
 
+/*
 void MyServerHandler::DeleteUserRequest(const QString &accountNumber)
 {
     DataBase db;
@@ -459,8 +476,8 @@ void MyServerHandler::DeleteUserRequest(const QString &accountNumber)
 
 
     sendMessage(QJsonDocument(response).toJson());
-}
-
+}*/
+/*
 void MyServerHandler::UpdateUserRequest(const QString &accountNumber, const QJsonObject &userData)
 {
     DataBase db;
@@ -477,7 +494,7 @@ void MyServerHandler::UpdateUserRequest(const QString &accountNumber, const QJso
     sendMessage(QJsonDocument(response).toJson());
 }
 
-
+*/
 void MyServerHandler::sendEmail(const QString &to, const QString &subject, const QString &body)
 {
 

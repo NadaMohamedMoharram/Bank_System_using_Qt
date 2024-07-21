@@ -18,6 +18,7 @@ public:
 
 signals:
     void sendMessageSignal(const QString &message);  // Signal to send a message
+    void sendEmailSignal(const QString &to, const QString &subject, const QString &body);
 
 private:
     //MyServerHandler* handler;

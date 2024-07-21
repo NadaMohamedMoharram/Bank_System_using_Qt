@@ -240,6 +240,21 @@ return transactions;
 
 }
 
+
+
+QString DataBase::getAccountEmail(const QString &accountNumber)
+{
+    initDataBase();  // Make sure your database is initialized
+
+    for (const auto& record : jsonDataBase) {
+        if (record["AccountNumber"].toString() == accountNumber) {
+            return record["Email"].toString();
+        }
+    }
+    return QString(); // Return an empty string if the account number is not found
+}
+
+
 bool DataBase::makeTransaction(const QString &accountNumber, int transactionAmount)
 {
     // initDataBase();
