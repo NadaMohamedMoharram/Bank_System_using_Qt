@@ -252,7 +252,7 @@ bool DataBase::createNewUser(const QJsonObject &userData)
     newUser["Autority"] = "user";
     newUser["Balance"] = userData["Balance"];
     newUser["Email"] = userData["Email"];
-    newUser["FullName"] = userData["FullName"];
+    newUser["FullName"] = userData["FullName"]; 
     newUser["Password"] = userData["Password"];
     newUser["Transactions"] = userData["Transactions"];
 

@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -42,6 +43,9 @@ public:
     QLabel *label_21;
     QLabel *pic1_bankLogo;
     QLineEdit *lineEdit_password;
+    QCheckBox *checkBox_IP;
+    QLabel *label_22;
+    QCheckBox *checkBox_password;
     QWidget *page_3;
     QPushButton *UserGetAccountNo_PB;
     QPushButton *UserAccountBalance_PB;
@@ -120,7 +124,7 @@ public:
     QLineEdit *LE_CreatUser_Password;
     QLabel *label_11;
     QLineEdit *LE_CreatUser_Email;
-    QLineEdit *LE_CreatUser_AccountNumber;
+    QLineEdit *LE_CreatUser_confirmPassword;
     QLabel *label_12;
     QPushButton *Back_AdminCreateUser_PB;
     QPushButton *Confirm_AdminCreateUser_PB;
@@ -177,7 +181,7 @@ public:
 "font: 700 16pt \"Segoe UI\";"));
         PB_Login = new QPushButton(page);
         PB_Login->setObjectName("PB_Login");
-        PB_Login->setGeometry(QRect(70, 340, 141, 41));
+        PB_Login->setGeometry(QRect(70, 360, 141, 41));
         PB_Login->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "background-color: qlineargradient(spread:pad, x1:0.748687, y1:0.165, x2:1, y2:0, stop:0 rgba(255, 59, 88, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
@@ -185,7 +189,7 @@ public:
 "font: 700 16pt \"Segoe UI\";"));
         leIP = new QLineEdit(page);
         leIP->setObjectName("leIP");
-        leIP->setGeometry(QRect(260, 30, 141, 24));
+        leIP->setGeometry(QRect(290, 30, 141, 24));
         leIP->setStyleSheet(QString::fromUtf8("\n"
 "background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(136, 215, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         pic2_userame = new QLabel(page);
@@ -223,6 +227,22 @@ public:
 "border-color: rgb(74, 92, 255);\n"
 "border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74, 92, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 16pt \"Segoe UI\";"));
+        checkBox_IP = new QCheckBox(page);
+        checkBox_IP->setObjectName("checkBox_IP");
+        checkBox_IP->setGeometry(QRect(290, 60, 111, 22));
+        checkBox_IP->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"color: rgb(0, 0, 0);"));
+        label_22 = new QLabel(page);
+        label_22->setObjectName("label_22");
+        label_22->setGeometry(QRect(180, 30, 101, 20));
+        label_22->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"color: rgb(0, 0, 165);\n"
+"font: 700 italic 16pt \"Segoe UI\";"));
+        checkBox_password = new QCheckBox(page);
+        checkBox_password->setObjectName("checkBox_password");
+        checkBox_password->setGeometry(QRect(40, 330, 101, 22));
+        checkBox_password->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"color: rgb(0, 0, 0);"));
         Login_page->addWidget(page);
         label_20->raise();
         lineEdit_username->raise();
@@ -233,6 +253,9 @@ public:
         label_21->raise();
         pic1_bankLogo->raise();
         lineEdit_password->raise();
+        checkBox_IP->raise();
+        label_22->raise();
+        checkBox_password->raise();
         page_3 = new QWidget();
         page_3->setObjectName("page_3");
         UserGetAccountNo_PB = new QPushButton(page_3);
@@ -1057,10 +1080,10 @@ public:
         LE_CreatUser_Email->setObjectName("LE_CreatUser_Email");
         LE_CreatUser_Email->setGeometry(QRect(20, 290, 281, 41));
         LE_CreatUser_Email->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
-        LE_CreatUser_AccountNumber = new QLineEdit(page_9);
-        LE_CreatUser_AccountNumber->setObjectName("LE_CreatUser_AccountNumber");
-        LE_CreatUser_AccountNumber->setGeometry(QRect(440, 290, 281, 41));
-        LE_CreatUser_AccountNumber->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
+        LE_CreatUser_confirmPassword = new QLineEdit(page_9);
+        LE_CreatUser_confirmPassword->setObjectName("LE_CreatUser_confirmPassword");
+        LE_CreatUser_confirmPassword->setGeometry(QRect(440, 290, 281, 41));
+        LE_CreatUser_confirmPassword->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         label_12 = new QLabel(page_9);
         label_12->setObjectName("label_12");
         label_12->setGeometry(QRect(440, 260, 151, 21));
@@ -1121,7 +1144,7 @@ public:
         LE_CreatUser_Password->raise();
         label_11->raise();
         LE_CreatUser_Email->raise();
-        LE_CreatUser_AccountNumber->raise();
+        LE_CreatUser_confirmPassword->raise();
         label_12->raise();
         Back_AdminCreateUser_PB->raise();
         Confirm_AdminCreateUser_PB->raise();
@@ -1289,6 +1312,9 @@ public:
         label_20->setText(QString());
         label_21->setText(QString());
         pic1_bankLogo->setText(QString());
+        checkBox_IP->setText(QCoreApplication::translate("MainWindow", "Automatically", nullptr));
+        label_22->setText(QCoreApplication::translate("MainWindow", "IP address", nullptr));
+        checkBox_password->setText(QCoreApplication::translate("MainWindow", "Show password", nullptr));
         UserGetAccountNo_PB->setText(QCoreApplication::translate("MainWindow", "Get Account Number", nullptr));
         UserAccountBalance_PB->setText(QCoreApplication::translate("MainWindow", "View Account Balance", nullptr));
         UserViewTransaction_PB_2->setText(QCoreApplication::translate("MainWindow", "View Account Transaction", nullptr));
@@ -1341,7 +1367,7 @@ public:
         label_8->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
         label_10->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
         label_11->setText(QCoreApplication::translate("MainWindow", "Email", nullptr));
-        label_12->setText(QCoreApplication::translate("MainWindow", "Account number", nullptr));
+        label_12->setText(QCoreApplication::translate("MainWindow", "Confirm password", nullptr));
         Back_AdminCreateUser_PB->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         Confirm_AdminCreateUser_PB->setText(QCoreApplication::translate("MainWindow", "Confirm", nullptr));
         label_30->setText(QString());

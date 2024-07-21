@@ -30,8 +30,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&client, &MyClient::ReadyRead, this, &MainWindow::onReadyReadDevice);
 
     ui->Login_page->setCurrentIndex(LoginPage);  // Set the initial page to LoginPage
-
     ui->lineEdit_password->setEchoMode(QLineEdit::Password);  // Set the password field to hide input characters
+
 
     QStringList options;  // Create a list to hold transaction types
     options << "None" << "Deposit" << "Withdrow";  // Add transaction types to the list
@@ -1033,6 +1033,18 @@ void MainWindow::on_checkBox_IP_stateChanged(int arg1)
 
         // Clear any existing text in the QLineEdit
         ui->leIP->clear();
+    }
+}
+
+
+void MainWindow::on_checkBox_password_stateChanged(int arg1)
+{
+    if (arg1 == Qt::Checked) {
+         ui->lineEdit_password->setEchoMode(QLineEdit::Normal);
+
+    } else {
+        ui->lineEdit_password->setEchoMode(QLineEdit::Password);  // Set the password field to hide input characters
+
     }
 }
 

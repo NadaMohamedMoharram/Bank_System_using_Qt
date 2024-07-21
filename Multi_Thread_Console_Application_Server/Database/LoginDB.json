@@ -45,6 +45,7 @@
             }
         ],
         "Username": "nada"
+        
     },
     {
         "AccountNumber": "401202154",
@@ -67,6 +68,7 @@
             }
         ],
         "Username": "mohanad"
+    
     },
     {
         "AccountNumber": "698742365",
@@ -89,6 +91,7 @@
             }
         ],
         "Username": "adel"
+      
     },
     {
         "AccountNumber": "625742365",
@@ -101,6 +104,7 @@
         "Transactions": [
         ],
         "Username": "rana"
+        
     },
     {
         "AccountNumber": "698744445",
@@ -113,5 +117,6 @@
         "Transactions": [
         ],
         "Username": "Lali"
+        
     }
 ]

@@ -118,6 +118,8 @@ private slots:
 
     void on_checkBox_IP_stateChanged(int arg1);
 
+    void on_checkBox_password_stateChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;  // Pointer to the UI elements for the MainWindow
     MyClient client;  // Instance of MyClient for network communication

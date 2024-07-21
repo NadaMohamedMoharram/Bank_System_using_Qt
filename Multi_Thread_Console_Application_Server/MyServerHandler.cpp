@@ -23,6 +23,7 @@ void MyServerHandler::run()
 
 void MyServerHandler::onReadyRead()
 {
+    logRequest("Received request from client:"+QString::number(this->ID));
     QByteArray encryptedMessage = Socket->readAll();  // Read all data from the socket
 
     QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"); // 32 bytes

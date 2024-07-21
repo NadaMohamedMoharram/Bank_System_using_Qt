@@ -1,270 +1,171 @@
-#include "MyClient.h"
-#include<QProcess>
-#include <QCryptographicHash>
+#include "MyClient.h"           // Include the header file for MyClient
+#include <QProcess>             // Provides access to processes
+#include <QCryptographicHash>   // Provides hashing functions
 
-
-/********/
-#include <QNetworkAccessManager>
-#include <QNetworkRequest>
-#include <QNetworkReply>
-#include <QUrl>
-#include <QUrlQuery>
-#include <QDebug>
-/*************/
-
+// Constructor for MyClient class
 MyClient::MyClient(QObject *parent)
-    : QObject{parent}
+    : QObject{parent} // Initialize the base class with the parent
 {
-    connect(&socket,&QTcpSocket::connected,this,&MyClient::onConnection);
-    connect(&socket,&QTcpSocket::disconnected,this,&MyClient::onDisconnected);
-    connect(&socket,&QTcpSocket::errorOccurred,this,&MyClient::onErrorOccurred);
-    connect(&socket,&QTcpSocket::stateChanged,this,&MyClient::onStateChanged);
-    connect(&socket,&QTcpSocket::readyRead,this,&MyClient::onReadyRead);
-
+    // Connect various signals from QTcpSocket to corresponding slots
+    connect(&socket, &QTcpSocket::connected, this, &MyClient::onConnection);
+    connect(&socket, &QTcpSocket::disconnected, this, &MyClient::onDisconnected);
+    connect(&socket, &QTcpSocket::errorOccurred, this, &MyClient::onErrorOccurred);
+    connect(&socket, &QTcpSocket::stateChanged, this, &MyClient::onStateChanged);
+    connect(&socket, &QTcpSocket::readyRead, this, &MyClient::onReadyRead);
 }
 
+// Connect to a TCP server using IP and port
 void MyClient::ConnectToDevice(QString ip, qint32 port)
 {
-    if(socket.isOpen())
+    // Check if the socket is already open
+    if (socket.isOpen())
     {
-        if((this->ip == ip)&&(this->port == port))
+        // If already connected to the same IP and port, return
+        if ((this->ip == ip) && (this->port == port))
         {
             return;
         }
         else
         {
+            // If different IP or port, close the socket and reconnect
             socket.close();
             this->port = port;
             this->ip = ip;
-            socket.connectToHost(this->ip,this->port);
-            qInfo()<<"connecting to server.......";
-
-
+            socket.connectToHost(this->ip, this->port);
+            qInfo() << "Connecting to server.......";
         }
     }
     else
     {
+        // If not connected, set IP and port, and connect
         this->port = port;
         this->ip = ip;
-        socket.connectToHost(this->ip,this->port);
-        qInfo()<<"connecting to server.......";
+        socket.connectToHost(this->ip, this->port);
+        qInfo() << "Connecting to server.......";
     }
 }
 
+// Disconnect from the TCP server
 void MyClient::Disconnect()
 {
-    if(socket.isOpen())
+    if (socket.isOpen())
     {
         socket.close();
     }
 }
 
+// Write data to the TCP server
 void MyClient::WriteData(QString data)
 {
-   /* if(socket.isOpen())
+    if (socket.isOpen())
     {
-        qInfo()<<"inside send request"<<Qt::endl;
-        // Define your AES parameters
-        // Define your AES parameters
-        qInfo()<<"before encryptedDataNew"<<data<<Qt::endl;
+        qInfo() << "Inside send request" << Qt::endl;
 
-
-        // Define your AES parameters
-        const QByteArray key = "0123456789abcdef0123456789abcdef"; // 32 bytes key for AES-256
-        const QByteArray iv = "abcdef9876543210abcdef9876543210";   // 16 bytes IV for AES
+        // Define AES encryption parameters
+        QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"); // 32 bytes
+        QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210"); // 16 bytes
 
         QByteArray rawData = data.toUtf8();
-         qInfo()<<"rawData"<<rawData<<Qt::endl;
-        // Encrypt the data
+
+        // Generate a hash-based signature using a secret key
+        QByteArray secretKey = "IMT_Secret_key1234"; // Example secret key for hashing
+        QByteArray hashSignature = QCryptographicHash::hash(rawData + secretKey, QCryptographicHash::Sha256).toHex();
+
+        // Combine the original data with the hash signature
+        QString combinedData = data + "|" + QString(hashSignature);
+        QByteArray combinedDataBytes = combinedData.toUtf8();
+
+        // Encrypt the combined data
         QByteArray encryptedData = QAESEncryption::Crypt(
-            QAESEncryption::AES_256, // AES level (AES_128, AES_192, or AES_256)
-            QAESEncryption::CBC,     // Mode (ECB, CBC, CFB, OFB)
-            rawData,                 // Raw data to encrypt
+            QAESEncryption::AES_256, // Encryption level
+            QAESEncryption::CBC,     // Mode of operation
+            combinedDataBytes,       // Data to encrypt
             key,                     // Encryption key
             iv,                      // Initialization vector
-            QAESEncryption::PKCS7    // Padding (ZERO, PKCS7, ISO)
+            QAESEncryption::PKCS7    // Padding
             );
 
-             qInfo()<<"encryptedDataNew"<<encryptedData<<Qt::endl;
-            socket.write(encryptedData);
-            qInfo()<<" send encrypted request"<<Qt::endl;
+        if (encryptedData.isEmpty())
+        {
+            qWarning() << "Encryption failed, no data produced.";
+            return;
+        }
 
-         // QString encryptedDataNew = QString(encryptedData);
-
-         // socket.write(encryptedDataNew.toUtf8());
-
-       // socket.write(data.toUtf8());
-
-
-    }*/
-
-
-   /**********true***********/
-   /*
-   if (socket.isOpen()) {
-       qInfo() << "inside send request" << Qt::endl;
-
-       // Define your AES parameters
-       QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef"); // 32 bytes key for AES-256
-       QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210");   // 16 bytes IV for AES
-
-       QByteArray rawData = data.toUtf8();
-       qInfo() << "rawData: " << rawData << Qt::endl;
-
-       // Encrypt the data
-       QAESEncryption encryption(QAESEncryption::AES_128, QAESEncryption::CBC, QAESEncryption::PKCS7);
-       QByteArray encryptedData = encryption.encode(rawData, key, iv);
-
-       qInfo() << "encryptedData: " << encryptedData << Qt::endl;
-
-       // Check if the encryption produced any data
-       if (encryptedData.isEmpty()) {
-           qWarning() << "Encryption failed, no data produced.";
-           return;
-       }
-
-       socket.write(encryptedData);
-       qInfo() << "send encrypted request" << Qt::endl;
-   }*/
-
-
-   /********************/
-   if (socket.isOpen())
-   {
-       qInfo() << "Inside send request" << Qt::endl;
-
-       // Define your AES parameters
-       QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"); // 64 hex characters = 32 bytes
-       QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210"); // 32 hex characters = 16 bytes
-
-        QByteArray rawData = data.toUtf8();
-       // qInfo() << "Raw data" << rawData << Qt::endl;
-       /**************************************************/
-       // Generate hash-based signature using a secret key
-       QByteArray secretKey = "IMT_Secret_key1234"; // Example secret key for hashing
-       QByteArray hashSignature = QCryptographicHash::hash(rawData + secretKey, QCryptographicHash::Sha256).toHex();
-
-       // Combine the data with the hash signature
-       QString combinedData = data + "|" + QString(hashSignature);
-       QByteArray combinedDataBytes = combinedData.toUtf8();
-       /***************************************************/
-
-
-
-       // Encrypt the data
-       QByteArray encryptedData = QAESEncryption::Crypt(
-           QAESEncryption::AES_256, // AES level (AES_128, AES_192, or AES_256)
-           QAESEncryption::CBC,     // Mode (ECB, CBC, CFB, OFB)
-        /*modefied*/   combinedDataBytes,                 // Raw data to encrypt
-           key,                     // Encryption key
-           iv,                      // Initialization vector
-           QAESEncryption::PKCS7    // Padding (ZERO, PKCS7, ISO)
-           );
-
-       if (encryptedData.isEmpty())
-       {
-           qWarning() << "Encryption failed, no data produced.";
-           return;
-       }
-
-       // qInfo() << "Encrypted data" << encryptedData << Qt::endl;
-       socket.write(encryptedData);
-       //qInfo() << "Sent encrypted request" << Qt::endl;
-   }
+        // Write encrypted data to the socket
+        socket.write(encryptedData);
+    }
 }
 
-
-
+// Slot for handling successful connection
 void MyClient::onConnection()
 {
     emit Connection();
 }
 
+// Slot for handling disconnection
 void MyClient::onDisconnected()
 {
     emit Disconnected();
 }
 
+// Slot for handling socket errors
 void MyClient::onErrorOccurred(QAbstractSocket::SocketError socketError)
 {
     emit ErrorOccurred(socketError);
 }
 
+// Slot for handling state changes of the socket
 void MyClient::onStateChanged(QAbstractSocket::SocketState socketState)
 {
-    if(socketState == QAbstractSocket::UnconnectedState)
+    if (socketState == QAbstractSocket::UnconnectedState)
     {
         socket.close();
     }
     emit StateChanged(socketState);
 }
 
-// void MyClient::onReadyRead()
-// {
-//     QByteArray byteArray = socket.readAll();
-//     QString data = QString(byteArray);
-//     qInfo()<<"received data from server=>"<<data<<Qt::endl;
-//     emit ReadyRead(data);
-// }
-
-
+// Slot for handling incoming data
 void MyClient::onReadyRead()
 {
-    QByteArray data = socket.readAll();
-    qInfo()<<"received==>"<<QString(data)<<Qt::endl;
-    QJsonDocument jsonDoc = QJsonDocument::fromJson(data);
-    // if (!jsonDoc.isNull() && jsonDoc.isObject())
-    // {
-        QJsonObject response = jsonDoc.object();
-    //     if (response["status"].toString() == "success")
-    //     {
-    //         QMessageBox::information(nullptr, "success", "Login successful.");
-    //        // handleLoginResponse(response);
-    //     }
-    //     else
-    //     {
-    //         QMessageBox::critical(nullptr, "Error", "Login failed: Invalid username or password.");
-
-    //     }
-    // }
-
+    QByteArray data = socket.readAll(); // Read all available data from the socket
+    qInfo() << "Received ==>" << QString(data) << Qt::endl;
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(data); // Parse JSON data
+    QJsonObject response = jsonDoc.object(); // Convert JSON document to object
     emit ReadyRead(response);
 }
 
 
-/*******************************************************/
+// Send a JSON request to the server
 void MyClient::sendRequest(const QJsonObject &request)
 {
-    QJsonDocument doc(request);
-    QByteArray data = doc.toJson();
+    QJsonDocument doc(request); // Convert JSON object to document
+    QByteArray data = doc.toJson(); // Convert document to bytes
 
-    // Encrypt the data here if necessary
-    if(socket.isOpen())
+    if (socket.isOpen())
     {
-        qInfo()<<"opened\n";
-        socket.write(data);
-        socket.flush();
+        qInfo() << "Socket is open";
+        socket.write(data); // Write data to socket
+        socket.flush(); // Ensure all data is sent
     }
-   qInfo()<<"closed\n";
+    qInfo() << "Socket closed";
 }
 
-
+// Send an email using a web service
 void MyClient::sendEmail(const QString &to, const QString &subject, const QString &body)
 {
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this); // Create network access manager
 
-    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    QUrl url("https://nadamohamed2001.pythonanywhere.com/receive_email"); // URL of the email service
+    QNetworkRequest request(url); // Create network request
 
-    QUrl url("https://nadamohamed2001.pythonanywhere.com/receive_email");
-    QNetworkRequest request(url);
-
-    QUrlQuery query;
+    QUrlQuery query; // Query parameters for the request
     query.addQueryItem("to", to);
     query.addQueryItem("subject", subject);
     query.addQueryItem("body", body);
 
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded"); // Set content type
 
-   // QNetworkReply *reply = manager->post(request, query.toString(QUrl::FullyEncoded).toUtf8());
+    // Send a GET request with query parameters
     QNetworkReply *reply = manager->get(request, query.toString(QUrl::FullyEncoded).toUtf8());
 
     connect(reply, &QNetworkReply::finished, [reply]() {
@@ -273,74 +174,6 @@ void MyClient::sendEmail(const QString &to, const QString &subject, const QStrin
         } else {
             qDebug() << "Error sending email data:" << reply->errorString();
         }
-        reply->deleteLater();
+        reply->deleteLater(); // Clean up reply object
     });
 }
-
-
-
-
-
-/*
-void MyClient::sendEmail(const QString &to, const QString &subject, const QString &body)
-{
-
-
-
-
-    QProcess process; // Create a QProcess object to run external processes
-
-    // Path to your batch script
-    QString batchFilePath = "D:\\ITIDA_Scholarship\\Final project\\sendEmail.bat"; // Specify the path to the batch file for sending emails
-
-    // Prepare arguments
-    QStringList arguments;
-    arguments << to << subject << body; // Prepare arguments for the batch script (recipient email, subject, body)
-
-    // Start the batch script with arguments
-    process.start(batchFilePath, arguments); // Start the batch script with specified arguments
-    if (!process.waitForFinished())
-    {
-        //logger.logMessage(QString("Failed to run batch script: %1").arg(process.errorString())); // Log an error if the batch script fails to execute
-        qDebug() <<QString("Failed to run batch script: %1").arg(process.errorString());
-        return;
-    }
-
-    // Read and display the output or err
-    QString output = process.readAllStandardOutput();
-    // QString error = process.readAllStandardError();
-    QString error = process.readAllStandardError(); // Read standard error output from the process
-    if (!error.isEmpty())
-    {
-        qDebug() <<QString("Error sending email: %1").arg(error); // Log an error if there is any error output from the process
-    }
-    else
-    {
-
-        qDebug() << "successful sending email.........."<<Qt::endl;
-        qDebug() << "Output:" << output;
-    }
-}*/
-
-/*
-
-QString MyClient::encryptData(const QString &data)
-{
-    QCA::Initializer init;
-
-    // Generate AES key and initialization vector
-    QCA::SymmetricKey key = QCA::SymmetricKey::generate(Qt::BlockSize);
-
-    QCA::InitializationVector iv = QCA::InitializationVector::generate(key.cipherMode());
-
-    // Create AES cipher
-    QCA::Cipher cipher(key, QCA::Cipher::AES128, QCA::Cipher::CBC, QCA::Cipher::PKCS7Padding);
-
-    // Encrypt the data
-    QCA::SecureArray encrypted = cipher.encrypt(data.toUtf8(), iv);
-
-    // Return base64 encoded encrypted data
-    return QString(encrypted.toByteArray().toBase64());
-}
-*/
-

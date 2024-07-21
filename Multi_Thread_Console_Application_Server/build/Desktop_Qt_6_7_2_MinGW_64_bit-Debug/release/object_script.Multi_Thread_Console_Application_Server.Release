@@ -1,0 +1,13 @@
+release/Admin_Class.o
+release/DataBase.o
+release/MyServer.o
+release/MyServerHandler.o
+release/User_Class.o
+release/main.o
+release/qaesencryption.o
+release/moc_Admin_Class.o
+release/moc_DataBase.o
+release/moc_MyServer.o
+release/moc_MyServerHandler.o
+release/moc_User_Class.o
+release/moc_qaesencryption.o
