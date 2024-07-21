@@ -44,6 +44,7 @@ void User_Class::MakeTransactionRequest(const QString &accountNumber, int transa
 {
     QJsonObject response;
     QString  emailBody;
+    int ActualtransactionAmount=transactionAmount;
     if (transactionType =="Withdrow")
     {
         transactionAmount*=-1;
@@ -54,7 +55,7 @@ void User_Class::MakeTransactionRequest(const QString &accountNumber, int transa
     if (transactionResult==true)
     {
         response["transaction_Result"] = "Transaction successful";
-        emailBody = QString("Dear Client,\nWe want to inform you that your transaction request succeeded.\nYou "+transactionType+" "+QString::number(transactionAmount)+" L.E\n\nBest Regards,\nIMT_ITIDA Bank");
+        emailBody = QString("Dear Client,\nWe want to inform you that your transaction request succeeded.\nYou "+transactionType+" "+QString::number(ActualtransactionAmount)+" L.E\n\nBest Regards,\nIMT_ITIDA Bank");
 
     }
     else

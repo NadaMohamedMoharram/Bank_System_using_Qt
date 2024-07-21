@@ -15,6 +15,7 @@
 #include<QWidget>
 #include<QInputDialog>
 
+#define SERVER_PORT 321
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

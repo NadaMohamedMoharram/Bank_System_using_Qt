@@ -38,7 +38,7 @@ background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgb
 </string>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLineEdit" name="lineEdit_username">
@@ -86,15 +86,12 @@ font: 700 16pt &quot;Segoe UI&quot;;</string>
         <height>24</height>
        </rect>
       </property>
-     </widget>
-     <widget class="QLineEdit" name="lePort">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>60</y>
-        <width>141</width>
-        <height>24</height>
-       </rect>
+      <property name="styleSheet">
+       <string notr="true">
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(136, 215, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="pic2_userame">
@@ -213,7 +210,6 @@ font: 700 16pt &quot;Segoe UI&quot;;</string>
      <zorder>lineEdit_username</zorder>
      <zorder>PB_Login</zorder>
      <zorder>leIP</zorder>
-     <zorder>lePort</zorder>
      <zorder>pic2_userame</zorder>
      <zorder>pic3_password</zorder>
      <zorder>label_21</zorder>
@@ -2025,9 +2021,9 @@ color: rgb(255, 255, 255);
      <widget class="QLabel" name="label_13">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>250</y>
-        <width>141</width>
+        <x>20</x>
+        <y>70</y>
+        <width>301</width>
         <height>21</height>
        </rect>
       </property>
@@ -2038,7 +2034,7 @@ color: rgb(255, 255, 255);
 background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
-       <string>Account number</string>
+       <string>Account number of the updated user</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="LE_UpdateUser_Email">
@@ -2081,7 +2077,7 @@ color: rgb(0, 0, 100);
      <widget class="QLineEdit" name="LE_UpdateUser_FullName">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>440</x>
         <y>100</y>
         <width>281</width>
         <height>41</height>
@@ -2094,7 +2090,7 @@ color: rgb(0, 0, 100);
      <widget class="QLabel" name="label_15">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>440</x>
         <y>70</y>
         <width>71</width>
         <height>21</height>
@@ -2164,8 +2160,8 @@ background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5
      <widget class="QLineEdit" name="LE_UpdateUser_AccountNumber">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>280</y>
+        <x>20</x>
+        <y>100</y>
         <width>281</width>
         <height>41</height>
        </rect>
@@ -2178,7 +2174,7 @@ background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>70</y>
+        <y>250</y>
         <width>71</width>
         <height>21</height>
        </rect>
@@ -2210,7 +2206,7 @@ background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>100</y>
+        <y>280</y>
         <width>281</width>
         <height>41</height>
        </rect>

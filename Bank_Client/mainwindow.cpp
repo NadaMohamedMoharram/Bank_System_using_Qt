@@ -479,8 +479,7 @@ void MainWindow::on_PB_Login_clicked()
 
 
     QString ip = ui->leIP->text();
-   // qint32 port = ui->lePort->text().toInt();
-    qint32 port=321;
+    qint32 port=SERVER_PORT;
     client.ConnectToDevice(ip,port);
 
 

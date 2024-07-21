@@ -1,10 +1,5 @@
 #include "MyServerHandler.h"
 
-
-
-
-
-
 MyServerHandler::MyServerHandler(qint32 ID,QObject *parent)
     : QThread{parent}
 {
@@ -14,58 +9,35 @@ MyServerHandler::MyServerHandler(qint32 ID,QObject *parent)
     connect(&adminFacade, &Admin_Class::sendEmailSignal, this, &MyServerHandler::sendMessage ,Qt::DirectConnection);
     connect(&userFacade, &User_Class::sendMessageSignal, this, &MyServerHandler::sendMessage ,Qt::DirectConnection);
     connect(&userFacade, &User_Class::sendEmailSignal, this, &MyServerHandler::sendEmail ,Qt::DirectConnection);
-
-
 }
 
 
 
 void MyServerHandler::run()
 {
-  //  qDebug()<<"Client with ID: "<<ID<<" is running on thread "<<QThread::currentThreadId()<<Qt::endl;
     Socket = new QTcpSocket();
     Socket->setSocketDescriptor(ID);
     connect(Socket,&QTcpSocket::readyRead,this,&MyServerHandler::onReadyRead,Qt::DirectConnection);
     connect(Socket,&QTcpSocket::disconnected,this,&MyServerHandler::onDisconnected,Qt::DirectConnection);
-
-   // sendMessage("Hello From My Server Dear client");
     exec();
-
 }
 
 void MyServerHandler::onReadyRead()
 {
 
-
-    qInfo() << "Receiving encrypted request" << Qt::endl;
-
     QByteArray encryptedMessage = Socket->readAll();
-    qDebug() << "Encrypted message received from client: " << encryptedMessage;
 
-    // Define your AES decryption parameters
     QByteArray key = QByteArray::fromHex("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"); // 32 bytes
     QByteArray iv = QByteArray::fromHex("abcdef9876543210abcdef9876543210"); // 16 bytes
 
     // Decrypt the message
-    QByteArray decryptedMessage = QAESEncryption::Decrypt(
-        QAESEncryption::AES_256,
-        QAESEncryption::CBC,
-        encryptedMessage,
-        key,
-        iv,
-        QAESEncryption::PKCS7
-        );
+    QByteArray decryptedMessage = QAESEncryption::Decrypt(QAESEncryption::AES_256,QAESEncryption::CBC,encryptedMessage,key,iv,QAESEncryption::PKCS7);
 
     if (decryptedMessage.isEmpty())
     {
-        qWarning() << "Decryption failed, no data produced.";
+        logRequest( "Decryption failed, no data produced.");
         return;
     }
-
-    qDebug() << "Decrypted message: " << QString(decryptedMessage);
-
-    // int padLength = decryptedMessage.at(decryptedMessage.length() - 1); // Get padding length
-    // decryptedMessage = decryptedMessage.left(decryptedMessage.length() - padLength); // Remove padding
 
     int paddingLength = decryptedMessage.at(decryptedMessage.size() - 1);
     if (paddingLength > 0 && paddingLength <= 16)
@@ -74,21 +46,18 @@ void MyServerHandler::onReadyRead()
     }
     else
     {
-        qWarning() << "Invalid padding length.";
+        logRequest("Invalid padding length.");
         return;
     }
 
 
-
-
     QString decryptedMessageStr = QString(decryptedMessage);
-    qDebug() << "Decrypted message: " << decryptedMessageStr<<Qt::endl;
 
     // Split the message to extract the original data and the hash signature
     QStringList messageParts = decryptedMessageStr.split("|");
     if (messageParts.size() != 2)
     {
-        qWarning() << "Invalid message format.";
+        logRequest( "Invalid message format for hashing.");
         return;
     }
 
@@ -101,15 +70,14 @@ void MyServerHandler::onReadyRead()
 
     if (receivedHashSignature != recalculatedHashSignature)
     {
-        qWarning() << "Invalid signature.";
+        logRequest("Invalid signature.");
         return;
     }
 
-    qDebug() << "Signature verified successfully.";
-
     // Log the request to a file
-    logRequest("original message=>"+originalMessage);
-    logRequest("receivedHashSignature message=>"+receivedHashSignature);
+    logRequest("original message:\n"+originalMessage);
+    logRequest("received Hash Signature message:\n"+receivedHashSignature);
+    logRequest("Encrypted message:\n"+QString(encryptedMessage));
     // Process the original message
     Operation(originalMessage);
 }
@@ -119,19 +87,7 @@ void MyServerHandler::onReadyRead()
 
 void MyServerHandler::Operation(QString Operation)
 {
-
-
-    //qDebug()<<Operation<<Qt::endl;
-     QJsonDocument jsonDoc = QJsonDocument::fromJson(Operation.toUtf8());
     QJsonObject obj= MyServerHandler::ConvertToJsonObj(Operation);
-    // if (!jsonDoc.isNull() && jsonDoc.isObject()) {
-    //      obj=jsonDoc.object();
-
-    // } else {
-    //     qWarning() << "Failed to parse JSON or the JSON is not an object.";
-    //    // return QJsonObject();
-    // }
-
     QString type = obj["type"].toString();
 
     if (type == "login") {
@@ -145,16 +101,14 @@ void MyServerHandler::Operation(QString Operation)
     else if( type == "GetAccountNumber"   )
     {
         QString username = obj["username"].toString();
-       // MyServerHandler::GetAccountNumber(username);
-        //UserFacade.GetAccountNumber(username);
+
         userFacade.GetAccountNumber(username);
     }
 
     else if( type == "Admin_GetAccountNumber"  )
     {
         QString username = obj["username"].toString();
-       // MyServerHandler::GetAccountNumber(username);
-        //UserFacade.GetAccountNumber(username);
+
         adminFacade.GetAccountNumber(username);
     }
 
@@ -191,7 +145,6 @@ void MyServerHandler::Operation(QString Operation)
         QString accountNumber = obj["account_number"].toString();
         int transactionAmount = obj["transaction_Amount"].toInt();
         QString transactionType= obj["transaction_Type"].toString();
-       // MakeTransactionRequest(accountNumber, transactionAmount ,transactionType);
         userFacade.MakeTransactionRequest(accountNumber, transactionAmount ,transactionType);
     }
 
@@ -209,7 +162,6 @@ void MyServerHandler::Operation(QString Operation)
     /*******************************admin *************************/
     else if(type == "Admin_ViewBankDatabase")
     {
-        //ViewBankDatabaseRequest();
         adminFacade.ViewBankDatabaseRequest();
     }
 
@@ -238,12 +190,7 @@ void MyServerHandler::Operation(QString Operation)
     }
 
 }
-/************************************/
-void MyServerHandler::handleAdminMessage(const QString &message)
-{
-    sendMessage(message);
-}
-/********************************************/
+
 void MyServerHandler::onDisconnected()
 {
     if(Socket->isOpen())
@@ -256,7 +203,6 @@ void MyServerHandler::onDisconnected()
 
 void MyServerHandler::sendMessage(QString Message)
 {
-    qDebug()<<"inside => sendMessage "<<Qt::endl;
 
     if(Socket->isOpen())
     {
@@ -295,7 +241,6 @@ void MyServerHandler::OnLogin(QString username, QString password)
 
     if (!authority.isEmpty())
     {
-       // sendMessage("Login successful!");
 
         qDebug() << "Login successful for user:" << username << "with authority:" << authority << Qt::endl;
 
@@ -310,191 +255,13 @@ void MyServerHandler::OnLogin(QString username, QString password)
         response["status"] = "failed";
         sendMessage(QJsonDocument(response).toJson());
         qDebug() << "Login failed for user:" << username << Qt::endl;
+        logRequest("Login failed for user");
     }
 
 
 }
 
-// void MyServerHandler::GetAccountNumber(QString username)
-// {
-//     QJsonObject response;
-//    // if (loggedInUsers.contains(username) && loggedInUsers[username] == "user")
-//  //   {
-//         DataBase db;
-//         QString accountNumber = db.getAccountNumber(username);
-//         response["status"] = "success_GetAccountNumber";
-//         response["account_number"] = accountNumber;
-//   //  }
-//     // else
-//     // {
-//     //     response["status"] = "failed";
-//     //     response["account_number"] = "";
-//     // }
-//     sendMessage(QJsonDocument(response).toJson());
-// }
 
-// void MyServerHandler::GetBalance(const QString &accountNumber)
-// {
-//     DataBase db;
-//     int balance = db.getAccountBalance(accountNumber);
-
-//     QJsonObject response;
-//     response["status"] = "account_balance_response";
-//     response["account_number"] = accountNumber;
-//     response["balance"] = balance;
-//     sendMessage(QJsonDocument(response).toJson());
-// }
-
-// void MyServerHandler::GetTransactionHistory(const QString &accountNumber, int count)
-// {
-//     DataBase db;
-//     QJsonArray transactions = db.getTransactionHistory(accountNumber, count);
-
-//     QJsonObject response;
-//     response["status"] = "transaction_history_response";
-//     response["account_number"] = accountNumber;
-//     response["transactions"] = transactions;
-//     sendMessage(QJsonDocument(response).toJson());
-// }
-
-/*
-
-void MyServerHandler::MakeTransactionRequest(const QString &accountNumber, int transactionAmount, const QString &transactionType)
-{
-    DataBase db;
-    QJsonObject response;
-    QString  emailBody;
-    if (transactionType =="Withdrow")
-    {
-        transactionAmount*=-1;
-    }
-
-    bool transactionResult = db.makeTransaction(accountNumber, transactionAmount);
-    response["status"] = "transaction_amount_response";
-    if (transactionResult==true)
-    {
-    response["transaction_Result"] = "Transaction successful";
-        emailBody = QString("Dear Client,\nWe want to inform you that your transaction request succeeded.\nYou "+transactionType+" "+QString::number(transactionAmount)+" L.E\n\nBest Regards,\nIMT_ITIDA Bank");
-
-    }
-    else
-    {
-     response["transaction_Result"] = "Transaction failed";
-        emailBody = QString("Dear Client,\nWe regret to inform you that your transaction request is failed.\nBest Regards,\nIMT_ITIDA Bank");
-
-    }
-
-
-    QString to = "nmo12416@gmail.com";  // Replace with the actual recipient email
-    QString subject = "Transaction Notification";
-
-     sendEmail(to, subject, emailBody);
-
-    sendMessage(QJsonDocument(response).toJson());
-}*/
-
-/*
-
-void MyServerHandler::TransferAmountRequest(const QString &fromAccountNumber, const QString &toAccountNumber, int transferAmount)
-{
-    qInfo()<<"in server handler: TransferAmountRequest func";
-
-    DataBase db;
-    QJsonObject response;
-    bool transferResult = db.transferAmount(fromAccountNumber, toAccountNumber, transferAmount);
-    QString  emailBody;
-    response["status"] = "transfer_response";
-    if (transferResult==true)
-    {
-        response["transsfer_Result"] = "Transfer successful";
-         emailBody = QString("Transfer of %1 from account %2 to account %3 was successful.")
-                        .arg(transferAmount)
-                        .arg(fromAccountNumber)
-                        .arg(toAccountNumber);
-    }
-    else
-    {
-        response["transsfer_Result"] = "Transfer failed";
-          emailBody = QString("Transfer of %1 from account %2 to account %3 was failed.")
-                                .arg(transferAmount)
-                                .arg(fromAccountNumber)
-                                .arg(toAccountNumber);
-    }
-
-
-    sendMessage(QJsonDocument(response).toJson());
-
-    QString to = "nmo12416@gmail.com";  // Replace with the actual recipient email
-    QString subject = "Transfer Notification";
-
-   // sendEmail(to, subject, emailBody);
-
-}
-
-*/
-
-void MyServerHandler::ViewBankDatabaseRequest()
-{
-    DataBase db;
-    QJsonObject response;
-    QJsonArray Data=db.viewBankDatabase();
-    response["status"] = "ViewBankDatabase_response";
-    response["data"]=Data;
-     sendMessage(QJsonDocument(response).toJson());
-
-}
-/*
-void MyServerHandler::CreateNewUserRequest(const QJsonObject &userData)
-{
-    DataBase db;
-    QJsonObject response;
-    bool CreateUserResult = db.createNewUser(userData);
-
-    response["status"] = "CreateUser_response";
-    if (CreateUserResult==true)
-        response["NewUser_Result"] = "Create new user successful";
-    else
-        response["NewUser_Result"] = "Create new user failed. username or acount number is already used";
-
-
-    sendMessage(QJsonDocument(response).toJson());
-}
-*/
-
-/*
-void MyServerHandler::DeleteUserRequest(const QString &accountNumber)
-{
-    DataBase db;
-    QJsonObject response;
-    bool DeleteUserResult = db.deleteUser(accountNumber);
-
-    response["status"] = "DeleteUser_response";
-    if (DeleteUserResult==true)
-        response["DeleteUser_Result"] = "Delete user successful";
-    else
-        response["DeleteUser_Result"] = "Delete user failed.";
-
-
-    sendMessage(QJsonDocument(response).toJson());
-}*/
-/*
-void MyServerHandler::UpdateUserRequest(const QString &accountNumber, const QJsonObject &userData)
-{
-    DataBase db;
-    QJsonObject response;
-    bool UpdateUserResult = db.updateUser(accountNumber , userData);
-
-    response["status"] = "UpdateUser_response";
-    if (UpdateUserResult==true)
-        response["UpdateUser_Result"] = "Update user successful";
-    else
-        response["UpdateUser_Result"] = "Update user failed.";
-
-
-    sendMessage(QJsonDocument(response).toJson());
-}
-
-*/
 void MyServerHandler::sendEmail(const QString &to, const QString &subject, const QString &body)
 {
 
@@ -510,38 +277,31 @@ void MyServerHandler::sendEmail(const QString &to, const QString &subject, const
 
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 
-    // QNetworkReply *reply = manager->post(request, query.toString(QUrl::FullyEncoded).toUtf8());
     QNetworkReply *reply = manager->get(request, query.toString(QUrl::FullyEncoded).toUtf8());
 
     connect(reply, &QNetworkReply::finished, [reply]() {
         if (reply->error() == QNetworkReply::NoError) {
-            qDebug() << "Email data sent successfully!";
+           // logRequest( "Email data sent successfully!");
+            qInfo()<< "Email data sent successfully!"<<Qt::endl;
+
         } else {
-            qDebug() << "Error sending email data:" << reply->errorString();
+            qInfo()<< "Error sending email data:"<< reply->errorString()<<Qt::endl;
         }
         reply->deleteLater();
     });
+
+
 }
 
 
-
-
 void MyServerHandler::logRequest(const QString &message)
-    {     /*   QFile logFile("D:\\ITIDA_Scholarship\\Final project\\Bank_System\\Multi_Thread_Console_Application_Server\\server_log.log");
-        if (logFile.open(QIODevice::Append | QIODevice::Text)) {
-            QTextStream out(&logFile);
-            out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") << ": " << request << "\n";
-            logFile.close();
-        }
-        */
-
-
+    {
         QFile logFile("D:\\ITIDA_Scholarship\\Final project\\Bank_System\\Multi_Thread_Console_Application_Server\\server_log.log");
         if (logFile.open(QIODevice::Append | QIODevice::Text))
         {
             QTextStream out(&logFile);
             out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") <<"\n";
-            out << message << "\n";
+            out << message << "\n\n";
             logFile.close();
         }
         else

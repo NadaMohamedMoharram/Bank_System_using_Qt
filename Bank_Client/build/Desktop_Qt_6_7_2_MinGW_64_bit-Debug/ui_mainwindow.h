@@ -36,7 +36,6 @@ public:
     QLineEdit *lineEdit_username;
     QPushButton *PB_Login;
     QLineEdit *leIP;
-    QLineEdit *lePort;
     QLabel *pic2_userame;
     QLabel *pic3_password;
     QLabel *label_20;
@@ -187,9 +186,8 @@ public:
         leIP = new QLineEdit(page);
         leIP->setObjectName("leIP");
         leIP->setGeometry(QRect(260, 30, 141, 24));
-        lePort = new QLineEdit(page);
-        lePort->setObjectName("lePort");
-        lePort->setGeometry(QRect(260, 60, 141, 24));
+        leIP->setStyleSheet(QString::fromUtf8("\n"
+"background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(136, 215, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         pic2_userame = new QLabel(page);
         pic2_userame->setObjectName("pic2_userame");
         pic2_userame->setGeometry(QRect(0, 230, 31, 41));
@@ -230,7 +228,6 @@ public:
         lineEdit_username->raise();
         PB_Login->raise();
         leIP->raise();
-        lePort->raise();
         pic2_userame->raise();
         pic3_password->raise();
         label_21->raise();
@@ -1167,7 +1164,7 @@ public:
 ""));
         label_13 = new QLabel(page_10);
         label_13->setObjectName("label_13");
-        label_13->setGeometry(QRect(440, 250, 141, 21));
+        label_13->setGeometry(QRect(20, 70, 301, 21));
         label_13->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 11pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
@@ -1190,11 +1187,11 @@ public:
 ""));
         LE_UpdateUser_FullName = new QLineEdit(page_10);
         LE_UpdateUser_FullName->setObjectName("LE_UpdateUser_FullName");
-        LE_UpdateUser_FullName->setGeometry(QRect(20, 100, 281, 41));
+        LE_UpdateUser_FullName->setGeometry(QRect(440, 100, 281, 41));
         LE_UpdateUser_FullName->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         label_15 = new QLabel(page_10);
         label_15->setObjectName("label_15");
-        label_15->setGeometry(QRect(20, 70, 71, 21));
+        label_15->setGeometry(QRect(440, 70, 71, 21));
         label_15->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 11pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
@@ -1219,11 +1216,11 @@ public:
         LE_UpdateUser_Password->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         LE_UpdateUser_AccountNumber = new QLineEdit(page_10);
         LE_UpdateUser_AccountNumber->setObjectName("LE_UpdateUser_AccountNumber");
-        LE_UpdateUser_AccountNumber->setGeometry(QRect(440, 280, 281, 41));
+        LE_UpdateUser_AccountNumber->setGeometry(QRect(20, 100, 281, 41));
         LE_UpdateUser_AccountNumber->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         label_18 = new QLabel(page_10);
         label_18->setObjectName("label_18");
-        label_18->setGeometry(QRect(440, 70, 71, 21));
+        label_18->setGeometry(QRect(440, 250, 71, 21));
         label_18->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:1, y1:0.017, x2:1, y2:0, stop:0 rgba(32, 110, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "font: 700 11pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
@@ -1234,7 +1231,7 @@ public:
         LE_UpdateUser_UserName->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         LE_UpdateUser_Age = new QLineEdit(page_10);
         LE_UpdateUser_Age->setObjectName("LE_UpdateUser_Age");
-        LE_UpdateUser_Age->setGeometry(QRect(440, 100, 281, 41));
+        LE_UpdateUser_Age->setGeometry(QRect(440, 280, 281, 41));
         LE_UpdateUser_Age->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));"));
         label_19 = new QLabel(page_10);
         label_19->setObjectName("label_19");
@@ -1276,7 +1273,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        Login_page->setCurrentIndex(5);
+        Login_page->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1286,6 +1283,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Bank System", nullptr));
         PB_Login->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
+        leIP->setText(QString());
         pic2_userame->setText(QString());
         pic3_password->setText(QString());
         label_20->setText(QString());
@@ -1349,7 +1347,7 @@ public:
         label_30->setText(QString());
         Back_AdminUpdateUser_PB->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         Confirm_AdminUpdateUser_PB->setText(QCoreApplication::translate("MainWindow", "Confirm", nullptr));
-        label_13->setText(QCoreApplication::translate("MainWindow", "Account number", nullptr));
+        label_13->setText(QCoreApplication::translate("MainWindow", "Account number of the updated user", nullptr));
         label_14->setText(QCoreApplication::translate("MainWindow", "Update User", nullptr));
         label_15->setText(QCoreApplication::translate("MainWindow", "Full Name", nullptr));
         label_16->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));

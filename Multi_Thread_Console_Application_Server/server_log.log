@@ -1,671 +1,85 @@
-2024-07-17 15:42:21: {"password":"1234","type":"login","username":"Nada"}
+2024-07-21 04:03:18
+original message:
 {"password":"1234","type":"login","username":"Nada"}
+
+2024-07-21 04:03:18
+received Hash Signature message:
+30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
+
+2024-07-21 04:03:18
+Encrypted message:
+4Q#'��*>F��_�5�u������-�`�Lqwd���C��/��8�@G[W��Pq��ehCG�C���S-�CD^�~K ��L7y�z�9J҆6�,�-/v��_�����s�R���xCa��hqt����
+
+2024-07-21 04:03:29
+original message:
 {"type":"GetAccountNumber","username":"Nada"}
-2024-07-18 02:46:47
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 02:46:47
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-18 02:48:17
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-18 02:48:17
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-18 13:53:51
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 13:53:51
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-18 13:55:33
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 13:55:33
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-18 21:37:35
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 21:37:35
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-18 21:38:08
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-18 21:38:08
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-18 21:41:03
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-18 21:41:03
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-18 23:12:52
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 23:12:52
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-18 23:13:04
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 23:13:04
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-18 23:13:13
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 23:13:13
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-18 23:17:17
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 23:17:17
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-18 23:21:03
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 23:21:03
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-18 23:31:42
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 23:31:42
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-18 23:48:00
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 23:48:00
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-18 23:48:23
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-18 23:48:23
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 02:36:53
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 02:36:53
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 02:36:58
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-19 02:36:58
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-19 02:38:30
-original message=>{"account_number":"902668452","type":"ViewAccountBalance"}
-2024-07-19 02:38:30
-receivedHashSignature message=>16009a3de560d5886ceb505f2da6e29d07a407197bb30a868a5bdf316833e1c5
-2024-07-19 02:38:47
-original message=>{"account_number":"902668452","count":6,"type":"ViewTransactionHistory"}
-2024-07-19 02:38:47
-receivedHashSignature message=>22f66a538ad61158ffc2d659bd24281c32c97adf7b6a3b242fb2404cdc67f32f
-2024-07-19 02:39:32
-original message=>{"account_number":"902668452","transaction_Amount":100,"transaction_Type":"Deposit","type":"MakeTransaction"}
-2024-07-19 02:39:32
-receivedHashSignature message=>71d10f2e26fcbd428700380c185364451fc1de02c2f8c125bfdcad4922d3c11a
-2024-07-19 02:45:00
-original message=>{"fromAccountNumber":"902668452","toAccountNumber":"401202154","transferAmount":500,"type":"TransferAmount"}
-2024-07-19 02:45:00
-receivedHashSignature message=>e9886be59ca37274e920873e66e8ab9aa04010bf9a7f82100d81cfa6e981da16
-2024-07-19 02:45:29
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-19 02:45:29
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-19 02:46:33
-original message=>{"type":"Admin_GetAccountNumber","username":"Nada"}
-2024-07-19 02:46:33
-receivedHashSignature message=>12a7bf9f0438a778465b10a8b1dced6af25dc2766a03c070d1888cc2f69600e1
-2024-07-19 02:46:49
-original message=>{"account_number":"40120215","type":"Admin_ViewAccountBalance"}
-2024-07-19 02:46:49
-receivedHashSignature message=>2f55162ee5c8fae789e6b46976237a4aac47e33b645953396b79205216fbb615
-2024-07-19 02:47:15
-original message=>{"account_number":"401202154","type":"Admin_ViewAccountBalance"}
-2024-07-19 02:47:15
-receivedHashSignature message=>04c2e839cfa09f03c1b52651280b4ab3b577bd8dd697dc5592730aa38d68434b
-2024-07-19 02:49:43
-original message=>{"account_number":"154758","type":"Admin_ViewAccountBalance"}
-2024-07-19 02:49:43
-receivedHashSignature message=>163896e46d29dadaa0174eb506d1fb06bf2eca2b2cc2e11ec0c024e6d75660f2
-2024-07-19 02:51:41
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-19 02:51:41
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-19 02:51:45
-original message=>{"account_number":"5468","type":"Admin_ViewAccountBalance"}
-2024-07-19 02:51:45
-receivedHashSignature message=>d26d358d5d862392145e0c7baa470033f7a04a7ccd755d5ee7c5d1c60d30c469
-2024-07-19 02:52:04
-original message=>{"account_number":"902668452","type":"Admin_ViewAccountBalance"}
-2024-07-19 02:52:04
-receivedHashSignature message=>ffc7b8a1e5b24cf9ceb4ac76a78ff0e6c825ab4fa4c6530090f7c05fa217617c
-2024-07-19 02:52:11
-original message=>{"account_number":"5458","count":0,"type":"Admin_ViewTransactionHistory"}
-2024-07-19 02:52:11
-receivedHashSignature message=>4621643cc0c7d7c359545b6ccbb6cd3e1773c67815bebe0b9b4f8cd6ed843b76
-2024-07-19 03:01:53
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-19 03:01:53
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-19 03:02:18
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-19 03:02:18
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-19 03:02:27
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 03:02:27
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 13:52:42
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 13:52:42
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 13:54:08
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-19 13:54:08
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-19 13:54:17
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-19 13:54:17
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-19 13:54:56
-original message=>{"account_number":"902668452","type":"ViewAccountBalance"}
-2024-07-19 13:54:56
-receivedHashSignature message=>16009a3de560d5886ceb505f2da6e29d07a407197bb30a868a5bdf316833e1c5
-2024-07-19 13:55:07
-original message=>{"account_number":"3566896","type":"ViewAccountBalance"}
-2024-07-19 13:55:07
-receivedHashSignature message=>d53e5fcbe09640ee64a7114d53fb9eeda6374458b07bb5b4a343dce686bf7828
-2024-07-19 13:55:26
-original message=>{"account_number":"902668452","count":3,"type":"ViewTransactionHistory"}
-2024-07-19 13:55:26
-receivedHashSignature message=>c518a1c7d5ac85dc2042b78d1752d63de45f10d07aacaf96fe77f1015eb0f1b6
-2024-07-19 13:55:55
-original message=>{"account_number":"902668452","count":5,"type":"ViewTransactionHistory"}
-2024-07-19 13:55:55
-receivedHashSignature message=>66101dd6ff41788b61a805a0737e39a5e18d7e85057dbf1145c727f4efedf8ab
-2024-07-19 13:57:07
-original message=>{"account_number":"902668452","transaction_Amount":545,"transaction_Type":"Withdrow","type":"MakeTransaction"}
-2024-07-19 13:57:07
-receivedHashSignature message=>2838b326a1132fa3b210401b6a03580ceec55e9a87a73f9eada3357d7cc6aae1
-2024-07-19 14:00:39
-original message=>{"fromAccountNumber":"902668452","toAccountNumber":"54547","transferAmount":500,"type":"TransferAmount"}
-2024-07-19 14:00:39
-receivedHashSignature message=>7a0abd650f987953df436bde0835a0b9c20fcf93b8cccccfde56163d3bd39652
-2024-07-19 14:02:08
-original message=>{"fromAccountNumber":"902668452","toAccountNumber":"401202154","transferAmount":500,"type":"TransferAmount"}
-2024-07-19 14:02:08
-receivedHashSignature message=>e9886be59ca37274e920873e66e8ab9aa04010bf9a7f82100d81cfa6e981da16
-2024-07-19 14:19:35
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-19 14:19:35
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-19 14:20:03
-original message=>{"type":"Admin_GetAccountNumber","username":"gogo12"}
-2024-07-19 14:20:03
-receivedHashSignature message=>37187a3d38ffc180b2ff167332a139a9ea74321b6a3405ea78660640f48b0e4c
-2024-07-19 14:20:10
-original message=>{"type":"Admin_GetAccountNumber","username":"gogo123"}
-2024-07-19 14:20:10
-receivedHashSignature message=>86af61b63c9b6d6e6c26a3ed1c224a6d05f823e77c650396912dc6cac0a5262d
-2024-07-19 14:20:29
-original message=>{"account_number":"401202154","type":"Admin_ViewAccountBalance"}
-2024-07-19 14:20:29
-receivedHashSignature message=>04c2e839cfa09f03c1b52651280b4ab3b577bd8dd697dc5592730aa38d68434b
-2024-07-19 14:20:37
-original message=>{"account_number":"401202154","count":2,"type":"Admin_ViewTransactionHistory"}
-2024-07-19 14:20:37
-receivedHashSignature message=>d3689b2e424664ec55db727a2e557ace4a6eb5328035c3bd0b5c340dd787f834
-2024-07-19 14:21:04
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-19 14:21:04
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-19 14:21:27
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-19 14:21:27
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-19 14:21:53
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-19 14:21:53
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-19 14:23:11
-original message=>{"data":{"AccountNumber":"401202154","Age":20,"Authority":"user","Balance":0,"Email":"ahmedali@gmail.com","FullName":"Ahmed Ali Mohamed","Password":"963","Transactions":[],"Username":"ahmed20"},"type":"Admin_CreateUser"}
-2024-07-19 14:23:11
-receivedHashSignature message=>c39c62ed828a36850854db33683119f3edf2e50bf5743e5dc08e5665a7f9bc6e
-2024-07-19 14:33:47
-original message=>{"data":{"AccountNumber":"401202154","Age":20,"Authority":"user","Balance":0,"Email":"ahmedali@gmail.com","FullName":"Ahmed Ali Mohamed","Password":"963","Transactions":[],"Username":"ahmed20"},"type":"Admin_CreateUser"}
-2024-07-19 14:33:47
-receivedHashSignature message=>c39c62ed828a36850854db33683119f3edf2e50bf5743e5dc08e5665a7f9bc6e
-2024-07-19 14:35:04
-original message=>{"data":{"AccountNumber":"45245","Age":20,"Authority":"user","Balance":0,"Email":"ahmedali@gmail.com","FullName":"Ahmed Ali Mohamed","Password":"963","Transactions":[],"Username":"ahmed20"},"type":"Admin_CreateUser"}
-2024-07-19 14:35:04
-receivedHashSignature message=>05cf595723e1c6aaf6adbbc1c275abaaae76d0f28dbe104fad1d484fa8751eb3
-2024-07-19 14:38:07
-original message=>{"account_number":"5346","type":"Admin_DeleteUser"}
-2024-07-19 14:38:07
-receivedHashSignature message=>c3096bc369d2a3897b2b40e7c241c142c38bca704605d1c85bd8a9885c0a2b1a
-2024-07-19 14:38:27
-original message=>{"account_number":"45245","type":"Admin_DeleteUser"}
-2024-07-19 14:38:27
-receivedHashSignature message=>4c9e9e4d36f7c980e7a8a3df582f2f0a43e238a1be4ac171ed0961e5e760cdf8
-2024-07-19 14:38:56
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-19 14:38:56
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-19 14:38:56
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-19 14:38:56
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-19 14:38:59
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-19 14:38:59
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-19 14:39:15
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-19 14:39:15
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-19 20:07:01
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 20:07:01
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 20:07:47
-original message=>{"account_number":"902668452","transaction_Amount":500,"transaction_Type":"Deposit","type":"MakeTransaction"}
-2024-07-19 20:07:47
-receivedHashSignature message=>ca8a96552048a0b1d5291e535d2eda9aa91c0fa0bdeba2b30d1d15b53b55b32d
-2024-07-19 20:13:28
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 20:13:28
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 20:13:32
-original message=>{"account_number":"902668452","transaction_Amount":500,"transaction_Type":"Deposit","type":"MakeTransaction"}
-2024-07-19 20:13:32
-receivedHashSignature message=>ca8a96552048a0b1d5291e535d2eda9aa91c0fa0bdeba2b30d1d15b53b55b32d
-2024-07-19 20:15:00
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 20:15:00
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 20:15:06
-original message=>{"account_number":"902668452","transaction_Amount":500,"transaction_Type":"Deposit","type":"MakeTransaction"}
-2024-07-19 20:15:06
-receivedHashSignature message=>ca8a96552048a0b1d5291e535d2eda9aa91c0fa0bdeba2b30d1d15b53b55b32d
-2024-07-19 20:23:55
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 20:23:55
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 20:23:58
-original message=>{"account_number":"902668452","transaction_Amount":500,"transaction_Type":"Deposit","type":"MakeTransaction"}
-2024-07-19 20:23:58
-receivedHashSignature message=>ca8a96552048a0b1d5291e535d2eda9aa91c0fa0bdeba2b30d1d15b53b55b32d
-2024-07-19 20:27:24
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 20:27:24
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 20:27:27
-original message=>{"account_number":"902668452","transaction_Amount":500,"transaction_Type":"Deposit","type":"MakeTransaction"}
-2024-07-19 20:27:27
-receivedHashSignature message=>ca8a96552048a0b1d5291e535d2eda9aa91c0fa0bdeba2b30d1d15b53b55b32d
-2024-07-19 21:51:32
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 21:51:32
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 21:53:15
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 21:53:15
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 21:54:43
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 21:54:43
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 21:55:57
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 21:55:57
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 21:57:39
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 21:57:39
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 22:01:35
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 22:01:35
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 22:34:42
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 22:34:42
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 22:44:26
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 22:44:26
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 23:45:29
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 23:45:29
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-19 23:48:12
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-19 23:48:12
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 00:09:22
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 00:09:22
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 00:10:33
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 00:10:33
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 00:12:27
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 00:12:27
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 00:14:18
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 00:14:18
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 00:26:41
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 00:26:41
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 00:36:04
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 00:36:04
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 00:37:37
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 00:37:37
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 00:55:31
-original message=>{"password":"12350124","type":"login","username":"rana"}
-2024-07-20 00:55:31
-receivedHashSignature message=>24b3cf18e1c16136f9f2a672e8ec6320081b4693dffeb30be40a099f50ab92dc
-2024-07-20 00:57:59
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-20 00:57:59
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-20 01:11:30
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 01:11:30
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 01:11:43
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-20 01:11:43
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-20 18:47:46
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 18:47:46
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 18:47:50
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-20 18:47:50
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-20 18:48:33
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-20 18:48:33
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-20 18:51:48
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-20 18:51:48
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-20 18:52:44
-original message=>{"data":{"AccountNumber":"4015 4654","Age":15,"Authority":"user","Balance":0,"Email":"nafa@rfgr","FullName":"nada m","Password":"213545","Transactions":[],"Username":"dd"},"type":"Admin_CreateUser"}
-2024-07-20 18:52:44
-receivedHashSignature message=>cb362e17b9b0e8a27f00528ca877218877b3943074ad6c7eacc9069cc735fb84
-2024-07-20 18:53:19
-original message=>{"data":{"AccountNumber":"4015 4654","Age":0,"Authority":"user","Balance":0,"Email":"nafa@rfgr dfvf","FullName":"nada m","Password":"21345","Transactions":[],"Username":"dd"},"type":"Admin_CreateUser"}
-2024-07-20 18:53:19
-receivedHashSignature message=>5389a326c867c45d949253eb49ff122a36aa195687d374d91e0cad1c0c1bca96
-2024-07-20 20:50:07
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 20:50:07
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 20:50:27
-original message=>{"account_number":"902668452","transaction_Amount":500,"transaction_Type":"Deposit","type":"MakeTransaction"}
-2024-07-20 20:50:27
-receivedHashSignature message=>ca8a96552048a0b1d5291e535d2eda9aa91c0fa0bdeba2b30d1d15b53b55b32d
-2024-07-20 20:58:33
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 20:58:33
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 20:58:45
-original message=>{"account_number":"902668452","transaction_Amount":500,"transaction_Type":"Deposit","type":"MakeTransaction"}
-2024-07-20 20:58:45
-receivedHashSignature message=>ca8a96552048a0b1d5291e535d2eda9aa91c0fa0bdeba2b30d1d15b53b55b32d
-2024-07-20 22:04:04
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-20 22:04:04
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-20 22:04:16
-original message=>{"account_number":"902668452","transaction_Amount":500,"transaction_Type":"Deposit","type":"MakeTransaction"}
-2024-07-20 22:04:16
-receivedHashSignature message=>ca8a96552048a0b1d5291e535d2eda9aa91c0fa0bdeba2b30d1d15b53b55b32d
-2024-07-21 00:48:05
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 00:48:05
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 00:48:10
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-21 00:48:10
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-21 00:51:18
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 00:51:18
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 00:51:38
-original message=>{"type":"Admin_GetAccountNumber","username":"Nada"}
-2024-07-21 00:51:38
-receivedHashSignature message=>12a7bf9f0438a778465b10a8b1dced6af25dc2766a03c070d1888cc2f69600e1
-2024-07-21 00:53:19
-original message=>{"account_number":"902668452","type":"Admin_ViewAccountBalance"}
-2024-07-21 00:53:19
-receivedHashSignature message=>ffc7b8a1e5b24cf9ceb4ac76a78ff0e6c825ab4fa4c6530090f7c05fa217617c
-2024-07-21 00:53:36
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-21 00:53:36
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-21 01:18:37
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 01:18:37
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 01:18:41
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-21 01:18:41
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-21 01:27:57
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 01:27:57
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 01:28:01
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-21 01:28:01
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-21 01:37:05
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 01:37:05
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 01:37:07
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-21 01:37:07
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-21 01:49:21
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-21 01:49:21
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-21 01:49:23
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-21 01:49:23
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-21 01:54:09
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-21 01:54:09
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-21 01:54:11
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-21 01:54:11
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-21 01:54:20
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 01:54:20
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 01:54:27
-original message=>{"type":"Admin_GetAccountNumber","username":"Nada"}
-2024-07-21 01:54:27
-receivedHashSignature message=>12a7bf9f0438a778465b10a8b1dced6af25dc2766a03c070d1888cc2f69600e1
-2024-07-21 01:54:52
-original message=>{"type":"Admin_GetAccountNumber","username":"Nada"}
-2024-07-21 01:54:52
-receivedHashSignature message=>12a7bf9f0438a778465b10a8b1dced6af25dc2766a03c070d1888cc2f69600e1
-2024-07-21 01:56:09
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-21 01:56:09
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-21 01:56:13
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-21 01:56:13
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-21 01:56:16
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 01:56:16
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 01:56:35
-original message=>{"account_number":"902668452","count":2,"type":"Admin_ViewTransactionHistory"}
-2024-07-21 01:56:35
-receivedHashSignature message=>0d94a4db857465db023e3c0d3d2a09821dfda97b368a6b663e6c615685103d68
-2024-07-21 01:56:50
-original message=>{"type":"Admin_GetAccountNumber","username":"gogo123"}
-2024-07-21 01:56:50
-receivedHashSignature message=>86af61b63c9b6d6e6c26a3ed1c224a6d05f823e77c650396912dc6cac0a5262d
-2024-07-21 01:56:53
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-21 01:56:53
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-21 01:57:22
-original message=>{"account_number":"40154654","type":"Admin_DeleteUser"}
-2024-07-21 01:57:22
-receivedHashSignature message=>477e6de5cc2acd5465878674d97729ed67408beba095b98efe31440d5359e559
-2024-07-21 01:59:55
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-21 01:59:55
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-21 01:59:58
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-21 01:59:58
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-21 02:00:09
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 02:00:09
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 02:00:12
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-21 02:00:12
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-21 02:01:04
-original message=>{"type":"Admin_GetAccountNumber","username":"Nada"}
-2024-07-21 02:01:04
-receivedHashSignature message=>12a7bf9f0438a778465b10a8b1dced6af25dc2766a03c070d1888cc2f69600e1
-2024-07-21 02:05:29
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 02:05:29
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 02:05:42
-original message=>{"type":"Admin_GetAccountNumber","username":"Nada"}
-2024-07-21 02:05:42
-receivedHashSignature message=>12a7bf9f0438a778465b10a8b1dced6af25dc2766a03c070d1888cc2f69600e1
-2024-07-21 02:06:00
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-21 02:06:00
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-21 02:06:01
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-21 02:06:01
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-21 02:06:10
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-21 02:06:10
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-21 02:07:19
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-21 02:07:19
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-21 02:07:20
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-21 02:07:20
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-21 02:11:22
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-21 02:11:22
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-21 02:11:24
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-21 02:11:24
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-21 02:17:23
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-21 02:17:23
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-21 02:17:41
-original message=>{"account_number":"902668452","type":"ViewAccountBalance"}
-2024-07-21 02:17:41
-receivedHashSignature message=>16009a3de560d5886ceb505f2da6e29d07a407197bb30a868a5bdf316833e1c5
-2024-07-21 02:17:51
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 02:17:51
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 02:17:55
-original message=>{"account_number":"902668452","type":"Admin_ViewAccountBalance"}
-2024-07-21 02:17:55
-receivedHashSignature message=>ffc7b8a1e5b24cf9ceb4ac76a78ff0e6c825ab4fa4c6530090f7c05fa217617c
-2024-07-21 02:48:46
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 02:48:46
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 02:49:05
-original message=>{"account_number":"902668452","count":2,"type":"Admin_ViewTransactionHistory"}
-2024-07-21 02:49:05
-receivedHashSignature message=>0d94a4db857465db023e3c0d3d2a09821dfda97b368a6b663e6c615685103d68
-2024-07-21 02:49:16
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-21 02:49:16
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-21 02:49:21
-original message=>{"account_number":"902668452","count":2,"type":"ViewTransactionHistory"}
-2024-07-21 02:49:21
-receivedHashSignature message=>a3dc1ab364d83e6cd718583353d5ab114d02028ea951f46e177594049d6c07fc
-2024-07-21 02:57:18
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-21 02:57:18
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-21 02:57:34
-original message=>{"account_number":"902668452","transaction_Amount":400,"transaction_Type":"Deposit","type":"MakeTransaction"}
-2024-07-21 02:57:34
-receivedHashSignature message=>0ed6bc30d3cff412d6cac36d75ca7058136e7e083ec9932b821efcbb219c52c2
-2024-07-21 03:16:01
-original message=>{"password":"1234","type":"login","username":"Nada"}
-2024-07-21 03:16:01
-receivedHashSignature message=>30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
-2024-07-21 03:16:38
-original message=>{"fromAccountNumber":"902668452","toAccountNumber":"401202154","transferAmount":400,"type":"TransferAmount"}
-2024-07-21 03:16:38
-receivedHashSignature message=>499fda87faa65d03b6dd69d74d815e0da84dbe91638e3d75d87dd283bacf8df3
-2024-07-21 03:18:08
-original message=>{"account_number":"902668452","transaction_Amount":455,"transaction_Type":"Withdrow","type":"MakeTransaction"}
-2024-07-21 03:18:08
-receivedHashSignature message=>877a071242d57a5a26e189d3eb173cfbb6c7a7ff7874b460ea15e6a8566f8979
-2024-07-21 03:18:57
-original message=>{"account_number":"902668452","count":7,"type":"ViewTransactionHistory"}
-2024-07-21 03:18:57
-receivedHashSignature message=>8632bf1d184b0758083f7b5ca44109d26159db3b1f0a6a5d8c37cb39bd5288b6
-2024-07-21 03:19:12
-original message=>{"type":"GetAccountNumber","username":"Nada"}
-2024-07-21 03:19:12
-receivedHashSignature message=>f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
-2024-07-21 03:19:48
-original message=>{"account_number":"902668452","type":"ViewAccountBalance"}
-2024-07-21 03:19:48
-receivedHashSignature message=>16009a3de560d5886ceb505f2da6e29d07a407197bb30a868a5bdf316833e1c5
-2024-07-21 03:30:30
-original message=>{"password":"5012","type":"login","username":"rana"}
-2024-07-21 03:30:30
-receivedHashSignature message=>3fec704769654be0cdfcea97fbce71fc59568c2a9fe03c9d9d9444c33c5dad46
-2024-07-21 03:30:44
-original message=>{"type":"Admin_GetAccountNumber","username":"Nada"}
-2024-07-21 03:30:44
-receivedHashSignature message=>12a7bf9f0438a778465b10a8b1dced6af25dc2766a03c070d1888cc2f69600e1
-2024-07-21 03:30:51
-original message=>{"account_number":"902668452","type":"Admin_ViewAccountBalance"}
-2024-07-21 03:30:51
-receivedHashSignature message=>ffc7b8a1e5b24cf9ceb4ac76a78ff0e6c825ab4fa4c6530090f7c05fa217617c
-2024-07-21 03:30:58
-original message=>{"account_number":"902668452","count":3,"type":"Admin_ViewTransactionHistory"}
-2024-07-21 03:30:58
-receivedHashSignature message=>afa40fa2deea7d391ab5517866eb7d2ee051ad946ebfe7939a9497d69f454f2e
-2024-07-21 03:31:06
-original message=>{"type":"Admin_ViewBankDatabase"}
-2024-07-21 03:31:06
-receivedHashSignature message=>fb6bc06bf0055f12b44986959123709f323e266e5cb7675b7006663c699eb63c
-2024-07-21 03:32:17
-original message=>{"data":{"AccountNumber":"40124554","Age":15,"Authority":"user","Balance":0,"Email":"gege@gmail.com","FullName":"Gehan badran","Password":"4012","Transactions":[],"Username":"gege123"},"type":"Admin_CreateUser"}
-2024-07-21 03:32:17
-receivedHashSignature message=>4686fb42053a443a21501f1c2d70066c41bbffefd0a7a3710c07212ca1872ca6
-2024-07-21 03:33:56
-original message=>{"account_number":"40124554","data":{"Age":20,"Email":"gg@gmail.com","FullName":"gege badran","Password":"45454","Username":"gegebadran"},"type":"Admin_UpdateUser"}
-2024-07-21 03:33:56
-receivedHashSignature message=>eb02d6484dc1a1beeb1048b802a4b74ebd31e28856d5e04f5dc17989ac2d218d
-2024-07-21 03:34:22
-original message=>{"account_number":"40124554","type":"Admin_DeleteUser"}
-2024-07-21 03:34:22
-receivedHashSignature message=>a4fc6bd83ab4ab41f89c973d921b1e59ba6aa33f24041cc52b131bb2ab691ff9
+
+2024-07-21 04:03:29
+received Hash Signature message:
+f29caa491ded2d58fdccffebc72d081f50effdcd91d2f7da9ce24a1756c21417
+
+2024-07-21 04:03:29
+Encrypted message:
+K�F�2cM]`����o5vt)~ԕX�а���S�"�
+�����`����[ҳV,�,JiR*�MI�ڮȻ����[�J8��c��}U}����w���y�#�>*hcTR,N
+
+2024-07-21 04:04:13
+original message:
+{"account_number":"902668452","type":"ViewAccountBalance"}
+
+2024-07-21 04:04:13
+received Hash Signature message:
+16009a3de560d5886ceb505f2da6e29d07a407197bb30a868a5bdf316833e1c5
+
+2024-07-21 04:04:13
+Encrypted message:
+7K_�䈵�*,_9A�F�&��y,���Jw�Q~�y����7d���ss,�X�Y(�C�>T���� �U%Oc�{vc�)�I�p]���I���W)b�I���>�٦�1�A����+���\����0dT
+
+2024-07-21 04:26:54
+original message:
+{"password":"1234","type":"login","username":"Nada"}
+
+2024-07-21 04:26:54
+received Hash Signature message:
+30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
+
+2024-07-21 04:26:54
+Encrypted message:
+4Q#'��*>F��_�5�u������-�`�Lqwd���C��/��8�@G[W��Pq��ehCG�C���S-�CD^�~K ��L7y�z�9J҆6�,�-/v��_�����s�R���xCa��hqt����
+
+2024-07-21 04:28:45
+original message:
+{"password":"1234","type":"login","username":"Nada"}
+
+2024-07-21 04:28:45
+received Hash Signature message:
+30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
+
+2024-07-21 04:28:45
+Encrypted message:
+4Q#'��*>F��_�5�u������-�`�Lqwd���C��/��8�@G[W��Pq��ehCG�C���S-�CD^�~K ��L7y�z�9J҆6�,�-/v��_�����s�R���xCa��hqt����
+
+2024-07-21 04:38:14
+original message:
+{"password":"1234","type":"login","username":"Nada"}
+
+2024-07-21 04:38:14
+received Hash Signature message:
+30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
+
+2024-07-21 04:38:14
+Encrypted message:
+4Q#'��*>F��_�5�u������-�`�Lqwd���C��/��8�@G[W��Pq��ehCG�C���S-�CD^�~K ��L7y�z�9J҆6�,�-/v��_�����s�R���xCa��hqt����
+
+2024-07-21 04:38:38
+original message:
+{"password":"1234","type":"login","username":"Nada"}
+
+2024-07-21 04:38:38
+received Hash Signature message:
+30d62b31f4b4764ee1cf76feaebdfae32c1b4e721555e98997dad19e998e9514
+
+2024-07-21 04:38:38
+Encrypted message:
+4Q#'��*>F��_�5�u������-�`�Lqwd���C��/��8�@G[W��Pq��ehCG�C���S-�CD^�~K ��L7y�z�9J҆6�,�-/v��_�����s�R���xCa��hqt����
+

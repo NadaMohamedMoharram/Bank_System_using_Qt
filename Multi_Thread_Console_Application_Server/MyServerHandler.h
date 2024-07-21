@@ -75,8 +75,6 @@ public slots:
     void sendMessage(QString Message);
     void Operation(QString Operation);
 
-public slots:
-    void handleAdminMessage(const QString &message);  // Slot to handle admin messages
 
 };
 
