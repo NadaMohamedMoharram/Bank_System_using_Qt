@@ -228,6 +228,7 @@ QJsonArray DataBase::viewBankDatabase()
     return databaseArray; // Return the database array
 }
 
+
 // Function to create a new user and add them to the database
 bool DataBase::createNewUser(const QJsonObject &userData)
 {
@@ -243,14 +244,28 @@ bool DataBase::createNewUser(const QJsonObject &userData)
         }
     }
 
+    // Create a new QJsonObject with fields in the desired order
+    QJsonObject newUser;
+    newUser["Username"] = userData["Username"];
+    newUser["AccountNumber"] = generateRandomAccountNumber(9);
+    newUser["Age"] = userData["Age"];
+    newUser["Autority"] = "user";
+    newUser["Balance"] = userData["Balance"];
+    newUser["Email"] = userData["Email"];
+    newUser["FullName"] = userData["FullName"];
+    newUser["Password"] = userData["Password"];
+    newUser["Transactions"] = userData["Transactions"];
+
     // Add the new user to the database
-    jsonDataBase.append(userData);
+    jsonDataBase.append(newUser);
 
     // Save the updated database
     saveDataBase();
 
     return true; // User creation successful
 }
+
+
 
 // Function to delete a user by their account number
 bool DataBase::deleteUser(const QString &accountNumber)
@@ -286,6 +301,24 @@ bool DataBase::updateUser(const QString &accountNumber, const QJsonObject &newDa
     return false; // Account number not found
 }
 
+// Function to  generate random account numbers
+QString DataBase::generateRandomAccountNumber(int length)
+{
+    QString accountNumber;
+    QRandomGenerator randomGenerator;
+
+    for (int i = 0; i < length; ++i) {
+        int digit = randomGenerator.bounded(10); // Generate a random digit (0-9)
+        accountNumber.append(QString::number(digit));
+    }
+
+    return accountNumber;
+}
+
+
+
+
+
 // Function to save the current state of the database to a file
 void DataBase::saveDataBase()
 {
@@ -302,3 +335,4 @@ void DataBase::saveDataBase()
         qDebug() << "Can't Open the database file" << Qt::endl; // Debug message if the file can't be opened
     }
 }
+

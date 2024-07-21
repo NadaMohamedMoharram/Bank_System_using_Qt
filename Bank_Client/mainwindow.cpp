@@ -304,12 +304,60 @@ void MainWindow::displayDatabaseData(const QJsonObject &jsonObject)
 
 
 /******************************** Slots of Ui design  *****************************************/
+//function to get your local ip
+QString MainWindow::getLocalIpAddress()
+{
+    // Define the name of the wireless interface to match
+    QString wirelessInterfaceName = "Wi-Fi";  // This should match your wireless adapter name
+
+    // Variable to store the IP address
+    QString ipAddress;
+
+    // Get a list of all network interfaces on the system
+    QList<QNetworkInterface> allInterfaces = QNetworkInterface::allInterfaces();
+
+    // Iterate through each network interface
+    for (const QNetworkInterface &interface : allInterfaces)
+    {
+        // Check if the current interface matches the specified wireless interface name
+        if (interface.humanReadableName() == wirelessInterfaceName)
+        {
+            // Get all address entries for the matching network interface
+            QList<QNetworkAddressEntry> allAddresses = interface.addressEntries();
+
+            // Iterate through each address entry
+            for (const QNetworkAddressEntry &entry : allAddresses)
+            {
+                // Check if the address entry is an IPv4 address
+                if (entry.ip().protocol() == QAbstractSocket::IPv4Protocol)
+                {
+                    // Set the IP address to the first found IPv4 address
+                    ipAddress = entry.ip().toString();
+                }
+            }
+        }
+    }
+
+    // If no IPv4 address was found, fall back to the localhost address
+    if (ipAddress.isEmpty())
+    {
+        // Set the IP address to localhost
+        ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
+
+        // Log the fallback IP address for debugging
+        qInfo() << "Local" << ipAddress << Qt::endl;
+    }
+
+    // Return the IP address
+    return ipAddress;
+}
+
 
 
 void MainWindow::on_PB_Login_clicked()
 {
     qInfo() << "in the func";  // Log that the login function is called
-
+    QString ip;
     QString username = ui->lineEdit_username->text();  // Get the username from the input field
     QString password = ui->lineEdit_password->text();  // Get the password from the input field
     this->client_username = username;  // Store the username for future reference
@@ -325,7 +373,26 @@ void MainWindow::on_PB_Login_clicked()
         return;  // Exit the function
     }
 
-    QString ip = ui->leIP->text();  // Get the IP address from the input field
+    if(ui->leIP->isEnabled())
+    {
+        ip = ui->leIP->text();
+
+    }
+    else
+    {
+        ip= getLocalIpAddress(); //get your ip
+        ui->leIP->setText(ip); //show it on Line Edit
+    }
+    if (ip.isEmpty()) {  // Check if ip is empty
+        QMessageBox::warning(this, "Login", "Please enter IP.");  // Show warning message
+
+        return;  // Exit the function
+    }
+
+
+
+   // QString ip= getLocalIpAddress();
+    qInfo()<<"ip"<<ip<<Qt::endl;
     qint32 port = SERVER_PORT;  // Define the server port
     client.ConnectToDevice(ip, port);  // Connect to the server
 
@@ -729,7 +796,7 @@ void MainWindow::on_Confirm_AdminCreateUser_PB_clicked()
     QString Username = ui->LE_CreatUser_UserName->text();  // Get the username from the input field
     QString Password = ui->LE_CreatUser_Password->text();  // Get the password from the input field
     QString Email = ui->LE_CreatUser_Email->text();  // Get the email from the input field
-    QString AccountNo = ui->LE_CreatUser_AccountNumber->text();  // Get the account number from the input field
+    QString confirmPassword = ui->LE_CreatUser_confirmPassword->text();  // Get the account number from the input field
     int Balance = 0;  // Set initial balance to 0
     QString Authority = "user";  // Set the authority level to "user"
 
@@ -775,13 +842,13 @@ void MainWindow::on_Confirm_AdminCreateUser_PB_clicked()
         return;  // Exit the function
     }
 
-    if (AccountNo.isEmpty()) {  // Check if the account number is empty
-        QMessageBox::warning(this, "Create user Request", "Please enter Account number.");  // Show warning message
+    if (confirmPassword.isEmpty()) {  // Check if the account number is empty
+        QMessageBox::warning(this, "Create user Request", "Please confirm password.");  // Show warning message
 
         return;  // Exit the function
     }
-    if (AccountNo.contains(' ')) {  // Check if the account number contains spaces
-        QMessageBox::critical(this, "Create user Request", "Invalid Account Number. Please try again.");  // Show critical error message
+    if (confirmPassword!=Password) {  // Check if the account number contains spaces
+        QMessageBox::critical(this, "Create user Request", "confirmed password doesn't match. Please try again.");  // Show critical error message
 
         return;  // Exit the function
     }
@@ -793,7 +860,7 @@ void MainWindow::on_Confirm_AdminCreateUser_PB_clicked()
     userData["Username"] = Username;  // Set the username in the user data
     userData["Password"] = Password;  // Set the password in the user data
     userData["Email"] = Email;  // Set the email in the user data
-    userData["AccountNumber"] = AccountNo;  // Set the account number in the user data
+   // userData["AccountNumber"] = AccountNo;  // Set the account number in the user data
     userData["Balance"] = Balance;  // Set the balance in the user data
     userData["Authority"] = Authority;  // Set the authority in the user data
     userData["Transactions"] = QJsonArray();  // Set an empty array for transactions
@@ -938,3 +1005,34 @@ void MainWindow::on_Back_AdminUpdateUser_PB_clicked()
 {
     ui->Login_page->setCurrentIndex(AdminPage);  // Switch back to the admin page
 }
+
+void MainWindow::on_checkBox_IP_stateChanged(int arg1)
+{
+    // Check if the checkbox is checked (arg1 == Qt::Checked)
+    if (arg1 == Qt::Checked) {
+        // Clear any existing text in the QLineEdit
+        ui->leIP->clear();
+
+        // Disable the QLineEdit, making it non-editable
+        ui->leIP->setDisabled(true);
+
+        // Set the background color of the QLineEdit to light gray
+        ui->leIP->setStyleSheet("background-color: lightgray;");
+
+        // Retrieve the local IP address and store it in a QString
+        QString ip = getLocalIpAddress();
+
+        // Set the retrieved IP address as the text in the QLineEdit
+        ui->leIP->setText(ip);
+    } else {
+        // If the checkbox is unchecked, enable the QLineEdit, making it editable
+        ui->leIP->setDisabled(false);
+
+        // Set the background color of the QLineEdit to light blue
+        ui->leIP->setStyleSheet("background-color: lightblue;");
+
+        // Clear any existing text in the QLineEdit
+        ui->leIP->clear();
+    }
+}
+

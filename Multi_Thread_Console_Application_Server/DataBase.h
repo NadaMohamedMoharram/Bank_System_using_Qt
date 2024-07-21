@@ -9,7 +9,7 @@
 #include <QFile>              // Includes the class for file handling
 #include <QVector>            // Includes the class for vector container
 #include <QDebug>             // Includes the class for debugging output
-
+#include <QRandomGenerator>
 // Declaration of the DataBase class, inheriting from QObject
 class DataBase : public QObject
 {
@@ -55,6 +55,8 @@ public:
     // Function to update user information
     bool updateUser(const QString& accountNumber, const QJsonObject &newData);
 
+    // Function to  generate random account numbers
+    QString generateRandomAccountNumber(int length = 9);
 private:
     // Path to the JSON file that stores the database
     QString FilePath = "D:\\ITIDA_Scholarship\\Final project\\Bank_System\\Multi_Thread_Console_Application_Server\\LoginDB.json";

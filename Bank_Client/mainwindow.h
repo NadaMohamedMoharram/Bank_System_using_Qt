@@ -15,6 +15,17 @@
 #include <QWidget>  // Include QWidget for basic widget functionalities
 #include <QInputDialog>  // Include QInputDialog for input dialogs
 
+// #include <QCoreApplication>
+// #include <QNetworkInterface>
+// #include <QHostAddress>
+// #include <QDebug>
+#include <QNetworkInterface>
+#include <QHostAddress>
+#include <QColorDialog>
+
+
+
+
 #define SERVER_PORT 321  // Define a constant for the server port number
 
 QT_BEGIN_NAMESPACE
@@ -37,6 +48,7 @@ public:
     void displayTransactionHistory(const QJsonObject& response);  // Method to display transaction history
     void displayDatabaseData(const QJsonObject &jsonObject);  // Method to display database data
 
+    QString  getLocalIpAddress();
 public slots:
     void onConnectionDevice();  // Slot for handling connection events
     void onDisconnectedDevice();  // Slot for handling disconnection events
@@ -103,6 +115,8 @@ private slots:
     void on_Confirm_AdminUpdateUser_PB_clicked();  // Slot for handling confirm admin update user button click
 
     void on_Back_AdminUpdateUser_PB_clicked();  // Slot for handling back from admin update user button click
+
+    void on_checkBox_IP_stateChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;  // Pointer to the UI elements for the MainWindow

@@ -38,7 +38,7 @@ background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgb
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>8</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLineEdit" name="lineEdit_username">
@@ -80,7 +80,7 @@ font: 700 16pt &quot;Segoe UI&quot;;</string>
      <widget class="QLineEdit" name="leIP">
       <property name="geometry">
        <rect>
-        <x>260</x>
+        <x>290</x>
         <y>30</y>
         <width>141</width>
         <height>24</height>
@@ -206,6 +206,41 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(74
 font: 700 16pt &quot;Segoe UI&quot;;</string>
       </property>
      </widget>
+     <widget class="QCheckBox" name="checkBox_IP">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>60</y>
+        <width>111</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Automatically</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>30</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 165);
+font: 700 italic 16pt &quot;Segoe UI&quot;;</string>
+      </property>
+      <property name="text">
+       <string>IP address</string>
+      </property>
+     </widget>
      <zorder>label_20</zorder>
      <zorder>lineEdit_username</zorder>
      <zorder>PB_Login</zorder>
@@ -215,6 +250,8 @@ font: 700 16pt &quot;Segoe UI&quot;;</string>
      <zorder>label_21</zorder>
      <zorder>pic1_bankLogo</zorder>
      <zorder>lineEdit_password</zorder>
+     <zorder>checkBox_IP</zorder>
+     <zorder>label_22</zorder>
     </widget>
     <widget class="QWidget" name="page_3">
      <widget class="QPushButton" name="UserGetAccountNo_PB">
@@ -1831,7 +1868,7 @@ background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5
        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="LE_CreatUser_AccountNumber">
+     <widget class="QLineEdit" name="LE_CreatUser_confirmPassword">
       <property name="geometry">
        <rect>
         <x>440</x>
@@ -1860,7 +1897,7 @@ color: rgb(255, 255, 255);
 background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
       </property>
       <property name="text">
-       <string>Account number</string>
+       <string>Confirm password</string>
       </property>
      </widget>
      <widget class="QPushButton" name="Back_AdminCreateUser_PB">
@@ -1953,7 +1990,7 @@ color: rgb(255, 255, 255);
      <zorder>LE_CreatUser_Password</zorder>
      <zorder>label_11</zorder>
      <zorder>LE_CreatUser_Email</zorder>
-     <zorder>LE_CreatUser_AccountNumber</zorder>
+     <zorder>LE_CreatUser_confirmPassword</zorder>
      <zorder>label_12</zorder>
      <zorder>Back_AdminCreateUser_PB</zorder>
      <zorder>Confirm_AdminCreateUser_PB</zorder>

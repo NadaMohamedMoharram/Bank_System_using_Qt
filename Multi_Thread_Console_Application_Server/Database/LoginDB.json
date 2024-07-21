@@ -1,263 +1,117 @@
 [
     {
         "AccountNumber": "902668452",
-        "Age": 25,
+        "Age": 23,
         "Autority": "user",
-        "Balance": 7500,
-        "Email": "nadamohamedmoharram@gmail.com",
+        "Balance": 6440,
+        "Email": "nmo12416@gmail.com",
         "FullName": "Nada Mohamed",
         "Password": "1234",
         "Transactions": [
             {
-                "Amount": 100,
-                "date": "02-09-2023",
+                "Amount": 1500,
+                "date": "2024-07-21",
                 "type": "deposit"
             },
             {
                 "Amount": -200,
-                "date": "01-09-2023",
+                "date": "2024-07-15",
                 "type": "withdrawal"
             },
             {
-                "Amount": -500,
-                "date": "14-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": 1000,
-                "date": "14-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": 500,
-                "date": "14-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": -500,
-                "date": "14-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": 500,
-                "date": "14-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": -500,
-                "date": "14-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": 1000,
-                "date": "14-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": 1000,
-                "date": "14-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": 1000,
-                "date": "14-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": -500,
-                "date": "14-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": -500,
-                "date": "16-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": -500,
-                "date": "16-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": -500,
-                "date": "16-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": -100,
-                "date": "16-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": -100,
-                "date": "16-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": -300,
-                "date": "16-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": -100,
-                "date": "16-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": -100,
-                "date": "16-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": -100,
-                "date": "16-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": -700,
-                "date": "16-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": -100,
-                "date": "16-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": 100,
-                "date": "16-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": 1000,
-                "date": "16-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": 1000,
-                "date": "16-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": 500,
-                "date": "16-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": -500,
-                "date": "16-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": -300,
-                "date": "16-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": 300,
-                "date": "16-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": -100,
-                "date": "16-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": -100,
-                "date": "16-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": -500,
-                "date": "16-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": 500,
-                "date": "16-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": -400,
-                "date": "21-07-2024",
-                "type": "transfer_to_401202154"
-            },
-            {
-                "Amount": -455,
+                "Amount": -520,
                 "date": "21-07-2024",
                 "type": "withdrawal"
             },
             {
-                "Amount": 500,
+                "Amount": -520,
+                "date": "21-07-2024",
+                "type": "withdrawal"
+            },
+            {
+                "Amount": -520,
+                "date": "21-07-2024",
+                "type": "withdrawal"
+            },
+            {
+                "Amount": -520,
+                "date": "21-07-2024",
+                "type": "withdrawal"
+            },
+            {
+                "Amount": 1000,
                 "date": "21-07-2024",
                 "type": "deposit"
             }
         ],
-        "Username": "Nada"
+        "Username": "nada"
     },
     {
-        "AccountNumber": "148354",
-        "Age": 20,
-        "Autority": "admin",
+        "AccountNumber": "401202154",
+        "Age": 27,
+        "Autority": "user",
+        "Balance": 9850,
+        "Email": "mohanad.abdelghany@coretech-innovations.com",
+        "FullName": "mohanad abdelghany",
+        "Password": "4567",
+        "Transactions": [
+            {
+                "Amount": 500,
+                "date": "2024-07-20",
+                "type": "deposit"
+            },
+            {
+                "Amount": -300,
+                "date": "2024-07-19",
+                "type": "withdrawal"
+            }
+        ],
+        "Username": "mohanad"
+    },
+    {
+        "AccountNumber": "698742365",
+        "Age": 27,
+        "Autority": "user",
         "Balance": 1000,
-        "Email": "nmmoroharran@gmail.com",
-        "FullName": "Rana Mohamed",
+        "Email": "mohamed.elmandouh@coretech-innovations.com",
+        "FullName": "mohanad adel",
+        "Password": "6489",
+        "Transactions": [
+            {
+                "Amount": 500,
+                "date": "2024-07-20",
+                "type": "deposit"
+            },
+            {
+                "Amount": -300,
+                "date": "2024-07-19",
+                "type": "withdrawal"
+            }
+        ],
+        "Username": "adel"
+    },
+    {
+        "AccountNumber": "625742365",
+        "Age": 45,
+        "Autority": "admin",
+        "Balance": 0,
+        "Email": "admin@bank.com",
+        "FullName": "Robert Brown",
         "Password": "5012",
         "Transactions": [
         ],
         "Username": "rana"
     },
     {
-        "AccountNumber": "401202154",
-        "Age": 18,
-        "Autority": "user",
-        "Balance": 6000,
-        "Email": "nmo12416@gmail.com",
-        "FullName": "gana moharram",
-        "Password": "3050",
+        "AccountNumber": "698744445",
+        "Age": 38,
+        "Autority": "admin",
+        "Balance": 0,
+        "Email": "linda.ali@example.com",
+        "FullName": "Linda Ali",
+        "Password": "1012",
         "Transactions": [
-            {
-                "Amount": 1000,
-                "date": "14-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": 500,
-                "date": "14-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": 1000,
-                "date": "14-07-2024",
-                "type": "deposit"
-            },
-            {
-                "Amount": 500,
-                "date": "14-07-2024",
-                "type": "transfer_from_902668452"
-            },
-            {
-                "Amount": 500,
-                "date": "16-07-2024",
-                "type": "transfer_from_902668452"
-            },
-            {
-                "Amount": 500,
-                "date": "16-07-2024",
-                "type": "transfer_from_902668452"
-            },
-            {
-                "Amount": 500,
-                "date": "16-07-2024",
-                "type": "transfer_from_902668452"
-            },
-            {
-                "Amount": 400,
-                "date": "21-07-2024",
-                "type": "transfer_from_902668452"
-            }
         ],
-        "Username": "gogo123"
+        "Username": "Lali"
     }
 ]

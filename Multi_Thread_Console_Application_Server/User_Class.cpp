@@ -63,7 +63,7 @@ void User_Class::MakeTransactionRequest(const QString &accountNumber, int transa
         emailBody = QString("Dear Client,\nWe regret to inform you that your transaction request is failed.\nBest Regards,\nIMT_ITIDA Bank");  // Failure email body
     }
 
-    QString to = "nmo12416@gmail.com";  // Email address of the recipient (placeholder)
+    QString to =  db.getAccountEmail(accountNumber);  // Email address of the recipient (placeholder)
     QString subject = "Transaction Notification";  // Subject of the email
 
     emit sendEmailSignal(to, subject, emailBody);  // Emit the email signal with the recipient, subject, and body
