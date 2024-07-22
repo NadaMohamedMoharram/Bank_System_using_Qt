@@ -37,7 +37,6 @@ MainWindow::MainWindow(QWidget *parent)
     options << "None" << "Deposit" << "Withdrow";  // Add transaction types to the list
     ui->comboBox_UserTransactionType->addItems(options);  // Populate the combo box with transaction types
 
-    Images_init();  // Initialize images
 }
 
 MainWindow::~MainWindow()
@@ -45,17 +44,6 @@ MainWindow::~MainWindow()
     delete ui;  // Clean up the UI pointer
 }
 
-void MainWindow::Images_init()
-{
-    QPixmap pix("D:\\ITIDA_Scholarship\\Final project\\images.ico");  // Load an image from the file path
-    ui->pic1_bankLogo->setPixmap(pix);  // Set the image to a label for the bank logo
-
-    QPixmap pix2("D:\\ITIDA_Scholarship\\Final project\\OIP.png");  // Load another image from the file path
-    ui->pic2_userame->setPixmap(pix2);  // Set the image to a label for the username
-
-    QPixmap pix3("D:\\ITIDA_Scholarship\\Final project\\password.png");  // Load another image from the file path
-    ui->pic3_password->setPixmap(pix3);  // Set the image to a label for the password
-}
 
 /******************************** MainWindow slots *******************************************/
 
@@ -497,6 +485,7 @@ void MainWindow::on_UserLogout_PB_clicked()
 void MainWindow::on_Back_PB_clicked()
 {
     ui->Login_page->setCurrentIndex(UserPage);  // Switch to the user page
+    ui->transactionHistoryTable->clear();
 }
 
 void MainWindow::on_UserMakeTransaction_PB_clicked()
@@ -728,6 +717,7 @@ void MainWindow::on_Admin_ViewTransactionHistory_PB_clicked()
 void MainWindow::on_Back_AdminViewHistory_PB_clicked()
 {
     ui->Login_page->setCurrentIndex(AdminPage);  // Switch to the admin page
+    ui->Admin_transactionHistoryTable->clear();
 }
 
 void MainWindow::on_Display_AdminViewHistory_PB_clicked()

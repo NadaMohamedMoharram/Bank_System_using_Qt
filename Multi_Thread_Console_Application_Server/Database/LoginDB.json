@@ -3,49 +3,53 @@
         "AccountNumber": "902668452",
         "Age": 23,
         "Autority": "user",
-        "Balance": 6440,
+        "Balance": 8140,
         "Email": "nmo12416@gmail.com",
         "FullName": "Nada Mohamed",
         "Password": "1234",
         "Transactions": [
             {
+                "Amount": 60,
+                "date": "14-07-2024",
+                "type": "deposit"
+            },
+            {
                 "Amount": 1500,
-                "date": "2024-07-21",
+                "date": "16-07-2024",
                 "type": "deposit"
             },
             {
                 "Amount": -200,
-                "date": "2024-07-15",
+                "date": "18-07-2024",
                 "type": "withdrawal"
             },
             {
-                "Amount": -520,
-                "date": "21-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": -520,
-                "date": "21-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": -520,
-                "date": "21-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": -520,
-                "date": "21-07-2024",
-                "type": "withdrawal"
-            },
-            {
-                "Amount": 1000,
-                "date": "21-07-2024",
+                "Amount": 200,
+                "date": "22-07-2024",
                 "type": "deposit"
+            },
+            {
+                "Amount": -500,
+                "date": "22-07-2024",
+                "type": "transfer_to_698744445"
+            },
+            {
+                "Amount": 1500,
+                "date": "22-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": -1000,
+                "date": "22-07-2024",
+                "type": "withdrawal"
+            },
+            {
+                "Amount": -500,
+                "date": "22-07-2024",
+                "type": "transfer_to_698744445"
             }
         ],
         "Username": "nada"
-        
     },
     {
         "AccountNumber": "401202154",
@@ -58,7 +62,7 @@
         "Transactions": [
             {
                 "Amount": 500,
-                "date": "2024-07-20",
+                "date": "2024-07-18",
                 "type": "deposit"
             },
             {
@@ -68,7 +72,6 @@
             }
         ],
         "Username": "mohanad"
-    
     },
     {
         "AccountNumber": "698742365",
@@ -81,7 +84,7 @@
         "Transactions": [
             {
                 "Amount": 500,
-                "date": "2024-07-20",
+                "date": "2024-07-16",
                 "type": "deposit"
             },
             {
@@ -91,7 +94,6 @@
             }
         ],
         "Username": "adel"
-      
     },
     {
         "AccountNumber": "625742365",
@@ -104,19 +106,47 @@
         "Transactions": [
         ],
         "Username": "rana"
-        
     },
     {
         "AccountNumber": "698744445",
         "Age": 38,
-        "Autority": "admin",
-        "Balance": 0,
-        "Email": "linda.ali@example.com",
+        "Autority": "user",
+        "Balance": 2000,
+        "Email": "nmo12416@gmail.com",
         "FullName": "Linda Ali",
         "Password": "1012",
         "Transactions": [
+            {
+                "Amount": 15000,
+                "date": "14-07-2024",
+                "type": "transfer_from_902668452"
+            },
+            {
+                "Amount": 15000,
+                "date": "22-07-2024",
+                "type": "transfer_from_902668452"
+            },
+            {
+                "Amount": 1400,
+                "date": "22-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": 1500,
+                "date": "22-07-2024",
+                "type": "deposit"
+            },
+            {
+                "Amount": -400,
+                "date": "22-07-2024",
+                "type": "withdrawal"
+            },
+            {
+                "Amount": 500,
+                "date": "22-07-2024",
+                "type": "transfer_from_902668452"
+            }
         ],
         "Username": "Lali"
-        
     }
 ]

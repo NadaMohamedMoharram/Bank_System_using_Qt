@@ -1,5 +1,5 @@
 #include "DataBase.h"
-
+#include <algorithm>
 // Constructor for the DataBase class, initializes the FilePath and calls initDataBase()
 DataBase::DataBase(QObject *parent)
     : QObject{parent}, FilePath{"D:\\ITIDA_Scholarship\\Final project\\Bank_System\\Multi_Thread_Console_Application_Server\\Database\\LoginDB.json"}
@@ -74,30 +74,39 @@ int DataBase::getAccountBalance(const QString &accountNumber)
 QJsonArray DataBase::getTransactionHistory(const QString &accountNumber, int count)
 {
     initDataBase(); // Ensure the database is initialized
-    QJsonArray transactions; // Create an empty QJsonArray to hold transactions
 
-    for (const auto& record : jsonDataBase) { // Iterate through each account record
-        if (record["AccountNumber"].toString() == accountNumber) { // Check account number
-            QJsonArray transactionArray = record["Transactions"].toArray(); // Get transaction array
-            QVector<QJsonObject> transactionVector; // Create a vector to sort transactions
+    QJsonArray transactions; // Create an empty QJsonArray to hold the resulting transactions
 
-            for (const auto& transaction : transactionArray) {
-                transactionVector.append(transaction.toObject()); // Add transactions to vector
+    // Iterate through each account record in the JSON database
+    for (const auto& record : jsonDataBase) {
+        // Check if the current record's account number matches the requested one
+        if (record["AccountNumber"].toString() == accountNumber) {
+            QJsonArray transactionArray = record["Transactions"].toArray(); // Get the array of transactions for the account
+            QVector<QJsonObject> transactionVector; // Create a QVector to hold transactions for sorting
+
+            // Loop through the transactionArray from end to beginning
+            for (int i = transactionArray.size() - 1; i >= 0; --i) {
+                QJsonObject transaction = transactionArray[i].toObject(); // Get each transaction as a QJsonObject
+                transactionVector.append(transaction); // Add each transaction to the QVector
             }
 
+            // Sort the QVector of transactions by date in descending order
             std::sort(transactionVector.begin(), transactionVector.end(), [](const QJsonObject &a, const QJsonObject &b) {
                 return QDate::fromString(a["date"].toString(), "dd-MM-yyyy") > QDate::fromString(b["date"].toString(), "dd-MM-yyyy");
-            }); // Sort transactions by date in descending order
+            });
 
-            for (int i = 0; i < count && i < transactionVector.size(); ++i) { // Add up to 'count' transactions to the result
+            // Add up to 'count' transactions to the result array
+            for (int i = 0; i < count && i < transactionVector.size(); ++i) {
                 transactions.append(transactionVector[i]);
             }
-            break; // Break loop once the account is found
+            break; // Exit the loop once the account has been found and processed
         }
     }
 
-    return transactions; // Return the transactions array
+    return transactions; // Return the array containing the transactions
 }
+
+
 
 // Function to get the account email for a given account number
 QString DataBase::getAccountEmail(const QString &accountNumber)
