@@ -14,16 +14,8 @@
 #include <QPixmap>  // Include QPixmap for handling images
 #include <QWidget>  // Include QWidget for basic widget functionalities
 #include <QInputDialog>  // Include QInputDialog for input dialogs
-
-// #include <QCoreApplication>
-// #include <QNetworkInterface>
-// #include <QHostAddress>
-// #include <QDebug>
-#include <QNetworkInterface>
-#include <QHostAddress>
-#include <QColorDialog>
-
-
+#include <QNetworkInterface> // Include the QNetworkInterface header to access network interface information
+#include <QHostAddress>      // Include the QHostAddress header to handle IP addresses
 
 
 #define SERVER_PORT 321  // Define a constant for the server port number
