@@ -1,4 +1,4 @@
-# Banking System Project
+# Banking System Project usin Qt
 ![image](https://github.com/user-attachments/assets/15603005-eb1e-47c5-bd56-3fe9d4189140)
 
 ## Overview
