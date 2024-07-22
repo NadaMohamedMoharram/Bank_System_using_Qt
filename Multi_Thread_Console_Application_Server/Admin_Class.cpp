@@ -41,7 +41,6 @@ void Admin_Class::ViewBankDatabaseRequest()
     QJsonArray Data = db.viewBankDatabase();  // Get the entire bank database as a QJsonArray
     response["status"] = "ViewBankDatabase_response";  // Set the status in the response
     response["data"] = Data;  // Add the database data to the response
-    // sendMessage(QJsonDocument(response).toJson());  // Commented out old way of sending messages
     emit sendMessageSignal(QJsonDocument(response).toJson());  // Emit the response as a JSON string using the sendMessageSignal
 }
 
